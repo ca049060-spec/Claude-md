@@ -101,6 +101,9 @@
 
   .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 16px; }
   .shot { aspect-ratio: 4/3; border-radius: 12px; background: repeating-linear-gradient(45deg,#e9edf1 0 16px,#e2e7ec 16px 32px); border: 1px dashed #c4ccd4; display: grid; place-items: center; color: #94a0af; font-weight: 700; text-align: center; padding: 12px; }
+  .shot img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; display: block; }
+  .shot.photo { border: none; padding: 0; position: relative; overflow: hidden; background: #e2e7ec; }
+  .shot.photo figcaption { position: absolute; left: 10px; top: 10px; background: var(--navy); color: #fff; font-size: .78rem; font-weight: 800; padding: 5px 12px; border-radius: 6px; letter-spacing: .06em; text-transform: uppercase; }
 
   .areas { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
   .pill { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 10px 20px; font-weight: 700; color: var(--navy); }
@@ -146,7 +149,7 @@
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="wrap">
-    <p class="eyebrow">Brighton &amp; Markham · Fully Insured</p>
+    <p class="eyebrow">Brighton &amp; Markham · Free Quotes</p>
     <h1>Driveway Sealing That Actually Lasts</h1>
     <p class="lead">
       Commercial-grade asphalt sealing and crack repair — <strong>applied by hand</strong>,
@@ -160,7 +163,7 @@
     <div class="trust">
       <span>Hand-applied, not sprayed</span>
       <span>Commercial-grade products</span>
-      <span>Fully insured</span>
+      <span>Free no-pressure quotes</span>
       <span>E-transfers accepted</span>
     </div>
   </div>
@@ -223,7 +226,7 @@
     <div class="why-grid">
       <div class="why"><div class="num">1</div><div><h3>Applied by Hand</h3><p>Most companies spray and go. We apply by hand to work the sealer in properly — that's why ours lasts and theirs doesn't.</p></div></div>
       <div class="why"><div class="num">2</div><div><h3>Commercial-Grade Products</h3><p>We don't cut corners on materials. Better sealer means better protection and a finish that holds up to weather and traffic.</p></div></div>
-      <div class="why"><div class="num">3</div><div><h3>Fully Insured &amp; Built to Last</h3><p>Proper prep and proper application mean you're not re-doing your driveway every year. Do it once, do it right.</p></div></div>
+      <div class="why"><div class="num">3</div><div><h3>Built to Last</h3><p>Proper prep and proper application mean you're not re-doing your driveway every year. Do it once, do it right.</p></div></div>
       <div class="why"><div class="num">4</div><div><h3>Free, No-Pressure Quotes</h3><p>We'll look at your driveway and give you an honest estimate — no obligation. E-transfers accepted.</p></div></div>
     </div>
   </div>
@@ -250,11 +253,10 @@
       <p>See the difference a proper hand-applied seal makes.</p>
     </div>
     <div class="gallery">
-      <div class="shot">Add a photo of your work here</div>
-      <div class="shot">Add a before / after here</div>
-      <div class="shot">Add a finished driveway here</div>
+      <figure class="shot photo"><img src="images/before.jpg" alt="Brighton driveway before sealing — faded, grey, cracked asphalt"><figcaption>Before</figcaption></figure>
+      <figure class="shot photo"><img src="images/after.jpg" alt="The same driveway after hand-applied sealing — deep black, like-new finish"><figcaption>After</figcaption></figure>
     </div>
-    <p class="todo">📷 Editor's note: replace these placeholders with real before/after photos — they sell this service better than anything else.</p>
+    <p class="todo">📷 Drop your two real photos into a <code>site/images/</code> folder named <code>before.jpg</code> and <code>after.jpg</code> — the faded → deep-black pair you sent is perfect. (Until the files are added, this area shows a broken-image icon — that's expected.)</p>
   </div>
 </section>
 
@@ -288,7 +290,7 @@
         <div class="row"><span class="ico">📞</span> <a href="tel:+14164748131">(416) 474-8131</a> — call or text Marcus</div>
         <div class="row"><span class="ico">✉️</span> <a href="mailto:sales@sealsgopro.com">sales@sealsgopro.com</a></div>
         <div class="row"><span class="ico">📍</span> Brighton &amp; Markham</div>
-        <div class="row"><span class="ico">🛡️</span> Fully insured · E-transfers accepted</div>
+        <div class="row"><span class="ico">💳</span> E-transfers accepted</div>
         <div class="row" style="color:var(--muted); font-size:.98rem;">Marcus Piasentin — Owner / Operator</div>
       </div>
 
