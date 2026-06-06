@@ -44,6 +44,26 @@ import yaml
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PORTFOLIO_FILE = REPO_ROOT / "data" / "portfolio.yml"
 
+# Canadian (TSX) names that are ALSO interlisted on a US exchange under the
+# same ticker. For analyst data we query the US listing, because free data
+# providers cover US listings far better than ".TO" symbols. (Add more here
+# as needed — e.g. RY, BMO, CM, CNQ, SU, CP all interlist on the NYSE.)
+US_INTERLISTED = {"TD", "BNS", "ENB", "TRP", "MFC", "RY", "BMO", "CM", "CNQ", "SU", "CP"}
+
+
+def analyst_symbol(symbol: str, sleeve: str) -> str:
+    """Return the ticker to query a data provider with for analyst coverage.
+
+    - US sleeve: use the symbol as-is.
+    - Interlisted Canadian name: use the US listing (no suffix).
+    - TSX-only name (e.g. MDA): fall back to the ".TO" symbol.
+    """
+    if sleeve == "usd_sleeve":
+        return symbol
+    if symbol in US_INTERLISTED:
+        return symbol
+    return symbol + ".TO"
+
 
 # --------------------------------------------------------------------------
 # 2. Read the holdings (just the individual stocks — funds have no
@@ -63,11 +83,11 @@ def load_stocks() -> list[dict]:
 
     data = yaml.safe_load(PORTFOLIO_FILE.read_text())
     stocks: list[dict] = []
-    for sleeve, suffix in (("cad_sleeve", ".TO"), ("usd_sleeve", "")):
+    for sleeve in ("cad_sleeve", "usd_sleeve"):
         for stock in data.get(sleeve, {}).get("stocks", []):
             stocks.append({
                 "symbol": stock["symbol"],
-                "provider_symbol": stock["symbol"] + suffix,
+                "provider_symbol": analyst_symbol(stock["symbol"], sleeve),
                 "price": float(stock.get("price", 0.0)),
             })
     return stocks

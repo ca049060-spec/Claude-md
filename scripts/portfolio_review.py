@@ -103,9 +103,8 @@ def attach_analyst_view(positions: list[dict], api_key: str | None) -> None:
         if p["kind"] != "stock":
             continue
         if api_key:
-            suffix = ".TO" if p["sleeve"] == "cad_sleeve" else ""
             try:
-                d = ar.fetch_live(p["symbol"] + suffix, api_key)
+                d = ar.fetch_live(ar.analyst_symbol(p["symbol"], p["sleeve"]), api_key)
             except Exception:
                 d = ar.fetch_mock(p["symbol"], p["price"])
         else:
