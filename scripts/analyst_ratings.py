@@ -95,7 +95,13 @@ def _finnhub_get(path: str, params: dict, api_key: str) -> dict | list:
 
 
 def fetch_live(provider_symbol: str, api_key: str) -> dict:
-    """Fetch real analyst data from Finnhub for one symbol."""
+    """Fetch real analyst data from Finnhub for one symbol.
+
+    Recommendation trends and quote are on the FREE tier. Price target is
+    a PREMIUM endpoint, so we try it but fall back to no target (0.0) if
+    it's forbidden — that way free-tier users still get the consensus
+    rating and the live price.
+    """
     # Recommendation trends -> most recent month's buy/hold/sell counts.
     recs = _finnhub_get("stock/recommendation", {"symbol": provider_symbol}, api_key)
     latest = recs[0] if recs else {}
@@ -103,8 +109,14 @@ def fetch_live(provider_symbol: str, api_key: str) -> dict:
     # Quote -> current price (field "c" = current).
     quote = _finnhub_get("quote", {"symbol": provider_symbol}, api_key)
 
-    # Price target (mean of analyst targets).
-    target = _finnhub_get("stock/price-target", {"symbol": provider_symbol}, api_key)
+    # Price target (mean of analyst targets) — premium; degrade gracefully.
+    try:
+        target = _finnhub_get("stock/price-target", {"symbol": provider_symbol}, api_key)
+    except urllib.error.HTTPError as e:
+        if e.code in (401, 403):       # not available on this plan
+            target = {}
+        else:
+            raise
 
     return {
         "strong_buy":  latest.get("strongBuy", 0),
