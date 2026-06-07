@@ -55,6 +55,7 @@
   .hero::after { content:""; position:absolute; inset:0; opacity:.5; pointer-events:none;
     background-image:repeating-linear-gradient(45deg, rgba(255,255,255,.025) 0 2px, transparent 2px 9px); }
   .hero .wrap { position:relative; z-index:2; }
+  .hero-mark { display:block; margin:0 auto 18px; filter:drop-shadow(0 10px 22px rgba(0,0,0,.4)); }
   .hero .eyebrow { display:inline-block; color:var(--gold-2); font-weight:700; letter-spacing:.14em; text-transform:uppercase; font-size:.78rem;
     border:1px solid rgba(232,168,42,.4); background:rgba(232,168,42,.08); padding:7px 16px; border-radius:999px; }
   .hero h1 { color:#fff; font-size:clamp(2.1rem,5.4vw,3.7rem); margin:22px 0 18px; }
@@ -164,7 +165,16 @@
 
 <!-- shield logo + reusable icons -->
 <svg style="display:none">
-  <symbol id="shield" viewBox="0 0 30 34"><path d="M15 0L30 5.5v10.5c0 9.5-6.4 15.3-15 18C6.4 31.3 0 25.5 0 16V5.5z" fill="#1f3253"/><path d="M15 4.5l10.5 3.9V16c0 6.6-4.3 10.8-10.5 13.3z" fill="#e8a82a"/></symbol>
+  <symbol id="shield" viewBox="0 0 64 72">
+    <defs>
+      <linearGradient id="lgGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4c659"/><stop offset="1" stop-color="#d8920f"/></linearGradient>
+      <linearGradient id="lgNavy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#23395d"/><stop offset="1" stop-color="#13243d"/></linearGradient>
+    </defs>
+    <path d="M32 3 L59 13 V35 C59 51 47 63 32 69 C17 63 5 51 5 35 V13 Z" fill="url(#lgNavy)"/>
+    <path d="M32 3 L59 13 V35 C59 51 47 63 32 69 C17 63 5 51 5 35 V13 Z" fill="none" stroke="url(#lgGold)" stroke-width="2.6"/>
+    <path d="M15 45 C27 34 31 42 50 22 C45 41 34 50 22 50 C18.5 50 16 48 15 45 Z" fill="url(#lgGold)"/>
+    <path d="M19 51 C29 48 41 41 49 30" fill="none" stroke="#f4c659" stroke-width="2.4" stroke-linecap="round" opacity=".7"/>
+  </symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M20 6L9 17l-5-5"/></symbol>
   <symbol id="i-roll" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 5h12v5H4zM16 7h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-7M11 13v3a2 2 0 0 1-2 2H8v3"/></symbol>
   <symbol id="i-crack" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13 2l-3 7 4 2-5 11M13 2l5 6-4 2"/></symbol>
@@ -194,6 +204,7 @@
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="wrap">
+    <svg class="hero-mark" width="74" height="84" aria-hidden="true"><use href="#shield"/></svg>
     <span class="eyebrow">Brighton &amp; Markham, Ontario</span>
     <h1>Driveway Sealing<br>That <span class="hl">Actually Lasts</span></h1>
     <p class="lead">Commercial-grade asphalt sealing and crack repair — <strong>applied by hand, never just sprayed on.</strong> Quality products, applied properly, so your driveway looks brand new and stays that way.</p>
@@ -331,11 +342,11 @@
   </div>
 </section>
 
-<!-- MISSION -->
+<!-- ABOUT / MEET MARCUS -->
 <section class="mission">
   <div class="wrap">
-    <h2>Quality Work That Creates Opportunity</h2>
-    <p>Seals Go Pro is built to give students real, meaningful work — teaching a trade, a strong work ethic, and pride in a job done right. When you hire us, you're getting a quality driveway <em>and</em> helping young people build their futures.</p>
+    <h2>Meet Marcus — Owner &amp; Operator</h2>
+    <p>Seals Go Pro is owned and run by <strong>Marcus Piasentin</strong>, a young entrepreneur who takes real pride in honest, hand-applied work — backed by the support and guidance of his dad. When you hire Seals Go Pro, you're not getting a faceless crew; you're supporting a hardworking local owner who treats every driveway like it's his own.</p>
   </div>
 </section>
 
