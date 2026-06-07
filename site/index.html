@@ -166,14 +166,9 @@
 <!-- shield logo + reusable icons -->
 <svg style="display:none">
   <symbol id="shield" viewBox="0 0 64 72">
-    <defs>
-      <linearGradient id="lgGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4c659"/><stop offset="1" stop-color="#d8920f"/></linearGradient>
-      <linearGradient id="lgNavy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#23395d"/><stop offset="1" stop-color="#13243d"/></linearGradient>
-    </defs>
-    <path d="M32 3 L59 13 V35 C59 51 47 63 32 69 C17 63 5 51 5 35 V13 Z" fill="url(#lgNavy)"/>
-    <path d="M32 3 L59 13 V35 C59 51 47 63 32 69 C17 63 5 51 5 35 V13 Z" fill="none" stroke="url(#lgGold)" stroke-width="2.6"/>
-    <path d="M15 45 C27 34 31 42 50 22 C45 41 34 50 22 50 C18.5 50 16 48 15 45 Z" fill="url(#lgGold)"/>
-    <path d="M19 51 C29 48 41 41 49 30" fill="none" stroke="#f4c659" stroke-width="2.4" stroke-linecap="round" opacity=".7"/>
+    <path d="M32 2 L60 12 V35 C60 52.5 47.5 64.5 32 70.5 C16.5 64.5 4 52.5 4 35 V12 Z" fill="#15263f"/>
+    <path d="M32 2 L60 12 V35 C60 52.5 47.5 64.5 32 70.5 C16.5 64.5 4 52.5 4 35 V12 Z" fill="none" stroke="#eba818" stroke-width="3.4"/>
+    <path d="M13 46.5 C27 33.5 31.5 43 52 20 C45.5 42.5 34 51.5 22 51.5 C17.5 51.5 14.5 49.5 13 46.5 Z" fill="#eba818"/>
   </symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M20 6L9 17l-5-5"/></symbol>
   <symbol id="i-roll" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 5h12v5H4zM16 7h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-7M11 13v3a2 2 0 0 1-2 2H8v3"/></symbol>
@@ -270,40 +265,65 @@
     <div class="ba">
       <figure class="b">
         <figcaption>Before</figcaption>
-        <svg viewBox="0 0 400 300" role="img" aria-label="Faded, cracked grey asphalt">
-          <rect width="400" height="300" fill="#9aa0a6"/>
+        <svg viewBox="0 0 400 300" role="img" aria-label="Faded, cracked grey asphalt before sealing">
+          <defs><pattern id="speck" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#8d949b"/><circle cx="4" cy="4" r=".6" fill="#b3b9bf"/></pattern></defs>
+          <rect width="400" height="300" fill="#a3a8ad"/>
           <rect width="400" height="300" fill="url(#speck)"/>
-          <g stroke="#7c828a" stroke-width="1.6" fill="none" opacity=".85">
-            <path d="M40 20 L90 80 L70 150 L120 210 L100 280"/>
-            <path d="M90 80 L160 60 L220 110 L210 180 L260 250"/>
-            <path d="M220 110 L300 90 L360 150 L340 230"/>
-            <path d="M70 150 L160 140 L210 180"/>
-            <path d="M120 210 L210 180 L280 220 L340 230"/>
-            <path d="M0 110 L70 150 M300 90 L400 70 M160 60 L180 0 M260 250 L280 300"/>
+          <ellipse cx="250" cy="150" rx="150" ry="120" fill="#b6babe" opacity=".5"/>
+          <g stroke="#71777e" stroke-width="1.5" fill="none" opacity=".9">
+            <path d="M30 25 L70 70 L55 120 L95 160 L80 220 L120 280"/>
+            <path d="M70 70 L130 55 L150 110 L120 160 L95 160 M150 110 L210 95 L250 150 L230 210 L280 260"/>
+            <path d="M210 95 L290 80 L350 130 L330 200 L360 270 M250 150 L330 200 M120 160 L210 175 L230 210"/>
+            <path d="M55 120 L150 110 M95 160 L150 110 M0 95 L70 70 M290 80 L400 60 M130 55 L145 0 M80 220 L230 210 L330 200"/>
+            <path d="M120 280 L230 210 M360 270 L330 200 M30 200 L95 160 M210 175 L250 150"/>
           </g>
-          <rect width="400" height="300" fill="#000" opacity=".05"/>
-          <defs><pattern id="speck" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#8a9097"/><circle cx="4" cy="4" r=".6" fill="#aeb4ba"/></pattern></defs>
+          <rect width="400" height="300" fill="#000" opacity=".06"/>
         </svg>
       </figure>
       <figure class="a">
         <figcaption>After</figcaption>
-        <svg viewBox="0 0 400 300" role="img" aria-label="Freshly sealed deep black asphalt">
+        <svg viewBox="0 0 400 300" role="img" aria-label="Freshly hand-sealed deep black asphalt after sealing">
           <defs>
-            <linearGradient id="seal" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#242a31"/><stop offset=".5" stop-color="#15191e"/><stop offset="1" stop-color="#0c0f12"/>
-            </linearGradient>
-            <radialGradient id="sheen" cx="32%" cy="22%" r="70%">
-              <stop offset="0" stop-color="#ffffff" stop-opacity=".14"/><stop offset="45%" stop-color="#ffffff" stop-opacity="0"/>
-            </radialGradient>
-            <pattern id="fine" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".5" fill="#2a3037" opacity=".5"/></pattern>
+            <linearGradient id="seal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a3138"/><stop offset=".5" stop-color="#161b20"/><stop offset="1" stop-color="#0a0d10"/></linearGradient>
+            <radialGradient id="sheen" cx="30%" cy="18%" r="75%"><stop offset="0" stop-color="#fff" stop-opacity=".18"/><stop offset="50%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+            <pattern id="fine" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".5" fill="#333b44" opacity=".5"/></pattern>
           </defs>
           <rect width="400" height="300" fill="url(#seal)"/>
           <rect width="400" height="300" fill="url(#fine)"/>
+          <g stroke="#3b444e" stroke-width="14" opacity=".22" stroke-linecap="round"><path d="M-20 60 L420 30"/><path d="M-20 130 L420 100"/><path d="M-20 200 L420 170"/><path d="M-20 270 L420 240"/></g>
           <rect width="400" height="300" fill="url(#sheen)"/>
         </svg>
       </figure>
     </div>
     <p class="ba-note">Illustrative preview — your real before/after photos will go right here.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="mistbg">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">The Know-How</p>
+      <h2>Why Sealing Works — and Why by Hand</h2>
+      <p>A little straight talk so you know exactly what you're paying for.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="ico"><svg width="26" height="26"><use href="#i-star"/></svg></div>
+        <h3>Why seal at all?</h3>
+        <p>Asphalt is held together by a tar-like binder that slowly dries out and breaks down under the sun's UV rays, rain, oil, gas, and Ontario's freeze-thaw winters. As it ages it fades to grey, turns brittle, and starts to crack. Sealing is the protective layer that slows all of that down and adds years to your driveway.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg width="26" height="26"><use href="#i-shield2"/></svg></div>
+        <h3>How it protects</h3>
+        <p>A fresh coat seals out water and blocks damaging UV, and fills the tiny surface voids where cracks begin. Water can't soak in and freeze, and oil and gas can't eat away at the surface — so your driveway stays flexible, deep black, and intact far longer.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg width="26" height="26"><use href="#i-hand"/></svg></div>
+        <h3>Why we squeegee by hand</h3>
+        <p>Spraying is fast, but it lays down a thin, surface-level coat that can miss spots. Applying by hand with a squeegee <strong>forces the sealer down into the pores and cracks</strong>, building a thicker, even, better-bonded coat. That's the difference between a seal that lasts and one that wears off in a season.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -378,13 +398,13 @@
       <div class="contact-info">
         <h3>Talk to us</h3>
         <div class="row"><span class="ic"><svg width="20" height="20"><use href="#i-phone"/></svg></span> <a href="tel:+14164748131">(416) 474-8131</a> &nbsp;·&nbsp; call or text</div>
-        <div class="row"><span class="ic"><svg width="20" height="20"><use href="#i-mail"/></svg></span> <a href="mailto:sales@sealsgopro.com">sales@sealsgopro.com</a></div>
+        <div class="row"><span class="ic"><svg width="20" height="20"><use href="#i-mail"/></svg></span> <a href="mailto:marcus@sealsgopro.com">marcus@sealsgopro.com</a></div>
         <div class="row"><span class="ic"><svg width="20" height="20"><use href="#i-pin"/></svg></span> Brighton &amp; Markham, Ontario</div>
         <div class="row"><span class="ic"><svg width="20" height="20"><use href="#i-check"/></svg></span> E-transfers accepted</div>
         <p class="owner">Marcus Piasentin — Owner / Operator</p>
       </div>
 
-      <!-- Quote form: Netlify-ready (emails sales@sealsgopro.com once deployed on Netlify). -->
+      <!-- Quote form: Netlify-ready (emails marcus@sealsgopro.com once deployed on Netlify). -->
       <form name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="quote" />
         <p style="display:none"><label>Don't fill this out: <input name="bot-field" /></label></p>
@@ -402,7 +422,7 @@
   <div class="wrap">
     <a class="brand" href="#top"><svg class="mark"><use href="#shield"/></svg> SEALS GO PRO</a>
     <p>Professional hand-applied driveway sealing &amp; crack repair · Brighton &amp; Markham</p>
-    <p class="frow">📞 <a href="tel:+14164748131">(416) 474-8131</a> &nbsp;·&nbsp; ✉️ <a href="mailto:sales@sealsgopro.com">sales@sealsgopro.com</a></p>
+    <p class="frow">📞 <a href="tel:+14164748131">(416) 474-8131</a> &nbsp;·&nbsp; ✉️ <a href="mailto:marcus@sealsgopro.com">marcus@sealsgopro.com</a></p>
     <p class="frow" style="color:#6b7a8d;">© 2026 Seals Go Pro · Marcus Piasentin, Owner/Operator. All rights reserved.</p>
   </div>
 </footer>
