@@ -3,171 +3,221 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Seals Go Pro — Commercial-Grade Driveway Sealing &amp; Crack Repair | Brighton &amp; Markham</title>
-<meta name="description" content="Seals Go Pro — professional, hand-applied driveway sealing and crack repair in Brighton and Markham. Commercial-grade products, free no-pressure quotes. Call or text Marcus at (416) 474-8131." />
+<title>Seals Go Pro — Professional Hand-Applied Driveway Sealing | Brighton &amp; Markham</title>
+<meta name="description" content="Seals Go Pro — professional, hand-applied driveway sealing and crack repair in Brighton and Markham. Commercial-grade products, applied by hand for a long-lasting, like-new finish. Free no-pressure quotes — call or text Marcus at (416) 474-8131." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
   :root {
-    --navy: #16243f;        /* brand navy */
-    --navy-2: #1d3157;
-    --gold: #e3a42a;        /* brand gold */
-    --gold-dark: #c98c18;
-    --ink: #16243f;
-    --paper: #ffffff;
-    --mist: #f3f5f8;
-    --muted: #5f6b7a;
-    --line: #e3e7ec;
+    --navy:#101d33; --navy-2:#1a2c4a; --navy-3:#24395d;
+    --gold:#e8a82a; --gold-2:#f4c659; --gold-dark:#c98a14;
+    --ink:#14203258; --text:#1b2738; --muted:#5b6b7e; --soft:#8696a8;
+    --cream:#faf7f0; --mist:#f1f4f8; --line:#e4e9ef; --paper:#fff;
+    --shadow:0 14px 40px rgba(16,29,51,.10);
+    --shadow-sm:0 4px 18px rgba(16,29,51,.08);
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: var(--ink); line-height: 1.6; background: var(--paper);
+    font-family:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    color:var(--text); line-height:1.65; background:var(--paper); -webkit-font-smoothing:antialiased;
   }
-  h1, h2, h3 { line-height: 1.15; font-weight: 800; letter-spacing: -0.02em; }
-  a { color: inherit; }
-  .wrap { width: min(1100px, 92%); margin: 0 auto; }
-  .btn {
-    display: inline-block; background: var(--gold); color: var(--navy);
-    font-weight: 800; text-decoration: none; padding: 14px 26px;
-    border-radius: 8px; transition: background .15s ease, transform .05s ease;
-    border: none; cursor: pointer; font-size: 1rem;
-  }
-  .btn:hover { background: var(--gold-dark); }
-  .btn:active { transform: translateY(1px); }
-  .btn--ghost { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.45); }
-  .btn--ghost:hover { background: rgba(255,255,255,.12); }
+  h1,h2,h3 { line-height:1.12; font-weight:800; letter-spacing:-.02em; color:var(--navy); }
+  a { color:inherit; }
+  .wrap { width:min(1140px,92%); margin:0 auto; }
 
-  /* Logo mark */
-  .mark { width: 26px; height: 30px; flex: 0 0 auto; }
+  .btn { display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,var(--gold-2),var(--gold)); color:var(--navy);
+    font-weight:800; text-decoration:none; padding:15px 28px; border-radius:10px; border:none; cursor:pointer; font-size:1rem;
+    box-shadow:0 8px 22px rgba(232,168,42,.35); transition:transform .12s ease, box-shadow .12s ease; }
+  .btn:hover { transform:translateY(-2px); box-shadow:0 12px 28px rgba(232,168,42,.45); }
+  .btn--ghost { background:transparent; color:#fff; border:2px solid rgba(255,255,255,.5); box-shadow:none; }
+  .btn--ghost:hover { background:rgba(255,255,255,.12); box-shadow:none; }
 
   /* Header */
-  header.site {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(22,36,63,.97); backdrop-filter: blur(6px);
-    border-bottom: 1px solid rgba(255,255,255,.08);
-  }
-  .nav { display: flex; align-items: center; justify-content: space-between; padding: 13px 0; }
-  .brand { color: #fff; font-weight: 800; font-size: 1.2rem; letter-spacing: .01em; text-decoration: none; display: flex; align-items: center; gap: 10px; }
-  .nav-links { display: flex; gap: 24px; align-items: center; }
-  .nav-links a { color: #cdd6e2; text-decoration: none; font-size: .95rem; font-weight: 600; }
-  .nav-links a:hover { color: #fff; }
-  .nav-call { color: #fff !important; font-weight: 800; background: var(--gold); color: var(--navy) !important; padding: 9px 16px; border-radius: 7px; }
-  .nav-call:hover { background: var(--gold-dark); }
-  @media (max-width: 820px) { .nav-links a:not(.nav-call) { display: none; } }
+  header.site { position:sticky; top:0; z-index:50; background:rgba(16,29,51,.92); backdrop-filter:blur(10px); border-bottom:1px solid rgba(255,255,255,.08); }
+  .nav { display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
+  .brand { color:#fff; font-weight:800; font-size:1.22rem; letter-spacing:.01em; text-decoration:none; display:flex; align-items:center; gap:11px; }
+  .brand .mark { width:30px; height:34px; }
+  .nav-links { display:flex; gap:26px; align-items:center; }
+  .nav-links a { color:#c5d0de; text-decoration:none; font-size:.95rem; font-weight:600; transition:color .15s; }
+  .nav-links a:hover { color:#fff; }
+  .nav-call { background:linear-gradient(135deg,var(--gold-2),var(--gold)); color:var(--navy)!important; padding:10px 18px; border-radius:9px; font-weight:800; box-shadow:0 6px 16px rgba(232,168,42,.32); }
+  @media (max-width:860px){ .nav-links a:not(.nav-call){ display:none; } }
 
   /* Hero */
-  .hero {
+  .hero { position:relative; overflow:hidden; color:#fff; text-align:center; padding:96px 0 110px;
     background:
-      linear-gradient(rgba(15,24,42,.82), rgba(15,24,42,.9)),
-      repeating-linear-gradient(45deg, #2b3344 0 22px, #272f3e 22px 44px);
-    color: #fff; padding: 90px 0 80px; text-align: center;
-  }
-  .hero .eyebrow { color: var(--gold); font-weight: 800; letter-spacing: .1em; text-transform: uppercase; font-size: .82rem; }
-  .hero h1 { font-size: clamp(2rem, 5vw, 3.4rem); margin: 14px 0 18px; }
-  .hero p.lead { font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: #d9e0ea; max-width: 700px; margin: 0 auto 30px; }
-  .hero .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-  .trust { margin-top: 30px; display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; color: #b3bccb; font-size: .92rem; font-weight: 700; }
-  .trust span::before { content: "✓ "; color: var(--gold); font-weight: 800; }
+      radial-gradient(1200px 500px at 50% -10%, rgba(232,168,42,.16), transparent 60%),
+      linear-gradient(180deg,#0d1830 0%, #14233f 60%, #182b4b 100%); }
+  .hero::after { content:""; position:absolute; inset:0; opacity:.5; pointer-events:none;
+    background-image:repeating-linear-gradient(45deg, rgba(255,255,255,.025) 0 2px, transparent 2px 9px); }
+  .hero .wrap { position:relative; z-index:2; }
+  .hero .eyebrow { display:inline-block; color:var(--gold-2); font-weight:700; letter-spacing:.14em; text-transform:uppercase; font-size:.78rem;
+    border:1px solid rgba(232,168,42,.4); background:rgba(232,168,42,.08); padding:7px 16px; border-radius:999px; }
+  .hero h1 { color:#fff; font-size:clamp(2.1rem,5.4vw,3.7rem); margin:22px 0 18px; }
+  .hero h1 .hl { background:linear-gradient(120deg,var(--gold-2),var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .hero p.lead { font-size:clamp(1.06rem,2.1vw,1.32rem); color:#cdd8e6; max-width:720px; margin:0 auto 32px; }
+  .hero .cta-row { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .chips { margin-top:34px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .chip { display:inline-flex; align-items:center; gap:7px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.13);
+    color:#dbe4ef; font-size:.86rem; font-weight:600; padding:8px 15px; border-radius:999px; }
+  .chip svg { color:var(--gold-2); }
 
-  section { padding: 74px 0; }
-  .section-head { text-align: center; max-width: 660px; margin: 0 auto 46px; }
-  .section-head .eyebrow { color: var(--gold-dark); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; font-size: .8rem; }
-  .section-head h2 { font-size: clamp(1.7rem, 3.5vw, 2.4rem); margin: 10px 0 12px; }
-  .section-head p { color: var(--muted); font-size: 1.05rem; }
-  .alt { background: var(--mist); }
+  /* Stats strip */
+  .stats { background:var(--navy-2); }
+  .stats .wrap { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; padding:26px 0; }
+  .stat { text-align:center; color:#fff; }
+  .stat b { display:block; font-size:1.45rem; color:var(--gold-2); font-weight:800; }
+  .stat span { font-size:.86rem; color:#aab8c9; font-weight:600; }
+  @media (max-width:680px){ .stats .wrap{ grid-template-columns:repeat(2,1fr); gap:22px; } }
 
-  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; }
-  .card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 28px; }
-  .card .ico { width: 48px; height: 48px; border-radius: 10px; background: #fbf0d8; display: grid; place-items: center; font-size: 1.5rem; margin-bottom: 14px; }
-  .card h3 { font-size: 1.2rem; margin-bottom: 8px; color: var(--navy); }
-  .card p { color: var(--muted); font-size: .98rem; }
+  section { padding:84px 0; }
+  .section-head { text-align:center; max-width:680px; margin:0 auto 52px; }
+  .section-head .eyebrow { color:var(--gold-dark); font-weight:800; letter-spacing:.1em; text-transform:uppercase; font-size:.78rem; }
+  .section-head h2 { font-size:clamp(1.8rem,3.6vw,2.55rem); margin:12px 0 14px; }
+  .section-head p { color:var(--muted); font-size:1.08rem; }
+  .cream { background:var(--cream); }
+  .mistbg { background:var(--mist); }
+
+  /* Services */
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:24px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:32px 28px; box-shadow:var(--shadow-sm);
+    transition:transform .15s ease, box-shadow .15s ease; position:relative; overflow:hidden; }
+  .card::before { content:""; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--gold-2),var(--gold)); transform:scaleX(0); transform-origin:left; transition:transform .2s ease; }
+  .card:hover { transform:translateY(-5px); box-shadow:var(--shadow); }
+  .card:hover::before { transform:scaleX(1); }
+  .card .ico { width:54px; height:54px; border-radius:13px; background:linear-gradient(135deg,#fff3da,#fde6b6); display:grid; place-items:center; margin-bottom:18px; color:var(--gold-dark); }
+  .card h3 { font-size:1.22rem; margin-bottom:9px; }
+  .card p { color:var(--muted); font-size:.98rem; }
+  .also { text-align:center; margin-top:30px; color:var(--muted); font-size:1rem; }
+  .also strong { color:var(--navy); }
+
+  /* Before / After */
+  .ba { display:grid; grid-template-columns:1fr 1fr; gap:22px; max-width:920px; margin:0 auto; }
+  @media (max-width:620px){ .ba{ grid-template-columns:1fr; } }
+  .ba figure { position:relative; border-radius:16px; overflow:hidden; box-shadow:var(--shadow); border:1px solid var(--line); }
+  .ba svg { display:block; width:100%; height:auto; }
+  .ba figcaption { position:absolute; top:14px; left:14px; font-size:.74rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+    padding:6px 14px; border-radius:999px; color:#fff; }
+  .ba .b figcaption { background:#6b7480; }
+  .ba .a figcaption { background:linear-gradient(135deg,var(--gold),var(--gold-dark)); color:var(--navy); }
+  .ba-note { text-align:center; color:var(--soft); font-size:.92rem; margin-top:22px; }
 
   /* 3 signs */
-  .signs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 22px; }
-  .sign { background: var(--navy); color: #fff; border-radius: 12px; padding: 26px; }
-  .sign .n { color: var(--gold); font-weight: 800; font-size: 2rem; line-height: 1; }
-  .sign h3 { color: #fff; font-size: 1.12rem; margin: 10px 0 6px; }
-  .sign p { color: #c5cedb; font-size: .96rem; }
+  .signs { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:22px; }
+  .sign { background:linear-gradient(160deg,var(--navy-2),var(--navy)); color:#fff; border-radius:16px; padding:30px; box-shadow:var(--shadow-sm); }
+  .sign .n { width:46px; height:46px; border-radius:12px; background:rgba(232,168,42,.16); color:var(--gold-2); font-weight:800; font-size:1.3rem; display:grid; place-items:center; margin-bottom:14px; }
+  .sign h3 { color:#fff; font-size:1.14rem; margin-bottom:7px; }
+  .sign p { color:#bccbdd; font-size:.96rem; }
 
-  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 28px; }
-  .why { display: flex; gap: 14px; align-items: flex-start; }
-  .why .num { flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; background: var(--gold); color: var(--navy); font-weight: 800; display: grid; place-items: center; }
-  .why h3 { font-size: 1.1rem; margin-bottom: 4px; color: var(--navy); }
-  .why p { color: var(--muted); font-size: .97rem; }
+  /* Why */
+  .why-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:26px; }
+  .why { display:flex; gap:16px; align-items:flex-start; }
+  .why .ic { flex:0 0 auto; width:46px; height:46px; border-radius:12px; background:linear-gradient(135deg,var(--gold-2),var(--gold)); color:var(--navy); display:grid; place-items:center; box-shadow:0 6px 16px rgba(232,168,42,.3); }
+  .why h3 { font-size:1.12rem; margin-bottom:5px; }
+  .why p { color:var(--muted); font-size:.97rem; }
 
-  .mission { background: var(--navy); color: #fff; text-align: center; }
-  .mission h2 { font-size: clamp(1.6rem, 3.5vw, 2.3rem); margin-bottom: 14px; }
-  .mission p { color: #cdd6e2; max-width: 700px; margin: 0 auto; font-size: 1.08rem; }
+  /* Mission */
+  .mission { position:relative; overflow:hidden; background:linear-gradient(135deg,#0d1830,#1b2d4a); color:#fff; text-align:center; }
+  .mission::after{ content:""; position:absolute; inset:0; opacity:.5; background-image:repeating-linear-gradient(45deg, rgba(255,255,255,.025) 0 2px, transparent 2px 9px); }
+  .mission .wrap{ position:relative; z-index:2; }
+  .mission h2 { color:#fff; font-size:clamp(1.7rem,3.6vw,2.4rem); margin-bottom:16px; }
+  .mission p { color:#ccd7e6; max-width:720px; margin:0 auto; font-size:1.1rem; }
 
-  .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 16px; }
-  .shot { aspect-ratio: 4/3; border-radius: 12px; background: repeating-linear-gradient(45deg,#e9edf1 0 16px,#e2e7ec 16px 32px); border: 1px dashed #c4ccd4; display: grid; place-items: center; color: #94a0af; font-weight: 700; text-align: center; padding: 12px; }
-  .shot img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; display: block; }
-  .shot.photo { border: none; padding: 0; position: relative; overflow: hidden; background: #e2e7ec; }
-  .shot.photo figcaption { position: absolute; left: 10px; top: 10px; background: var(--navy); color: #fff; font-size: .78rem; font-weight: 800; padding: 5px 12px; border-radius: 6px; letter-spacing: .06em; text-transform: uppercase; }
+  /* Areas */
+  .areas { display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+  .pill { background:#fff; border:1px solid var(--line); border-radius:999px; padding:12px 26px; font-weight:700; color:var(--navy); box-shadow:var(--shadow-sm); display:inline-flex; gap:8px; align-items:center; }
+  .pill svg{ color:var(--gold-dark); }
 
-  .areas { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-  .pill { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 10px 20px; font-weight: 700; color: var(--navy); }
+  /* Contact */
+  .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:46px; align-items:start; }
+  @media (max-width:820px){ .contact-grid{ grid-template-columns:1fr; gap:32px; } }
+  .contact-info h3 { font-size:1.5rem; margin-bottom:20px; }
+  .contact-info .row { display:flex; gap:14px; align-items:center; margin-bottom:16px; font-size:1.06rem; }
+  .contact-info .row .ic { width:42px; height:42px; border-radius:11px; background:linear-gradient(135deg,#fff3da,#fde6b6); color:var(--gold-dark); display:grid; place-items:center; flex:0 0 auto; }
+  .contact-info a { color:var(--gold-dark); font-weight:800; text-decoration:none; }
+  .owner { color:var(--muted); font-size:.97rem; margin-top:6px; }
+  form { background:#fff; padding:30px; border-radius:18px; border:1px solid var(--line); box-shadow:var(--shadow); }
+  form label { display:block; font-weight:700; font-size:.88rem; margin:0 0 7px; color:var(--navy); }
+  form .field { margin-bottom:17px; }
+  form input, form textarea { width:100%; padding:13px 15px; border:1px solid #d3dae3; border-radius:10px; font:inherit; background:var(--mist); transition:border-color .15s, background .15s; }
+  form input:focus, form textarea:focus { outline:none; border-color:var(--gold); background:#fff; }
+  form textarea { min-height:120px; resize:vertical; }
+  form .btn { width:100%; justify-content:center; }
 
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-  @media (max-width: 800px) { .contact-grid { grid-template-columns: 1fr; gap: 28px; } }
-  .contact-info h3 { font-size: 1.4rem; margin-bottom: 16px; color: var(--navy); }
-  .contact-info .row { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; font-size: 1.05rem; }
-  .contact-info .row .ico { font-size: 1.3rem; }
-  .contact-info a { color: var(--gold-dark); font-weight: 800; text-decoration: none; }
-  form { background: var(--mist); padding: 26px; border-radius: 14px; border: 1px solid var(--line); }
-  form label { display: block; font-weight: 700; font-size: .9rem; margin: 0 0 6px; }
-  form .field { margin-bottom: 16px; }
-  form input, form textarea { width: 100%; padding: 12px 14px; border: 1px solid #cfd5db; border-radius: 8px; font: inherit; background: #fff; }
-  form textarea { min-height: 110px; resize: vertical; }
-  form .btn { width: 100%; }
+  /* Footer */
+  footer.site { background:#0b1426; color:#9fb0c4; text-align:center; padding:46px 0; font-size:.93rem; }
+  footer.site .brand { justify-content:center; margin-bottom:12px; }
+  footer.site a { color:var(--gold-2); text-decoration:none; }
+  footer.site .frow { margin-top:8px; }
 
-  footer.site { background: #0f192c; color: #aeb8c6; text-align: center; padding: 40px 0; font-size: .92rem; }
-  footer.site .brand { justify-content: center; margin-bottom: 10px; }
-  footer.site a { color: var(--gold); text-decoration: none; }
+  .ph-note { background:#fff8e6; border:1px solid #f0d27a; color:#7a5a00; border-radius:10px; padding:11px 16px; font-size:.85rem; margin:18px auto 0; max-width:640px; text-align:center; }
 
-  .todo { background: #fff8e6; border: 1px solid #f0d27a; color: #7a5a00; border-radius: 8px; padding: 10px 14px; font-size: .85rem; margin: 8px auto 0; max-width: 600px; }
+  .promo { background:linear-gradient(90deg,var(--gold),var(--gold-dark)); color:var(--navy); text-align:center; font-weight:700; font-size:.92rem; padding:10px 16px; }
+  .promo a { color:var(--navy); text-decoration:underline; }
 </style>
 </head>
 <body>
 
-<!-- Reusable shield logo mark -->
-<svg style="display:none"><symbol id="shield" viewBox="0 0 26 30"><path d="M13 0L26 5v9c0 8-5.5 13-13 16C5.5 27 0 22 0 14V5z" fill="#1d3157"/><path d="M13 4l9 3.4v6.6c0 5.6-3.7 9.2-9 11.3z" fill="#e3a42a"/></symbol></svg>
+<!-- shield logo + reusable icons -->
+<svg style="display:none">
+  <symbol id="shield" viewBox="0 0 30 34"><path d="M15 0L30 5.5v10.5c0 9.5-6.4 15.3-15 18C6.4 31.3 0 25.5 0 16V5.5z" fill="#1f3253"/><path d="M15 4.5l10.5 3.9V16c0 6.6-4.3 10.8-10.5 13.3z" fill="#e8a82a"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M20 6L9 17l-5-5"/></symbol>
+  <symbol id="i-roll" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 5h12v5H4zM16 7h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-7M11 13v3a2 2 0 0 1-2 2H8v3"/></symbol>
+  <symbol id="i-crack" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13 2l-3 7 4 2-5 11M13 2l5 6-4 2"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.9 6.3L22 9.2l-5 4.7 1.3 6.9L12 17.6 5.7 20.8 7 13.9 2 9.2l7.1-.9z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L7.6 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.6A2 2 0 0 1 22 16.9z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M3 6l9 7 9-7"/></symbol>
+  <symbol id="i-shield2" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 2l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V5z"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 11V6a2 2 0 0 0-4 0v5M14 7V4a2 2 0 0 0-4 0v7M10 9V6a2 2 0 0 0-4 0v8a6 6 0 0 0 6 6h1a6 6 0 0 0 6-6v-3a2 2 0 0 0-4 0"/></symbol>
+</svg>
 
 <header class="site">
   <div class="wrap nav">
     <a class="brand" href="#top"><svg class="mark"><use href="#shield"/></svg> SEALS GO PRO</a>
     <nav class="nav-links">
       <a href="#services">Services</a>
+      <a href="#results">Results</a>
       <a href="#signs">Need a Seal?</a>
-      <a href="#why">Why Us</a>
       <a href="#area">Service Area</a>
-      <a class="nav-call" href="tel:+14164748131">📞 (416) 474-8131</a>
+      <a class="nav-call" href="tel:+14164748131">Call / Text</a>
     </nav>
   </div>
 </header>
 
+<div class="promo">🍁 Now booking driveways across Brighton &amp; Markham — <a href="tel:+14164748131">call or text for a free quote</a></div>
+
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="wrap">
-    <p class="eyebrow">Brighton &amp; Markham · Free Quotes</p>
-    <h1>Driveway Sealing That Actually Lasts</h1>
-    <p class="lead">
-      Commercial-grade asphalt sealing and crack repair — <strong>applied by hand</strong>,
-      never just sprayed on. We use quality products and apply them properly, so your driveway
-      looks brand new and stays that way.
-    </p>
+    <span class="eyebrow">Brighton &amp; Markham, Ontario</span>
+    <h1>Driveway Sealing<br>That <span class="hl">Actually Lasts</span></h1>
+    <p class="lead">Commercial-grade asphalt sealing and crack repair — <strong>applied by hand, never just sprayed on.</strong> Quality products, applied properly, so your driveway looks brand new and stays that way.</p>
     <div class="cta-row">
-      <a class="btn" href="tel:+14164748131">📞 Call or Text for a Free Quote</a>
+      <a class="btn" href="tel:+14164748131"><svg width="18" height="18"><use href="#i-phone"/></svg> Call or Text for a Free Quote</a>
       <a class="btn btn--ghost" href="#contact">Request a Quote Online</a>
     </div>
-    <div class="trust">
-      <span>Hand-applied, not sprayed</span>
-      <span>Commercial-grade products</span>
-      <span>Free no-pressure quotes</span>
-      <span>E-transfers accepted</span>
+    <div class="chips">
+      <span class="chip"><svg width="15" height="15"><use href="#i-check"/></svg> Hand-applied, not sprayed</span>
+      <span class="chip"><svg width="15" height="15"><use href="#i-check"/></svg> Commercial-grade products</span>
+      <span class="chip"><svg width="15" height="15"><use href="#i-check"/></svg> Free, no-pressure quotes</span>
     </div>
   </div>
 </section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><b>100%</b><span>Hand-applied</span></div>
+    <div class="stat"><b>Free</b><span>On-site quotes</span></div>
+    <div class="stat"><b>2</b><span>Cities served</span></div>
+    <div class="stat"><b>Like-new</b><span>Lasting finish</span></div>
+  </div>
+</div>
 
 <!-- SERVICES -->
 <section id="services">
@@ -179,92 +229,118 @@
     </div>
     <div class="cards">
       <div class="card">
-        <div class="ico">🛢️</div>
-        <h3>Hand-Applied Driveway Sealing</h3>
+        <div class="ico"><svg width="26" height="26"><use href="#i-roll"/></svg></div>
+        <h3>Hand-Applied Sealing</h3>
         <p>We apply commercial-grade sealer by hand so it goes on evenly and properly — not the thin, sprayed-on coat that wears out in a season. The result lasts.</p>
       </div>
       <div class="card">
-        <div class="ico">🧱</div>
+        <div class="ico"><svg width="26" height="26"><use href="#i-crack"/></svg></div>
         <h3>Crack Repair</h3>
-        <p>Hairline and worn cracks filled and prepped before sealing, so small problems don't grow into expensive ones.</p>
+        <p>Hairline and worn cracks filled and prepped before sealing, so small problems don't grow into expensive ones down the road.</p>
       </div>
       <div class="card">
-        <div class="ico">✨</div>
+        <div class="ico"><svg width="26" height="26"><use href="#i-star"/></svg></div>
         <h3>Like-New Finish</h3>
         <p>Quality products and careful application leave your driveway deep black, clean, and protected from sun, water, and traffic.</p>
       </div>
     </div>
-    <p style="text-align:center; margin-top:28px; color:var(--muted);">
-      Also available by request: <strong>interlock &amp; paver repair</strong> and <strong>handyman services</strong>.
-    </p>
+    <p class="also">Also available by request: <strong>interlock &amp; paver repair</strong> and <strong>handyman services</strong>.</p>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section id="results" class="cream">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">The Difference</p>
+      <h2>Before &amp; After</h2>
+      <p>See what a proper, hand-applied seal does to a tired, faded driveway.</p>
+    </div>
+    <div class="ba">
+      <figure class="b">
+        <figcaption>Before</figcaption>
+        <svg viewBox="0 0 400 300" role="img" aria-label="Faded, cracked grey asphalt">
+          <rect width="400" height="300" fill="#9aa0a6"/>
+          <rect width="400" height="300" fill="url(#speck)"/>
+          <g stroke="#7c828a" stroke-width="1.6" fill="none" opacity=".85">
+            <path d="M40 20 L90 80 L70 150 L120 210 L100 280"/>
+            <path d="M90 80 L160 60 L220 110 L210 180 L260 250"/>
+            <path d="M220 110 L300 90 L360 150 L340 230"/>
+            <path d="M70 150 L160 140 L210 180"/>
+            <path d="M120 210 L210 180 L280 220 L340 230"/>
+            <path d="M0 110 L70 150 M300 90 L400 70 M160 60 L180 0 M260 250 L280 300"/>
+          </g>
+          <rect width="400" height="300" fill="#000" opacity=".05"/>
+          <defs><pattern id="speck" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#8a9097"/><circle cx="4" cy="4" r=".6" fill="#aeb4ba"/></pattern></defs>
+        </svg>
+      </figure>
+      <figure class="a">
+        <figcaption>After</figcaption>
+        <svg viewBox="0 0 400 300" role="img" aria-label="Freshly sealed deep black asphalt">
+          <defs>
+            <linearGradient id="seal" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#242a31"/><stop offset=".5" stop-color="#15191e"/><stop offset="1" stop-color="#0c0f12"/>
+            </linearGradient>
+            <radialGradient id="sheen" cx="32%" cy="22%" r="70%">
+              <stop offset="0" stop-color="#ffffff" stop-opacity=".14"/><stop offset="45%" stop-color="#ffffff" stop-opacity="0"/>
+            </radialGradient>
+            <pattern id="fine" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".5" fill="#2a3037" opacity=".5"/></pattern>
+          </defs>
+          <rect width="400" height="300" fill="url(#seal)"/>
+          <rect width="400" height="300" fill="url(#fine)"/>
+          <rect width="400" height="300" fill="url(#sheen)"/>
+        </svg>
+      </figure>
+    </div>
+    <p class="ba-note">Illustrative preview — your real before/after photos will go right here.</p>
   </div>
 </section>
 
 <!-- 3 SIGNS -->
-<section id="signs" class="alt">
+<section id="signs">
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">Does Your Driveway Need a Seal?</p>
       <h2>Watch for These 3 Signs</h2>
-      <p>If any of these sound familiar, it's time. Text or call Marcus for a free, no-pressure quote.</p>
+      <p>If any sound familiar, it's time. Text or call Marcus for a free, no-pressure quote.</p>
     </div>
     <div class="signs">
       <div class="sign"><div class="n">1</div><h3>Faded from black to grey</h3><p>Sun and weather have bleached the colour out of your asphalt.</p></div>
       <div class="sign"><div class="n">2</div><h3>Hairline cracks appearing</h3><p>Small cracks are starting to show — the early warning sign.</p></div>
-      <div class="sign"><div class="n">3</div><h3>3+ years since the last seal</h3><p>It's been too long, and the surface is no longer protected.</p></div>
+      <div class="sign"><div class="n">3</div><h3>3+ years since last seal</h3><p>It's been too long, and the surface is no longer protected.</p></div>
     </div>
-    <div style="text-align:center; margin-top:34px;">
-      <a class="btn" href="tel:+14164748131">📞 Call or Text Marcus — (416) 474-8131</a>
+    <div style="text-align:center; margin-top:38px;">
+      <a class="btn" href="tel:+14164748131"><svg width="18" height="18"><use href="#i-phone"/></svg> Call or Text Marcus — (416) 474-8131</a>
     </div>
   </div>
 </section>
 
 <!-- WHY US -->
-<section id="why">
+<section class="mistbg">
   <div class="wrap">
     <div class="section-head">
-      <p class="eyebrow">The Difference</p>
-      <h2>Why Homeowners Choose Seals Go Pro</h2>
+      <p class="eyebrow">Why Seals Go Pro</p>
+      <h2>The Quality Homeowners Notice</h2>
     </div>
     <div class="why-grid">
-      <div class="why"><div class="num">1</div><div><h3>Applied by Hand</h3><p>Most companies spray and go. We apply by hand to work the sealer in properly — that's why ours lasts and theirs doesn't.</p></div></div>
-      <div class="why"><div class="num">2</div><div><h3>Commercial-Grade Products</h3><p>We don't cut corners on materials. Better sealer means better protection and a finish that holds up to weather and traffic.</p></div></div>
-      <div class="why"><div class="num">3</div><div><h3>Built to Last</h3><p>Proper prep and proper application mean you're not re-doing your driveway every year. Do it once, do it right.</p></div></div>
-      <div class="why"><div class="num">4</div><div><h3>Free, No-Pressure Quotes</h3><p>We'll look at your driveway and give you an honest estimate — no obligation. E-transfers accepted.</p></div></div>
+      <div class="why"><div class="ic"><svg width="22" height="22"><use href="#i-hand"/></svg></div><div><h3>Applied by Hand</h3><p>Most companies spray and go. We apply by hand to work the sealer in properly — that's why ours lasts and theirs doesn't.</p></div></div>
+      <div class="why"><div class="ic"><svg width="22" height="22"><use href="#i-shield2"/></svg></div><div><h3>Commercial-Grade Products</h3><p>We don't cut corners on materials. Better sealer means stronger protection and a finish that holds up to weather and traffic.</p></div></div>
+      <div class="why"><div class="ic"><svg width="22" height="22"><use href="#i-star"/></svg></div><div><h3>Built to Last</h3><p>Proper prep and proper application mean you're not re-doing your driveway every year. Do it once, do it right.</p></div></div>
+      <div class="why"><div class="ic"><svg width="22" height="22"><use href="#i-check"/></svg></div><div><h3>Free, No-Pressure Quotes</h3><p>We'll look at your driveway and give you an honest estimate — no obligation. E-transfers accepted.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- MISSION / STUDENTS -->
+<!-- MISSION -->
 <section class="mission">
   <div class="wrap">
     <h2>Quality Work That Creates Opportunity</h2>
-    <p>
-      Seals Go Pro is built to give students real, meaningful work — teaching a trade, a strong
-      work ethic, and pride in a job done right. When you hire us, you're getting a quality
-      driveway <em>and</em> helping young people build their futures.
-    </p>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section id="work">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">Our Work</p>
-      <h2>Before &amp; After</h2>
-      <p>See the difference a proper hand-applied seal makes.</p>
-    </div>
-    <div class="gallery">
-      <figure class="shot photo"><img src="images/before.jpg" alt="Brighton driveway before sealing — faded, grey, cracked asphalt"><figcaption>Before</figcaption></figure>
-      <figure class="shot photo"><img src="images/after.jpg" alt="The same driveway after hand-applied sealing — deep black, like-new finish"><figcaption>After</figcaption></figure>
-    </div>
-    <p class="todo">📷 Drop your two real photos into a <code>site/images/</code> folder named <code>before.jpg</code> and <code>after.jpg</code> — the faded → deep-black pair you sent is perfect. (Until the files are added, this area shows a broken-image icon — that's expected.)</p>
+    <p>Seals Go Pro is built to give students real, meaningful work — teaching a trade, a strong work ethic, and pride in a job done right. When you hire us, you're getting a quality driveway <em>and</em> helping young people build their futures.</p>
   </div>
 </section>
 
 <!-- SERVICE AREA -->
-<section id="area" class="alt">
+<section id="area" class="cream">
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">Where We Work</p>
@@ -272,9 +348,9 @@
       <p>And the surrounding areas. Not sure if you're in range? Just ask.</p>
     </div>
     <div class="areas">
-      <span class="pill">Brighton</span>
-      <span class="pill">Markham</span>
-      <span class="pill">Surrounding Areas</span>
+      <span class="pill"><svg width="18" height="18"><use href="#i-pin"/></svg> Brighton</span>
+      <span class="pill"><svg width="18" height="18"><use href="#i-pin"/></svg> Markham</span>
+      <span class="pill"><svg width="18" height="18"><use href="#i-pin"/></svg> Surrounding Areas</span>
     </div>
   </div>
 </section>
@@ -290,18 +366,14 @@
     <div class="contact-grid">
       <div class="contact-info">
         <h3>Talk to us</h3>
-        <div class="row"><span class="ico">📞</span> <a href="tel:+14164748131">(416) 474-8131</a> — call or text Marcus</div>
-        <div class="row"><span class="ico">✉️</span> <a href="mailto:sales@sealsgopro.com">sales@sealsgopro.com</a></div>
-        <div class="row"><span class="ico">📍</span> Brighton &amp; Markham</div>
-        <div class="row"><span class="ico">💳</span> E-transfers accepted</div>
-        <div class="row" style="color:var(--muted); font-size:.98rem;">Marcus Piasentin — Owner / Operator</div>
+        <div class="row"><span class="ic"><svg width="20" height="20"><use href="#i-phone"/></svg></span> <a href="tel:+14164748131">(416) 474-8131</a> &nbsp;·&nbsp; call or text</div>
+        <div class="row"><span class="ic"><svg width="20" height="20"><use href="#i-mail"/></svg></span> <a href="mailto:sales@sealsgopro.com">sales@sealsgopro.com</a></div>
+        <div class="row"><span class="ic"><svg width="20" height="20"><use href="#i-pin"/></svg></span> Brighton &amp; Markham, Ontario</div>
+        <div class="row"><span class="ic"><svg width="20" height="20"><use href="#i-check"/></svg></span> E-transfers accepted</div>
+        <p class="owner">Marcus Piasentin — Owner / Operator</p>
       </div>
 
-      <!--
-        QUOTE FORM — set up to work automatically on Netlify (free) via data-netlify.
-        On a different host I'll swap in the right handler (e.g. Formspree) so submissions
-        email sales@sealsgopro.com. Until hosted, the form won't send — the call/text link works now.
-      -->
+      <!-- Quote form: Netlify-ready (emails sales@sealsgopro.com once deployed on Netlify). -->
       <form name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="quote" />
         <p style="display:none"><label>Don't fill this out: <input name="bot-field" /></label></p>
@@ -318,9 +390,9 @@
 <footer class="site">
   <div class="wrap">
     <a class="brand" href="#top"><svg class="mark"><use href="#shield"/></svg> SEALS GO PRO</a>
-    <p>Commercial-grade asphalt sealing &amp; crack repair · Brighton &amp; Markham</p>
-    <p style="margin-top:8px;">📞 <a href="tel:+14164748131">(416) 474-8131</a> · ✉️ <a href="mailto:sales@sealsgopro.com">sales@sealsgopro.com</a></p>
-    <p style="margin-top:14px; color:#6b7280;">© 2026 Seals Go Pro · Marcus Piasentin, Owner/Operator. All rights reserved.</p>
+    <p>Professional hand-applied driveway sealing &amp; crack repair · Brighton &amp; Markham</p>
+    <p class="frow">📞 <a href="tel:+14164748131">(416) 474-8131</a> &nbsp;·&nbsp; ✉️ <a href="mailto:sales@sealsgopro.com">sales@sealsgopro.com</a></p>
+    <p class="frow" style="color:#6b7a8d;">© 2026 Seals Go Pro · Marcus Piasentin, Owner/Operator. All rights reserved.</p>
   </div>
 </footer>
 
