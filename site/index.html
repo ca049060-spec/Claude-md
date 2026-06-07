@@ -203,6 +203,23 @@
   .careers { background:linear-gradient(180deg,#fffdf7,#fbf1da); }
   .careers .card { border-color:#f0dcae; }
   .careers .tag { display:inline-block; font-size:.72rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--gold-dark); background:#fff4da; border:1px solid #f0dcae; padding:4px 11px; border-radius:999px; margin-bottom:12px; }
+
+  .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:24px; }
+  .step-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:30px 26px; box-shadow:var(--shadow-sm); }
+  .step-card .sn { width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,var(--gold-2),var(--gold)); color:var(--navy); font-weight:800; display:grid; place-items:center; margin-bottom:14px; box-shadow:0 6px 14px rgba(232,168,42,.3); }
+  .step-card h3 { font-size:1.14rem; margin-bottom:6px; color:var(--navy); }
+  .step-card p { color:var(--muted); font-size:.97rem; }
+
+  .faq { max-width:780px; margin:0 auto; }
+  .faq details { background:#fff; border:1px solid var(--line); border-radius:12px; padding:0 20px; margin-bottom:12px; box-shadow:var(--shadow-sm); }
+  .faq summary { cursor:pointer; font-weight:700; color:var(--navy); padding:16px 0; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+  .faq summary::-webkit-details-marker { display:none; }
+  .faq summary::after { content:"+"; color:var(--gold-dark); font-size:1.4rem; font-weight:800; line-height:1; }
+  .faq details[open] summary::after { content:"\2013"; }
+  .faq details p { color:var(--muted); padding:0 0 18px; margin:0; }
+
+  .callfab { position:fixed; right:18px; bottom:18px; z-index:60; background:linear-gradient(135deg,var(--gold-2),var(--gold)); color:var(--navy); font-weight:800; text-decoration:none; padding:14px 20px; border-radius:999px; box-shadow:0 10px 26px rgba(0,0,0,.3); display:inline-flex; gap:8px; align-items:center; }
+  .callfab:hover { transform:translateY(-2px); }
 </style>
 </head>
 <body>
@@ -377,6 +394,22 @@
   </div>
 </section>
 
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Simple &amp; Easy</p>
+      <h2>How It Works — 3 Easy Steps</h2>
+      <p>From your first call to a driveway that looks brand new.</p>
+    </div>
+    <div class="steps">
+      <div class="step-card"><div class="sn">1</div><h3>Get Your Free Quote</h3><p>Call or text Marcus. We look at your driveway and give you an honest, no-pressure estimate.</p></div>
+      <div class="step-card"><div class="sn">2</div><h3>Clean &amp; Repair</h3><p>We clean the surface and fill any cracks, prepping everything so the seal bonds properly.</p></div>
+      <div class="step-card"><div class="sn">3</div><h3>Hand-Seal It</h3><p>We apply commercial-grade sealer by hand for an even, durable, deep-black finish that lasts.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- 3 SIGNS -->
 <section id="signs">
   <div class="wrap">
@@ -464,6 +497,35 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq" class="mistbg">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Good to Know</p>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq">
+      <details><summary>How much does it cost?</summary><p>Every driveway is different, so we give free, no-pressure quotes based on size and condition. Call or text Marcus at (416) 474-8131 for yours.</p></details>
+      <details><summary>How long does the sealing last?</summary><p>With commercial-grade sealer applied by hand, you'll get years of protection. Resealing every 2–3 years keeps your asphalt in top shape — and we'll tell you honestly when it's due.</p></details>
+      <details><summary>How soon can I drive on it?</summary><p>Plan to stay off a freshly sealed driveway for about 24–48 hours so it fully cures. We'll give you exact timing on the day, based on the weather.</p></details>
+      <details><summary>Do you repair cracks too?</summary><p>Yes. We fill and prep hairline and worn cracks before sealing, so small problems don't grow into expensive ones.</p></details>
+      <details><summary>What's the best time of year?</summary><p>Sealing is done in warm, dry weather — typically spring through fall in Ontario — so the sealer can cure properly.</p></details>
+      <details><summary>What areas do you serve?</summary><p>Brighton, Markham, and the surrounding areas. Not sure if you're in range? Just ask!</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ structured data for Google -->
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"How much does driveway sealing cost?","acceptedAnswer":{"@type":"Answer","text":"Every driveway is different, so we give free, no-pressure quotes based on size and condition. Call or text Marcus at (416) 474-8131."}},
+  {"@type":"Question","name":"How long does sealing last?","acceptedAnswer":{"@type":"Answer","text":"With commercial-grade sealer applied by hand you get years of protection; resealing every 2–3 years keeps asphalt in top shape."}},
+  {"@type":"Question","name":"How soon can I drive on a sealed driveway?","acceptedAnswer":{"@type":"Answer","text":"Stay off it for about 24 to 48 hours so it fully cures; exact timing depends on the weather."}},
+  {"@type":"Question","name":"Do you repair cracks?","acceptedAnswer":{"@type":"Answer","text":"Yes, we fill and prep hairline and worn cracks before sealing."}},
+  {"@type":"Question","name":"What areas do you serve?","acceptedAnswer":{"@type":"Answer","text":"Brighton, Markham, and surrounding areas in Ontario."}}
+]}
+</script>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="wrap">
@@ -504,6 +566,8 @@
     <p class="frow" style="color:#6b7a8d;">© 2026 Seals Go Pro · Marcus Piasentin, Owner/Operator. All rights reserved.</p>
   </div>
 </footer>
+
+<a class="callfab" href="tel:+14164748131" aria-label="Call or text Seals Go Pro"><svg width="18" height="18"><use href="#i-phone"/></svg> Call / Text</a>
 
 </body>
 </html>
