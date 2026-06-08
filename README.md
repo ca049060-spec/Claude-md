@@ -21,8 +21,8 @@ README verbatim, so feel free to use **bold**, _italics_, lists, etc.
 
 ### 📰 Latest News
 
-- [How artificial intelligence got better at building itself - The Economist](https://news.google.com/rss/articles/CBMiuAFBVV95cUxNTWw2RV82VHJEUTRrR0RCSDNJUTVTX2puRzhwUnNXblhkT19qMm92bHhEQWFtX1VOQktuZXdoaUczYVVpeG1UdEI3RjY2OG5IcUxKcV9UdTFxblVQYThtNXJzTUwyUHJ0R2lRakpOakQwX013anJEUlZDdmRSRzQycDVsUlltbjBtRm55ajRpRWhYc1BjUjZqcTByOHhDWVFLNl9pVS0wUjlYMkpuX052NkV4Ml9DQ1pm?oc=5) — _The Economist · 2026-06-07_
-- [Billions spent and hypothetical returns: the AI boom explained with six charts - The Guardian](https://news.google.com/rss/articles/CBMiwgFBVV95cUxOX2xHTDYxZVZuTExBeGRfM3psWmk5Z3hGVXlsa3lubU5fLWRYbmdnSnRxWW9Wd3Q1WFM2Z3NXOVpBSk5mT0QyLUlLZnFFMWphMmlaOVZQejFHX3VIbUZ2RGM2bENZN3AtU3I0Wk9rTDNpalcwRHJOU0pBLURaQlpPMXhHQUtQUnJNNEl5SFZUcElJaVR2aTF0ZWFCM1phWWxGQzhrZkVGMTFocHVKSFliT2d0aDA1Nm9RcEdIcVBuWWxoUQ?oc=5) — _The Guardian · 2026-06-07_
+- [What are the philosophical impacts of artificial intelligence? - Yahoo News Canada](https://news.google.com/rss/articles/CBMijwFBVV95cUxPZXdLSUxtYlUzWllneUNjcS1hNGpWYzZYT0lXSWY0WFBfaEttMjhqM0tqTDlOazR4QS00WFV5Mm9taGZ1YmFZREFLTUVTOThGb2pPUGFLRlJPeHBWMU1ZOVNtQVptQUFhMzdDUEF4d2pmODRmaTVBRTEyQ3ZwNlZ3MkJuZk1QT3ZqR0pvc1I3aw?oc=5) — _Yahoo News Canada · 2026-06-08_
+- [Will artificial intelligence soon escape human control? - The Economist](https://news.google.com/rss/articles/CBMitAFBVV95cUxPenhGOEdQYlFUV0tYbTdjdFJIclN1Nm5GYlJ1UXM1dUZKVkdsUU5mdGxMbTV4bDd5UExDR3RGQU5SN1k5bDQwWk9WVGpGV3h5TC01SEF1NE5mczh1RTNHUkdZQ1lBWUpKSVZKUjZJTjVBazdzS1lHcjllUFpGeDdmdVQ0cUwwQ0ZxQ211WXpMV2VBSFBsM2RjMmhUV29ZbXV1ZndKUWU2bXJkaGV2a3UwMExHVzQ?oc=5) — _The Economist · 2026-06-07_
 - [Top Trump artificial intelligence adviser to leave the White House - The Washington Post](https://news.google.com/rss/articles/CBMilwFBVV95cUxQY19XYkFYVmEtbHhNbFdhUFlCQTdnMWc3NDdKUW8yaFMtc2Q3dkYwaUxkVXVodWJGZWJ1clNFS3YxZE43NHJmMkZoQlQ1Z1RSZnFKSWdmRXV6N2owSWpKc3A2ZnByTi1PUXp3NjhEMFRIRG1BSTdkTTR0Xy1aQXFnOFpzUzBhdzROSjFpTW10M29oalVNc0ww?oc=5) — _The Washington Post · 2026-06-07_
 - [OpenAI and the White House have competing visions for regulating artificial intelligence - Mashable](https://news.google.com/rss/articles/CBMigAFBVV95cUxPS3otTjBXbGlsQXJBNkQ4ejBLVllkakR3S2NPcExBWmwyUk9iNjBrQVFncXFWd3Q0bnB4SEVqZGJ3Z0R5a0lYUDNvQ05DdGRiWGhMVHhZc3lYTXNMNVl2S0FoRDY2eXBSMGVSQmx5UnJtMlRIZ2ktNVAwV0NNZG5BRg?oc=5) — _Mashable · 2026-06-06_
 - [Miasma Worm Hits 73 Microsoft GitHub Repositories in Major Supply Chain Attack - The Hacker News](https://news.google.com/rss/articles/CBMigAFBVV95cUxNbFdZOWxXR0YwLTVNR2ZUbkdXTzF0M0FzQnR4QWtCX0hhVFNVTTRmNlNmS3FLdThWRWJWZjlsbWdpWmdaSWVGZEtRemVYSHllZUZSWTV0NjVUN0c0eWNZUktRbC1MYUNJbS1mTDlEWjVONTVnNlVBUExETXlNTWJlbA?oc=5) — _The Hacker News · 2026-06-06_
@@ -34,6 +34,6 @@ README verbatim, so feel free to use **bold**, _italics_, lists, etc.
 
 
 ---
-_Profile auto-updated on **2026-06-07 19:27 UTC**._
+_Profile auto-updated on **2026-06-08 04:19 UTC**._
 
 <!-- END AUTO-GENERATED -->
