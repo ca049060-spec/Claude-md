@@ -50,7 +50,7 @@
   :root {
     --navy:#101d33; --navy-2:#1a2c4a; --navy-3:#24395d;
     --gold:#e8a82a; --gold-2:#f4c659; --gold-dark:#c98a14; --sky:#37a6e6; --sky-dark:#1f7fbe;
-    --ink:#14203258; --text:#1b2738; --muted:#5b6b7e; --soft:#8696a8;
+    --ink:#16243f; --text:#1b2738; --muted:#5b6b7e; --soft:#8696a8;
     --cream:#faf7f0; --mist:#f1f4f8; --line:#e4e9ef; --paper:#fff;
     --shadow:0 14px 40px rgba(16,29,51,.10);
     --shadow-sm:0 4px 18px rgba(16,29,51,.08);
@@ -565,7 +565,7 @@
       </div>
 
       <!-- Quote form: Netlify-ready (emails marcus@sealsgopro.com once deployed on Netlify). -->
-      <form name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <form name="quote" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="quote" />
         <p style="display:none"><label>Don't fill this out: <input name="bot-field" /></label></p>
         <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" required /></div>
@@ -582,6 +582,9 @@
   <div class="wrap">
     <a class="brand" href="#top"><svg class="mark"><use href="#shield"/></svg> SEALS GO PRO</a>
     <p>Professional hand-applied driveway sealing &amp; crack repair · Markham to Trenton, Ontario</p>
+    <p class="frow" style="margin-top:12px;">
+      <a href="#services">Services</a> &nbsp;·&nbsp; <a href="#results">Before &amp; After</a> &nbsp;·&nbsp; <a href="#how">Why Sealing Works</a> &nbsp;·&nbsp; <a href="#join">Join Us</a> &nbsp;·&nbsp; <a href="#faq">FAQ</a> &nbsp;·&nbsp; <a href="#contact">Free Quote</a>
+    </p>
     <p class="frow">📞 <a href="tel:+14164748131">(416) 474-8131</a> &nbsp;·&nbsp; ✉️ <a href="mailto:marcus@sealsgopro.com">marcus@sealsgopro.com</a></p>
     <p class="frow" style="color:#6b7a8d;">© 2026 Seals Go Pro · Marcus Piasentin, Owner/Operator. All rights reserved.</p>
   </div>
