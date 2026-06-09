@@ -6,7 +6,7 @@ Marketing website for **Seals Go Pro**, a driveway sealing business.
 - **Owner / operator (field, customer-facing):** Marcus Piasentin
 - **Owner (strategy/systems):** Shawn Piasentin
 - **Contact:** (416) 474-8131 (call *or* text Marcus) · marcus@sealsgopro.com
-- **Service area:** Brighton & Markham, Ontario (CAD)
+- **Service area:** Highway 401 corridor, Markham → Trenton, Ontario (Markham, Pickering, Ajax, Whitby, Oshawa, Bowmanville, Port Hope, Cobourg, Brighton, Trenton). CAD pricing.
 - **Core service:** hand-applied (squeegee) asphalt driveway sealing + crack repair
 - **Secondary (mention only):** interlock/paver repair, handyman services
 
