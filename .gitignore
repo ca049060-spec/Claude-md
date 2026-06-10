@@ -7,3 +7,6 @@ data/portfolio.yml
 data/*.local.*
 *.statement.pdf
 report.html
+report.pdf
+advisor_sheet.html
+advisor_sheet.pdf
