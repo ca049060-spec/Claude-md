@@ -9,6 +9,7 @@ Marketing website for **Seals Go Pro**, a driveway sealing business.
 - **Service area:** Highway 401 corridor, Markham → Trenton, Ontario (Markham, Pickering, Ajax, Whitby, Oshawa, Bowmanville, Port Hope, Cobourg, Brighton, Trenton). CAD pricing.
 - **Core service:** hand-applied (squeegee) asphalt driveway sealing + crack repair
 - **Secondary (mention only):** interlock/paver repair, handyman services
+- **Coming soon (teaser only, not bookable):** parking-lot line painting for commercial properties. Concrete work planned later — do NOT mention yet.
 
 ### Accuracy guardrails — do NOT publish these
 - ❌ Don't claim "insured" / "fully insured" — insurance is not in place yet.
