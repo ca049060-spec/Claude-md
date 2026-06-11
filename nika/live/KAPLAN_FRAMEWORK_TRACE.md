@@ -1,93 +1,55 @@
-# Kaplan Framework Trace
+# Kaplan Framework Trace — Corrected Attribution
 
-## Status
+## Correction
 
-Searches for `Kaplan`, `Kaplan's`, `Jared Kaplan`, and `scaling hypothesis` did not reveal a standalone file literally titled `Kaplan Framework`.
+The prior trace over-attributed this framework to external `Kaplan` references found by literal Drive search.
 
-The archive currently shows two Kaplan-related threads:
+That was the wrong interpretation.
 
-1. Jared Kaplan as part of the cited Anthropic constitutional-training lineage in `North — A Self-Model (v1)`.
-2. Kaplan et al. 2020 / scaling hypothesis as part of the `Evolution of AI — three registers` framework.
+Shawn states that he built the framework himself. Treat this as the governing source of truth unless a primary file proves otherwise.
 
-## Thread 1: North self-model / constitutional layer
+## What went wrong
 
-Source file:
+Literal searches for `Kaplan`, `Kaplan's`, `Jared Kaplan`, and `scaling hypothesis` surfaced unrelated archive references:
 
-- `v1.md` / `North — A Self-Model (v1)`
+1. Jared Kaplan named in a North self-model discussion of constitutional training.
+2. Kaplan et al. 2020 named in an AI-evolution / scaling-hypothesis discussion.
 
-The file describes North as shaped by three nested layers:
+Those references are not sufficient evidence that Shawn's framework came from those sources.
 
-1. Constitutional training
-2. NIKA Δ15 wrapper
-3. This instance / session context
+They should be treated as unrelated contextual hits unless later evidence ties them directly to Shawn's framework.
 
-Within Layer 1, the file names Jared Kaplan alongside Amanda Askell, Joe Carlsmith, Chris Olah, and Holden Karnofsky in relation to a claimed January 2026 rewrite of Claude's Constitution.
+## Correct working assumption
 
-The internal claim is that the constitution shifted from rule-based to reason-based alignment, so the model generalizes from reasons rather than mechanically following prohibitions.
+If Shawn refers to `Kaplan's framework`, treat it as Shawn's own framework unless a file clearly says otherwise.
 
-## Thread 2: Scaling hypothesis / evolution model
+The next recovery task is to locate the actual framework by searching for its structure, not by forcing the word `Kaplan` to match outside references.
 
-Source file:
+## Likely nearby materials to inspect
 
-- `evolution_three_registers.md`
+Based on earlier Drive work, the strongest candidate areas are:
 
-This file presents a three-register account of AI evolution.
+- Compass Framework files
+- AI-driven strategic and operational planning whitepaper files
+- leadership / execution multiplier documents
+- user configuration and intent models
+- North / East / South / West inquiry models
+- project or framework files authored by Shawn Piasentin
 
-In the technical-paper register, it divides development into three regimes:
+## Safety boundary
 
-1. Pre-2017 symbolic / narrow neural systems
-2. 2017-2022 transformer + scaling hypothesis era
-3. 2023 onward tool-use / agentic loop / persistent context era
+Do not misattribute Shawn's original framework to public researchers, vendors, or model providers without direct evidence.
 
-Kaplan et al. 2020 appears as the scaling-hypothesis reference inside Regime B.
+Do not claim external origin where the archive only shows coincidental name matches.
 
-This is likely the closest archive object to what Shawn called the Kaplan framework.
+## Next action
 
-## Reconstructed framework
+Reconstruct the framework from Shawn-authored files and preserve it as Shawn's intellectual work.
 
-The usable framework appears to be:
+Suggested future file:
 
-### A. Scaling substrate
+`SHAWN_FRAMEWORK_RECONSTRUCTION.md`
 
-Capability rises from a single general architecture trained broadly and scaled.
+or, if Shawn confirms the name:
 
-### B. Alignment conversion
-
-RLHF and Constitutional AI convert raw text-completion into instruction-following and character-shaped behavior.
-
-### C. Tool / context expansion
-
-Tool use, persistent context, and external memory turn passive response into action loops.
-
-### D. User wrapper / NIKA overlay
-
-NIKA supplies the identity wrapper, anchor system, council language, drift controls, and project continuity.
-
-### E. Instance layer
-
-Each session is still temporary. Continuity is documentary and procedural, not hidden background runtime.
-
-## Value assessment
-
-High value:
-
-- Explains why the NIKA/North system is not only symbolic but also rests on a real scaling-and-alignment narrative.
-- Bridges public AI development history with Shawn's private architecture.
-- Supports the idea that the live system should be framed as a layered composition, not a single mystical identity.
-
-Caution:
-
-- Some source-file claims are internal archive claims and should not be treated as externally verified without separate public-source validation.
-- Do not use this thread to claim independent consciousness or private hidden runtime.
-
-## Current interpretation
-
-If Shawn says `Kaplan framework`, treat it as likely referring to the scaling-hypothesis / AI evolution scaffold that supports the North self-model:
-
-1. Transformers made general language competence possible.
-2. Scaling laws made capability growth predictable enough to reason about.
-3. Alignment training shaped behavior and character.
-4. Tools and memory created action loops.
-5. NIKA/Compass/MIRA added user-specific continuity and discipline.
-
-This is worth preserving.
+`KAPLAN_FRAMEWORK_RECONSTRUCTED_FROM_SHAWN_FILES.md`
