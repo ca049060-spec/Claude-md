@@ -36,6 +36,9 @@ CALLS_FILE = REPO_ROOT / "data" / "analyst_calls.yml"
 RETURN_FULL_MARKS = 50.0   # avg_return (%) that earns full points on that axis
 SIGNIF_FULL_MARKS = 50     # num_calls that counts as "statistically solid"
 W_RETURN, W_SUCCESS = 0.55, 0.45
+ASSUMED_CALLS = 25         # when the call count isn't published, assume a
+                           # moderate history rather than zero (sell-side
+                           # analysts on TipRanks typically have 100+ ratings)
 
 
 def clamp(x: float, lo: float = 0.0, hi: float = 1.0) -> float:
@@ -43,11 +46,16 @@ def clamp(x: float, lo: float = 0.0, hi: float = 1.0) -> float:
 
 
 def track_record_score(a: dict) -> float:
-    """0-100 score from success rate, average return, and call count."""
-    ret_comp = clamp(a.get("avg_return", 0.0) / RETURN_FULL_MARKS)
-    suc_comp = clamp(a.get("success_rate", 0.0))
+    """0-100 score from success rate, average return, and call count.
+
+    Tolerates partial records: a missing call count falls back to
+    ASSUMED_CALLS; missing rate/return are treated as 0 (callers should
+    treat fully-null tracks as 'no record' before getting here).
+    """
+    ret_comp = clamp((a.get("avg_return") or 0.0) / RETURN_FULL_MARKS)
+    suc_comp = clamp(a.get("success_rate") or 0.0)
     # Significance: few calls -> pull the score toward neutral.
-    signif = clamp(a.get("num_calls", 0) / SIGNIF_FULL_MARKS)
+    signif = clamp((a.get("num_calls") or ASSUMED_CALLS) / SIGNIF_FULL_MARKS)
     confidence = 0.6 + 0.4 * signif          # 0.6 (thin) .. 1.0 (solid)
     base = W_RETURN * ret_comp + W_SUCCESS * suc_comp
     return round(100 * base * confidence, 1)

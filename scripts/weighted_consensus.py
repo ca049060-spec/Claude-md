@@ -81,7 +81,11 @@ def weigh_ticker(calls: list[dict]) -> dict:
 
     for c in calls:
         track = c.get("track")
-        if track:
+        # A usable record needs at least a real success rate or avg return;
+        # rank-only or empty records get neutral weight instead.
+        usable = bool(track) and (track.get("success_rate") is not None
+                                  or track.get("avg_return") is not None)
+        if usable:
             score = track_record_score(track)
             tracked += 1
         else:
@@ -99,7 +103,7 @@ def weigh_ticker(calls: list[dict]) -> dict:
             best = {"analyst": c.get("analyst", "?"), "firm": c.get("firm", "?"),
                     "rating": c.get("rating", "?"), "target": c.get("target"),
                     "ccy": c.get("ccy", "USD"), "score": round(score, 1),
-                    "tracked": bool(track)}
+                    "tracked": usable}
 
     wavg = num / den if den else 0.0
     # Weighted target in the most-quoted currency.

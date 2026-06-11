@@ -23,6 +23,7 @@ import yaml
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PORTFOLIO_FILE = REPO_ROOT / "data" / "portfolio.yml"
 ANALYST_FILE = REPO_ROOT / "data" / "analyst_live.yml"
+WEIGHTED_FILE = REPO_ROOT / "data" / "weighted_consensus.yml"
 
 GROWTH = 0.06
 
@@ -30,6 +31,12 @@ GROWTH = 0.06
 def load_analyst():
     if ANALYST_FILE.exists():
         return yaml.safe_load(ANALYST_FILE.read_text())
+    return None
+
+
+def load_weighted():
+    if WEIGHTED_FILE.exists():
+        return yaml.safe_load(WEIGHTED_FILE.read_text())
     return None
 
 # Colors (RGB 0-1)
@@ -277,6 +284,62 @@ def build_report(data, holdings, total) -> Path:
                "(13 buys, no holds or sells). The one soft spot is BNS - analysts rate "
                "it Hold (10 of 14). Everything else is Buy or Strong Buy.",
                9.5, "F1", INK, width=98)
+        d.gap(12)
+
+    # Quality-weighted consensus (v2 engine) + watchlist
+    wc = load_weighted()
+    if wc and wc.get("results"):
+        res = wc["results"]
+
+        def wc_table(title: str, held_flag: bool) -> None:
+            items = sorted(((t, r) for t, r in res.items()
+                            if r.get("held") == held_flag),
+                           key=lambda kv: -(kv[1].get("upside_pct") or -99))
+            if not items:
+                return
+            d.line(title, 11, "F2", INK, lead=15)
+            hdr = (f"{'TICKER':<8}{'W-RATING':<12}{'W-TARGET':>10}{'UPSIDE':>8}"
+                   f"{'TRACKED':>9}   TOP ANALYST (score)")
+            d.need(14)
+            d.pdf.text(Doc.M, d.y, 8.5, hdr, "F4", GRAY)
+            d.y -= 12
+            d.rule()
+            for t, r in items:
+                ta = r.get("top_analyst") or {}
+                tgt = (f"{r.get('target_ccy','')} {r['weighted_target']:,.0f}"
+                       if r.get("weighted_target") else "-")
+                up = r.get("upside_pct")
+                up_s = f"{up:+.0f}%" if up is not None else "-"
+                lbl = r.get("weighted_label", "?")
+                col = GREEN if "Buy" in lbl else (RED if "Sell" in lbl else GRAY)
+                left = f"{t:<8}"
+                d.need(12)
+                d.pdf.text(Doc.M, d.y, 8.5, left, "F3", INK)
+                d.pdf.text(Doc.M + 8 * 5.1, d.y, 8.5, f"{lbl:<12}", "F3", col)
+                d.pdf.text(Doc.M + 20 * 5.1, d.y, 8.5,
+                           f"{tgt:>10}{up_s:>8}"
+                           f"{str(r.get('num_tracked',0))+'/'+str(r.get('num_calls',0)):>9}"
+                           f"   {ta.get('analyst','?')} ({ta.get('score','?')})",
+                           "F3", INK)
+                d.y -= 12
+            d.gap(10)
+
+        d.line("Quality-weighted consensus (v2 engine)", 13, "F2", BLUE, lead=15)
+        d.para("Each analyst's vote is weighted by their measured track record "
+               "(win rate, average return, history depth) - a proven analyst "
+               "moves the needle more than an unproven one. TRACKED = calls "
+               "with verified records / total calls. Model validated by "
+               "synthetic sanity tests (scripts/test_engine.py).",
+               8.5, "F1", GRAY, width=108)
+        d.gap(6)
+        wc_table("Your holdings - weighted view", True)
+        wc_table("Watchlist candidates - weighted view", False)
+        d.para("Key deltas vs raw consensus: MDA's weighted target is roughly "
+               "FLAT to its price (the #26-ranked analyst targets C$58, below "
+               "market) despite a unanimous raw Strong Buy - supports holding, "
+               "not adding. NOW carries the widest disagreement (targets $85 "
+               "to $236, incl. one Sell). BWXT, VRT, DHR and ETN show the "
+               "strongest track-record-backed upside.", 9.5, "F1", INK, width=98)
         d.gap(12)
 
     # Fee opportunity
