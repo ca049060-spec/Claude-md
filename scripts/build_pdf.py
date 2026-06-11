@@ -22,8 +22,15 @@ import yaml
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PORTFOLIO_FILE = REPO_ROOT / "data" / "portfolio.yml"
+ANALYST_FILE = REPO_ROOT / "data" / "analyst_live.yml"
 
 GROWTH = 0.06
+
+
+def load_analyst():
+    if ANALYST_FILE.exists():
+        return yaml.safe_load(ANALYST_FILE.read_text())
+    return None
 
 # Colors (RGB 0-1)
 INK = (0.10, 0.13, 0.20)
@@ -239,6 +246,38 @@ def build_report(data, holdings, total) -> Path:
                    GREEN if h["gain"] >= 0 else RED)
         d.y -= 12
     d.gap(12)
+
+    # Analyst consensus (live)
+    alive = load_analyst()
+    if alive:
+        ratings = alive.get("ratings", {})
+        wmap = {h["symbol"]: h["weight"] for h in holdings}
+        d.line("Analyst consensus (live)", 13, "F2", BLUE, lead=15)
+        d.line(f"pulled {alive.get('as_of', '')} from public aggregators - consensus "
+               f"is reliable; targets are approximate", 8, "F1", GRAY, lead=14)
+        hdr3 = f"{'TICKER':<8}{'WT%':>5}   {'CONSENSUS':<13}{'BUY/HOLD/SELL':<17}{'AVG TGT':>10}"
+        d.need(14)
+        d.pdf.text(Doc.M, d.y, 8.5, hdr3, "F4", GRAY)
+        d.y -= 12
+        d.rule()
+        for sym, r in sorted(ratings.items(), key=lambda kv: -wmap.get(kv[0], 0)):
+            cons = r.get("consensus", "")
+            col = GREEN if "Buy" in cons else (RED if "Sell" in cons else GRAY)
+            tgt = r.get("target")
+            tgt_s = f"{r.get('ccy', '')} {tgt:,}" if tgt else "-"
+            left = f"{sym:<8}{wmap.get(sym, 0):>4.1f}   "
+            d.need(12)
+            d.pdf.text(Doc.M, d.y, 8.5, left, "F3", INK)
+            d.pdf.text(Doc.M + len(left) * cw, d.y, 8.5, f"{cons:<13}", "F3", col)
+            d.pdf.text(Doc.M + (len(left) + 13) * cw, d.y, 8.5,
+                       f"{r.get('bhs', ''):<17}{tgt_s:>10}", "F3", INK)
+            d.y -= 12
+        d.gap(6)
+        d.para("Takeaway: your largest stock, MDA (~10%), has a unanimous Strong Buy "
+               "(13 buys, no holds or sells). The one soft spot is BNS - analysts rate "
+               "it Hold (10 of 14). Everything else is Buy or Strong Buy.",
+               9.5, "F1", INK, width=98)
+        d.gap(12)
 
     # Fee opportunity
     d.line("The fee opportunity", 13, "F2", BLUE, lead=18)
