@@ -30,6 +30,8 @@ STEPS = [
     ("Dashboard",               "build_dashboard.py",    "dashboard.html"),
     ("Cash studio",             "build_studio.py",       "studio.html"),
     ("Research brief",          "build_brief.py",        "brief.html"),
+    ("Plan (one page)",          "build_plan.py",         "plan.html"),
+    ("Master allocation",        "build_master.py",       "master.html"),
     ("Report + advisor PDFs",   "build_pdf.py",          "report.pdf / advisor_sheet.pdf"),
 ]
 
