@@ -24,10 +24,15 @@ def sv(sym):  # statement value of a held stock in CAD
     return 0.0
 
 # TARGET end-state buckets (synthesis — see etf_core.yml / deployment_plan.yml)
+# REVISED after live-data pass: cash cut from ~20% to ~9% (locked-till-55 +
+# external income = sequence risk is near-zero, so stay invested); freed cash
+# goes into the global ETF core. HISA yield fell to ~1.8% so reserve sits in
+# CBIL (T-bills). Healthcare ETF dropped — redundant w/ ~11% healthcare already
+# inside VFV/XAW. Values are MAY 31 STATEMENT $ (his actual book); see NOW flag.
 buckets = [
     ("Conviction / Forever", "#0fa86e", [
-        ("MDA",  sv("MDA"),  "HOLD — never trim"),
-        ("NOW",  sv("NOW"),  "HOLD"),
+        ("MDA",  sv("MDA"),  "HOLD — never trim (live ~C$57, above C$55 rung)"),
+        ("NOW",  sv("NOW"),  "HOLD — ⚠ verify statement value vs market"),
         ("BWXT", sv("BWXT"), "HOLD — forever"),
         ("ASML", sv("ASML")+12000, "ADD +$12K (upsize monopoly)"),
         ("TSM",  8000, "NEW — buy now"),
@@ -40,19 +45,17 @@ buckets = [
         ("BNS", sv("BNS"), "TRIM candidate (only Hold)"),
     ]),
     ("Global ETF core (from funds)", "#9b6dff", [
-        ("XAW", 55000, "NEW — all-world ex-Canada"),
-        ("VFV", 30000, "NEW — S&P 500"),
-        ("XHC", 15000, "NEW — healthcare gap"),
+        ("XAW", 105000, "NEW — all-world ex-Canada (0.22%)"),
+        ("VFV", 60000,  "NEW — S&P 500 (0.09%); covers healthcare too"),
     ]),
     ("Defensive sleeve (from funds)", "#e0a800", [
-        ("CASH.TO", 25000, "NEW — ~4% yield cushion"),
-        ("XSB", 25000, "NEW — short bonds"),
+        ("XSB", 50000, "NEW — short bonds (0.10%), rate-resilient"),
+    ]),
+    ("Cash reserve / dip ammo", "#7a8699", [
+        ("CBIL", 48000, "T-bill ETF (0.10%) — dip + FOMC ammo, ~9%"),
     ]),
     ("Speculative", "#e0526a", [
         ("BEAM", 3000, "lottery ≤1%"),
-    ]),
-    ("Deployable reserve", "#7a8699", [
-        ("CASH.TO (parked)", 112700, "~4% yield — layer dips & FOMC ammo"),
     ]),
 ]
 
@@ -104,10 +107,12 @@ tr:last-child td{{border-bottom:none}}.r{{text-align:right;font-variant-numeric:
 <div class=bar>{bar}</div>
 <div class=legend>{legend}</div>
 {sections}
-<div class=note>Target end-state, not yet executed. Sequence: fee switch → ETF core lands →
-layer conviction from reserve. Reserve is intentionally high (~20%) right now: pre-FOMC + post
-red-team patience; it earns ~4% and draws down as names are added on dips. Decision-support only —
-not financial advice. You own every decision.</div>
+<div class=note><b>Revised after live-data check (Jun 13).</b> Cash cut from ~20% to ~9%:
+this LIRA is locked till age 55 and you have outside income, so near-term sequence risk is ~0 —
+stay invested, don't hoard cash (HISA now yields only ~1.8%). Values are May-31 statement dollars
+(your actual book). ⚠ NOW's statement value looks inconsistent with the live market price — verify
+the line with EJ. Target end-state, not yet executed: fee switch → ETF core lands → layer conviction
+on dips. Decision-support only, not financial advice. You own every decision.</div>
 </div></body></html>"""
 OUT.write_text(html)
 print(f"Wrote {OUT} — total {money(total)}")
