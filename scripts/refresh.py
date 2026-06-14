@@ -23,6 +23,7 @@ SCRIPTS = ROOT / "scripts"
 STEPS = [
     ("Model self-tests",        "test_engine.py",        None),
     ("Edge scorecard",          "scorecard.py",          None),
+    ("VACS engine",             "vacs.py",               None),
     ("Weighted consensus (v2)", "weighted_consensus.py", "data/weighted_consensus.yml"),
     ("Analyst track scores",    "analyst_scoring.py",    None),
     ("Portfolio review",        "portfolio_review.py",   None),
