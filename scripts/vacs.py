@@ -29,6 +29,15 @@ ACTIVE_PILLARS = {"nuclear_smr", "space", "defense", "ai_physical", "copper", "r
 BWXT_BENCHMARK = 4.42
 STALENESS_DAYS = 7
 
+# Spec's formal rejections register — KILL on sight unless force_rescore
+# (a documented material change). Prevents re-researching dead names.
+REJECTIONS = {"ASML", "PLTR", "MOD", "VRT", "OKLO", "AVAV", "KTOS", "CCJ",
+              "NXE", "IVN", "JOBY", "ACHR", "NNOX", "BE"}
+
+# Statement-verified holdings (holdings_vs_candidates_rule). Everything else
+# scored is a CANDIDATE, never a holding, until it's on a brokerage statement.
+HOLDINGS = {"MDA", "BWXT", "NOW", "TD", "BNS", "ENB", "TRP", "MFC", "ASML"}
+
 
 def score_obj(value, source, evidence="", state="PROPOSED"):
     return {"value": value, "source": source, "provenance_state": state,
@@ -76,6 +85,12 @@ def evaluate(c: dict) -> dict:
             r["flags"].append(f"STALE as_of_date (> {STALENESS_DAYS}d) — gate may be invalid")
     except Exception:
         pass
+
+    # Rejections register — don't re-research dead names (unless material change)
+    if c["ticker"] in REJECTIONS and not c.get("force_rescore"):
+        r["status"] = "ALREADY_REJECTED"
+        r["line"] = f"{c['ticker']} — Already rejected (register). Needs documented material change to re-run."
+        return r
 
     cap = float(c["market_cap"]); ccy = c["currency"]
     caph, tgth = gate_target(cap, ccy)
@@ -151,23 +166,65 @@ def render(r: dict) -> str:
     return "\n".join(out)
 
 
+def tag(t):
+    return " [HELD]" if t in HOLDINGS else ""
+
+
 def main() -> None:
     if not CAND.exists():
         sys.exit(f"Missing {CAND}")
     cands = yaml.safe_load(CAND.read_text()).get("candidates", [])
     results = [evaluate(c) for c in cands]
-    print(f"\n{'='*60}\n  VACS ENGINE — {len([r for r in results if r['status']=='SCORED'])} scored / {len(results)} candidates\n{'='*60}\n")
-    demotions = 0
-    for r in results:
-        print(render(r)); print()
-        if r["status"] in ("GATE_FAIL", "WRONG_PILLAR") or \
-           (r["status"] == "SCORED" and r["composite"] < 3.5):
-            demotions += 1
-    # confirmation-trap monitor
-    scored = [r for r in results if r["status"] == "SCORED"]
+    scored = sorted([r for r in results if r["status"] == "SCORED"],
+                    key=lambda x: -x["composite"])
+    quality = [r for r in results if r.get("escape_hatch_used")]
+    killed = [r for r in results if r["status"] in
+              ("GATE_FAIL", "WRONG_PILLAR", "ALREADY_REJECTED", "ETF_EXPRESSION")
+              and not r.get("escape_hatch_used")]
+
+    print(f"\n{'='*66}\n  VACS RANKED BOARD — {len(scored)} contenders / {len(results)} screened\n{'='*66}")
+
+    # --- THE RANKED TOP-20 CONTENDERS ---
+    print("\n  RANK  TICKER        VACS   CLASSIFICATION")
+    print("  " + "-" * 60)
+    for i, r in enumerate(scored, 1):
+        top20 = r["composite"] >= 4.0 and "barred" not in r["classification"]
+        mark = "★" if top20 else " "
+        print(f"  {mark}{i:<4}{r['ticker']+tag(r['ticker']):<14}{r['composite']:<6.2f} {r['classification']}")
+        for f in r.get("flags", []):
+            if "forced" in f or "HARD-CAP" in f or "EXCEEDS" in f:
+                print(f"        ⚠ {f}")
+
+    # --- QUALITY COMPOUNDERS (gate-failed, kept via escape hatch) ---
+    if quality:
+        print("\n  QUALITY COMPOUNDERS — too big to 20x; NOT Top-20 asymmetric bets")
+        print("  " + "-" * 60)
+        for r in quality:
+            print(f"     {r['ticker']+tag(r['ticker']):<14}{r['gate_math']}  (escape hatch)")
+
+    # --- KILLED ---
+    if killed:
+        print("\n  KILLED / SCREENED OUT")
+        print("  " + "-" * 60)
+        for r in killed:
+            reason = {"GATE_FAIL": "gate fail", "WRONG_PILLAR": "wrong pillar",
+                      "ALREADY_REJECTED": "already rejected", "ETF_EXPRESSION": "ETF"}[r["status"]]
+            print(f"     {r['ticker']+tag(r['ticker']):<14}{reason}")
+
+    # --- confirmation-trap monitor ---
+    demotions = len([r for r in scored if r["composite"] < 3.5]) + len(killed) + len(quality)
+    print("\n  " + "-" * 60)
     if scored and demotions == 0:
-        print("⚠ BATCH WARNING: zero demotions — confirmation-trap risk. Re-hunt disconfirming evidence.")
-    print("\nPROPOSED until you ratify. Not financial advice.")
+        print("  ⚠ ZERO demotions — confirmation-trap risk. Re-hunt disconfirming evidence.")
+    else:
+        print(f"  ✓ {demotions} demotions/kills this cycle (spec wants >=1).")
+    confirmed = [r for r in scored if r["composite"] >= 4.0 and "barred" not in r["classification"]]
+    print(f"  ★ Top-20 Confirmed: {len(confirmed)}  ({', '.join(r['ticker'] for r in confirmed) or 'none yet'})")
+    print("\n  All scores PROPOSED until Shawn ratifies. [HELD]=on a statement. Not advice.")
+
+
+if __name__ == "__main__":
+    main()
 
 
 if __name__ == "__main__":
