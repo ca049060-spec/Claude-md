@@ -28,3 +28,6 @@ plan.html
 data/backtest_2026h1.yml
 data/decision_journal.yml
 data/vacs_candidates.yml
+data/state_yesterday.json
+data/daily_log.yml
+daily_brief.html
