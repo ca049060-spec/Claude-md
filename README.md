@@ -21,7 +21,7 @@ README verbatim, so feel free to use **bold**, _italics_, lists, etc.
 
 ### 📰 Latest News
 
-- [Surge in AI-related court cases fuels calls for China to clarify its laws - South China Morning Post](https://news.google.com/rss/articles/CBMivAFBVV95cUxPdmw5Q0NfUFZrV0FsaE1ZbW9FTGoxMm1CVzRlX3QwRTBjQjZBZzUtb1dCMkxxWHJ0TEpPa0xPa2hnNmZRUGN4NVVaVThUdS1QQ2dqS2RUV1JGbHM0WjFtaHdUUzhfb3Vnb3Z2c3l6TzB5ZjFGdkJMZWdEVzljdllKX0FDekNhX0FLWlRTV2Z6UDdNcExWS2Q3cEhmSEpzRm9QV1dDM1hLbUgzMW42Zm5XQUtMTk8yTlNOUHI2MdIBvAFBVV95cUxPeGNGYjlGYW9KejdPWm44YW9nWDBGUHhWZm9NZVNyQXRaTUluWEdqQTd5RjZiSmdoY3lMSTVob0ItdUJ4MmlNZWU2aE12aDNXZUFXQzBzcW1LeVJ0N1FFa1lveGp3Z1hXZGFtai00b2EzMUZOWUFYcFRud19Eb3UyeVhZb2paazZMUVplZkNSam9WOUFCbWtTSENjWGgydVFTcUJPeFBIOUYtd0ljajZzZXlodklXbHBYUHRkbg?oc=5) — _South China Morning Post · 2026-06-14_
+- [Trump tried to block state AI regulations, but some states are forging ahead - The Washington Post](https://news.google.com/rss/articles/CBMi1wFBVV95cUxOOWo5b2xBQ1lSZ3RxS0JnRE9wQS10NWhGT0hUdVdualQxM0U4ZzM4dWk0Mmd4ZTVGVVJNSnhWVmdSVkhLQ25PUUVfTi1nbkt1SHJDVkRfUjU2RHBUcUhNOTZOaUJFX2hwRElBTVlHbmRIYWdiRVk0X1NCU3pjT0UtUE5BNkE5MlJOblNXNHdxQlhiMk1WUkt6d25ZSm9COFNuNktQZ0NaWTJqYTYxcGlYR1B3bHJ1WjVsblNjRk9CWW5UalpKY3RmUTFkaXJ0WTBxY2dzX3FPaw?oc=5) — _The Washington Post · 2026-06-14_
 - [Trump Administration Reignites Its Feud With Anthropic Over Latest A.I. Models - The New York Times](https://news.google.com/rss/articles/CBMigwFBVV95cUxOWVhzZDAxRnI0OHVIdjk0TDI4UTBsLWN6Mi1ZU2tjZVZtTnNYQ1I2bl81elRjbWtxQTIwSkxSNzhlOGw0YVQ3WVlGYjYwWk1PVVNLS0hjczN5OEVqQXAzNHRheWxJMU8tbnZQTDFxM202ZnNJVC1Oby1zcVQtRk95NWsybw?oc=5) — _The New York Times · 2026-06-14_
 - [A GOP revolt over AI is taking shape - Politico](https://news.google.com/rss/articles/CBMiuAFBVV95cUxNVE81aFNhWUxBT3gybVRXVzFjQTROTjZYbnFFaWdKR2pDVFdLYVpCTmRWZkNQZHNqdDB0WHJFTklDUWp5T1BpenZYYVZIVFVUQ1A4d2E4dXlCX0F1SmRqamc1MEE1LUVRTWd5S2ZMMVIyNXlmbFlyM3B4RzNselo2ZHVpbFFkUTdMenczWFZleUFFSFUwQWxMOE9YUW5DWm9EYmR6SlNHWUJaNHFabWhvZk5qbDM2T2k2?oc=5) — _Politico · 2026-06-13_
 - [Derbyshire police officer investigated over AI-generated ‘evidential material’ - The Guardian](https://news.google.com/rss/articles/CBMiuAFBVV95cUxQbGZ3ZzZ1eTZxRnlPQ1VqOHEyWG5QcjJqVW5BYi1jU1dmVWk2R25WeTByWklYTWVCZ1R2Z3dOVDVZMlJLYXhnTFF6OFg0a2ZkM081NThtY3p2VFp1NFdHQk1QWjhSQVFPOXRFQ2hfenA2a09tQlhYZ0JHSWlFaW5OaFRJS1ZyWmd4cGYzRmtILWZSaHlUVmlfRUQ5S3c0REdfdXJWT1VFcXlFMjlqdjVVRzN0RlNZY0Mz?oc=5) — _The Guardian · 2026-06-12_
@@ -34,6 +34,6 @@ README verbatim, so feel free to use **bold**, _italics_, lists, etc.
 
 
 ---
-_Profile auto-updated on **2026-06-14 04:23 UTC**._
+_Profile auto-updated on **2026-06-14 09:40 UTC**._
 
 <!-- END AUTO-GENERATED -->
