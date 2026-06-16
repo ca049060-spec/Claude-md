@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Prospective Signal Review",
+  "type": "object",
+  "required": [
+    "signal_id",
+    "review_date",
+    "reviewer",
+    "outcome_summary",
+    "accuracy_result",
+    "baseline_comparison",
+    "notes"
+  ],
+  "properties": {
+    "signal_id": {"type": "string"},
+    "review_date": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+    "reviewer": {"type": "string"},
+    "outcome_summary": {"type": "string"},
+    "accuracy_result": {"enum": ["useful", "wrong", "mixed", "untestable"]},
+    "baseline_comparison": {
+      "type": "object",
+      "properties": {
+        "majority_class": {"type": "string"},
+        "always_watch": {"type": "string"},
+        "source_quality_only": {"type": "string"},
+        "actionability_only": {"type": "string"},
+        "resonance_added_value": {"type": "boolean"}
+      }
+    },
+    "what_was_right": {"type": "string"},
+    "what_was_wrong": {"type": "string"},
+    "model_change_recommendation": {"type": "string"},
+    "notes": {"type": "string"}
+  }
+}
