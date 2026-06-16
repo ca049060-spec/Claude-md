@@ -29,6 +29,7 @@ STEPS = [
     ("Portfolio review",        "portfolio_review.py",   None),
     ("Fee + performance",       "fee_and_performance.py", None),
     ("Fee-switch plan",         "fee_switch_plan.py",    None),
+    ("Fund alpha vs benchmark", "fund_alpha.py",         None),
     ("Dashboard",               "build_dashboard.py",    "dashboard.html"),
     ("Cash studio",             "build_studio.py",       "studio.html"),
     ("Research brief",          "build_brief.py",        "brief.html"),
