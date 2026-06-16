@@ -1,0 +1,12 @@
+{
+  "name": "shawn-core",
+  "version": "0.1.0",
+  "description": "Private ShawnOS plugin pack for Claude Code: skills, agents, schemas, and governance for legal/MTO, EBS, Seals Go Pro, VACS+, commitments, and joy.",
+  "author": "Shawn Piasentin + AI assistants",
+  "privacy": "No private source data; reusable operating system only.",
+  "skills_path": ".claude/skills",
+  "agents_path": ".claude/agents",
+  "schemas_path": "schemas",
+  "entrypoint": "CLAUDE.md",
+  "status": "draft-local-package"
+}
