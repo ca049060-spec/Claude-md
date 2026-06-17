@@ -173,16 +173,100 @@ The project carries its own meta-rules, learned the hard way:
 
 ---
 
-## 10. Current state and next action
+## 10. Current state and next action (as of 2026-06-17)
 
-- **Status:** Resonance Web at **Phase 5.3, dashboard-ready.** Completed phases are marked `do_not_repeat`.
-- **The honest next step is NOT to build more.** It is to **wait** and **review the open prospective signals on 2026-08-15 / 2026-09-14** (filling real sources first), then run the baseline comparison on that blind, reviewed set.
-- **Decision criterion:** *If the Resonance Web does not beat baselines on blind cases, keep the cascade/distortion rankings as a teaching tool and stop calling it a predictor.*
-- Open engineering housekeeping: five feature branches (`phase-1` … `phase-4-1`) remain unmerged and unpushed, pending your go-ahead.
+The canonical source of truth is `shawn-core/docs/RESONANCE_CURRENT_STATE.md` ("Read this FIRST… Do not rebuild completed phases"). Its state as of this writing:
+
+- **Status:** Resonance Web at **Phase 5.3, `dashboard_ready: yes`.** Phases **4, 4.1, 5, 5.1, 5.2, 5.3** are marked **`do_not_repeat`.** Phase 6 (dashboard) is unlocked but **optional**.
+- **Live prospective signals:** four — **PS-06 (GPU capex), PS-07 (commercial real estate), PS-08 (cyber), PS-09 (housing)** — are **source-verified and passed** the current-source gate. The earlier placeholders **PS-01…05 expired.**
+- **Honest status, unchanged:** **not a proven predictor.** Zero reviewed cases; in-sample it only **ties a one-feature source-quality baseline (p = 0.43)**; forecast value is **untested until the review.**
+- **`next_single_action`: nothing is required until 2026-08-15** — then run `review_matured_signals.py` + `compare_to_baselines.py` (the no-hindsight registry review follows on 2026-09-14).
+- **Decision criterion:** *if the Resonance Web does not beat baselines on blind cases, keep the cascade/distortion rankings as a teaching tool and stop calling it a predictor.*
+- **Engineering housekeeping:** five feature branches (`feature/resonance-web-phase-1` … `phase-4-1`) remain **unmerged and unpushed**, pending your go-ahead.
 
 ---
 
-## 11. Glossary
+## 11. The 2026 instrument ecosystem {#ecosystem}
+
+By mid-2026 the web model is not a lone artifact but the **apex layer of a family of sibling instruments**, each occupying a different altitude of the same "sense → decide" pipeline. The Resonance Web is canonical; the others are subordinate sensors and validators that feed or test it.
+
+| Instrument | Altitude / role | Relationship to the web model | Status (2026-06-17) |
+|---|---|---|---|
+| **Resonance Web** | Decision engine (signal → disposition) | **Canonical.** The matured framework. | Phase 5.3, dashboard-ready |
+| **Spider Web radar** | Macro market-data sensor (14 threads) | **Subordinate** sensor under Resonance; produces `tension_index.csv` falsifiable market calls. *Not* a rival framework. | 4 threads live; reconciled 2026-06-17 |
+| **Market Radar** | Ticker-level retail-sentiment + catalyst dashboard | One altitude **below** Spider Web; scored call-log on `last30days`. | Live |
+| **Quantum Radar** | Quantum-investing deep-dive (12 names) | Sibling vertical radar. | Built 2026-06-14; **both schedules disabled 2026-06-16** |
+| **Pulse Engine** | Self-curating multi-source watchlist (~109 seed names) | Upstream discovery feed. | Iteration 0 working 2026-06-16 |
+| **Predictor Scoreboard** | External-forecaster validation | The **honesty counterweight**: scores real pundits so the model is benchmarked against verified human skill. | Methodology validated 2026-06-16 |
+
+**The Predictor Scoreboard deserves special note** because it embodies the model's validation ethic. Run over **242 dated calls**, with a deliberately strict methodology (90-day horizon, market-adjusted vs SPY, signed, equal-weighted, half-split stability test, and — the subtle catch — benchmarked against the **+7.13% "mention-universe" selection-bias floor**, not just SPY), it found exactly **one** verified human predictor: **Stan Wong (Stockchase)** — 123 calls, **69.1% hit rate at 90 days, p < 0.0005**, stable across both halves of the window, with edge concentrated in short discipline. One aggregator panel **failed** (49.6%, a coin-flip whose apparent edge was a regime flip — "that flip *is* the noise signature"). This is the same standard the Resonance Web holds itself to in §8: *beat the right baseline on out-of-sample data, or don't claim skill.*
+
+---
+
+## 12. Code cross-reference — doc ↔ code linkage {#code-linkage}
+
+This section makes the document **linkable to the codebase in both directions.** The canonical engine lives in the `shawn-core` working tree (and operational scripts under `nika/`); it is not yet pushed to GitHub, so the references below are **stable logical paths** rather than URLs. Two linking conventions are defined:
+
+- **Doc → code:** the table maps each model concept (and its section anchor) to the concrete file, script, skill, config, or branch that implements it.
+- **Code → doc:** each major section above carries a stable anchor (e.g. `#ecosystem`, `#code-linkage`); source files can reference them as `The_Resonance_Web_Model.md#<anchor>` in comments or docstrings. Recommended anchors to cite from code: `#code-linkage`, `#ecosystem`, plus the section numbers in §5 (threads), §7.1 (math core), §7.2 (phases), §8 (status), §10 (current state).
+
+### 12.1 Canonical engine & state
+
+| Concept (doc) | Code artifact |
+|---|---|
+| Source of truth / current state (§10) | `shawn-core/docs/RESONANCE_CURRENT_STATE.md` |
+| Math core — R/D/L/C/A/P (§7.1) | `shawn-core/scripts/resonance_core.py` |
+| Frozen priors + calibrated thresholds | `shawn-core/configs/resonance_weights_v0.4.json` |
+| Signal-sorting skill (six dispositions, §7) | `~/.claude/skills/resonance-web-map/` (source in `shawn-core`) |
+| Live prospective signal scoring (§10) | `shawn-core/scripts/score_live_signal.py PS-06` |
+| Scheduled review (2026-08-15) | `shawn-core/scripts/review_matured_signals.py` + `compare_to_baselines.py` |
+
+### 12.2 Phase backtests → branches
+
+| Phase (doc §7.2) | Branch / commit | Run command |
+|---|---|---|
+| Phase 1 — backtest spine | `feature/resonance-web-phase-1` (a67e449) | `python shawn-core/scripts/run_resonance_backtest.py` |
+| Phase 2 — cascade layer | `feature/resonance-web-phase-2` (ed45908) | `python shawn-core/scripts/run_resonance_cascade.py` |
+| Phase 3 — global cascade atlas | `feature/resonance-web-phase-3-global-atlas` (7021ea3) | `python shawn-core/scripts/run_global_event_backtest.py` |
+| Phase 4 — math core & calibration | `feature/resonance-web-phase-4-math-core` (f7e4396) | `python shawn-core/scripts/run_resonance_holdout_eval.py` |
+| Phase 4.1 — no-hindsight repair | `feature/resonance-web-phase-4-1-no-hindsight-repair` (c140414) | `python shawn-core/scripts/score_live_signal.py PS-06` |
+
+*(All five branches are currently unmerged and unpushed — see §10.)*
+
+### 12.3 Spider Web radar (subordinate sensor, §11)
+
+| Concept | Code artifact |
+|---|---|
+| Radar home | `nika/spider_web/` |
+| Build spec / thread sequence | `nika/spider_web/SPIDER_WEB.md` |
+| Falsifiable market-call log | `nika/spider_web/tension_index.csv` |
+| Daily briefing surface | `nika/spider_web/briefings/latest.md` |
+| Schedules | `SpiderWebWeekly` (Sun 18:00) + `SpiderWebBreakIn` (daily 08:30) |
+| Data connectors | FRED CSV, Yahoo Finance, `last30days` plugin, EIA |
+
+### 12.4 Sibling instruments (§11)
+
+| Instrument | Code location |
+|---|---|
+| Market Radar | `C:\Users\spias\market_radar\` (scored `call_log.csv`) |
+| Quantum Radar | `nika/quantum_radar/reports/latest.html` (schedules `QuantumRadarWeekly` / `QuantumRadarBreakIn`, disabled) |
+| Pulse Engine | `C:\Users\spias\pulse_engine\` |
+| Predictor Scoreboard | `C:\Users\spias\scoreboard_backtest\` (`02_score.py`, `03_diagnose.py`, `scoreboard_results.csv`) |
+
+### 12.5 Origin material (provenance, §2–§3)
+
+| Item | Location |
+|---|---|
+| Per-conversation ChatGPT archive (1,101 files, Nov 2023 → Oct 2025) | `nika/index/chatgpt_synthesized/` (`_INDEX.md` for chronological list) |
+| May-2025 spider-web capture | `nika/index/chatgpt_synthesized/2025-05-08_681d14db_cognitive_radar_framework_prep.md` |
+| Cognitive Radar artifact (Apr/Oct 2025) | `Cognitive_Radar_Daily_Watchlist_Scanner.pdf` (Drive) |
+| Unified local search (5,474+ docs) | `python nika/index/query.py "term"` |
+
+> **To wire this up concretely:** once `shawn-core` (and/or `nika`) is pushed to GitHub, the logical paths in §12.1–§12.5 become clickable links by prefixing the repo blob URL, and code files can back-link to this document's anchors (§12 intro). If you want, I can also emit a machine-readable `resonance_web.linkmap.json` mapping each anchor ↔ code path so tooling can resolve the cross-links automatically.
+
+---
+
+## 13. Glossary
 
 - **Thread** — one input domain feeding the web (14 total).
 - **Vibration / Signal** — an event arriving on a thread.
@@ -197,7 +281,7 @@ The project carries its own meta-rules, learned the hard way:
 
 ---
 
-## 12. Source register
+## 14. Source register
 
 This document was reconstructed from the following canonical files in the author's Google Drive (folder ID `1xQHQZUIhgXjB2t9vjvg2q1WEvptISe-e`), all owned by shawn@nikaaihome.net:
 
@@ -206,6 +290,8 @@ This document was reconstructed from the following canonical files in the author
 | `project_resonance_web.md` (modified 2026-06-17) | Canonical current form; phase history; honest status. |
 | `project_spider_web.md` (modified 2026-06-17) | 14-thread architecture; Spider's-Brain methodology; the verbatim May-2025 metaphor. |
 | `feedback_read_canon_first.md` (2026-06-17) | Governance: lineage, canonical-vs-parallel, read-the-canon rule. |
+| `MEMORY.md` (index, updated 2026-06-17) | Canonical current-state pointers; instrument ecosystem; code paths. |
+| `project_predictor_scoreboard.md` (2026-06-16) | Validation ethic; Stan Wong; the mention-universe baseline. |
 | `feedback_elaboration_over_action.md` | Governance: the elaboration trap. |
 | `Cognitive_Radar_Daily_Watchlist_Scanner.pdf` (2025-10) | Cognitive Radar stage artifact. |
 | Original ChatGPT conversation archive (2024 `*_threads.json` exports) | The 2024 interest-rate-cascade seed intuition. |
