@@ -20,9 +20,11 @@ Over two years this intuition was formalized in three named stages — **Cogniti
 
 Most everyday reasoning about cause and effect is **linear and first-order**: *X causes Y.* Raise rates, cool inflation. Linear reasoning fails in complex social and economic systems because effects do not stop at Y. They continue: Y reshapes Z, Z feeds back on X, and the most consequential outcomes are often the **indirect** ones that no single actor intended and few anticipated.
 
-The author's foundational example (as originally framed in ChatGPT, 2024):
+The author's foundational illustration (as he recalls and described it in 2026):
 
 > A rise in **interest rates** reduces **borrowing power**. With borrowing constrained, **expensive projects** — construction, infrastructure, capital expansion — can no longer secure financing. Those projects are **delayed or shelved**. That delay **cascades**: contractors lose work, suppliers lose orders, hiring freezes, dependent businesses contract, regional tax bases soften, and confidence falls — which feeds back into still weaker investment. A single first-order move (the rate change) thus produces a **fan of second- and third-order effects that ripple across society.**
+
+> **Provenance caveat.** This interest-rate cascade is the author's own **recalled** framing of the idea's seed. It was **not located verbatim** in the recovered 2025-05-08 origin thread, where the model is articulated instead as *vibration/convergence across threads* in an investing context (§3). The cascade articulation may live in an earlier (2024) or later export not yet retrieved. It is kept here as a faithful **illustration of the model's logic** — higher-order effects propagating through a connected system — not as a sourced quotation.
 
 The model's purpose is to make that fan of consequences **explicit, traceable, and — eventually — testable**: to see one or two steps further down the causal chain than ordinary reasoning does, and to convert that foresight into a disciplined judgment about whether to **act, watch, investigate, or wait.**
 
@@ -34,29 +36,45 @@ The model is not a single invention but an **evolving lineage**. Preserving the 
 
 | Stage | Date | What it was |
 |---|---|---|
-| **Interest-rate cascade intuition** | early 2024 | The seed idea, developed in ChatGPT: society as an interconnected web; shocks propagate in higher-order ripples. The interest-rate→borrowing→stalled-projects chain is the canonical worked example. |
-| **Cognitive Radar** | Apr 2025 | First named framework: a watchlist/scanner that treats incoming events as signals to be triaged. (Artifact: *Cognitive Radar Daily Watchlist Scanner*.) |
-| **Spider Web metaphor** | May 8 2025 | The unifying image, drafted with the *Astra*/ChatGPT persona: **you are the spider; the threads are input domains; a vibration on any thread is a signal; convergence of vibrations on multiple threads triggers action.** |
+| **Interest-rate cascade intuition** | recalled as early | The seed idea as the author describes it: society as an interconnected web; shocks propagate in higher-order ripples; interest-rate→borrowing→stalled-projects as the worked example. *Author's recollection — not found verbatim in the recovered 2025-05-08 origin thread (see §1 caveat).* |
+| **Cognitive Radar** | 2025 | The "Cognitive Radar" label is crystallized in the **title** of the 2025-05-08 thread (*"Cognitive Radar: Instinct-Fused Stock Rotation Engine"*); canon dates a Cognitive-Radar precursor to ~Apr 2025. Artifact: *Cognitive Radar Daily Watchlist Scanner* (PDF, Oct 2025). |
+| **Spider Web metaphor** | **2025-05-08** | The unifying image, **verbatim-sourced** from the thread *"Cognitive Radar Framework Prep"* (273 msgs), drafted with the AI persona **Astra**: you are the spider; feeders/threads are input domains; a vibration on any thread is a signal; convergence triggers action (§3). |
 | **Resonance Web Model** | 2026 | The matured, canonical form. Formal signal-sorting (six dispositions), a quantitative cascade/distortion math core (R/D/L/C/A/P), phased backtests, and a "dashboard-ready" engineering state (Phase 5.3). |
 
 > **Note on parallel artifacts.** In June 2026 a working "Spider Web" macro radar (`nika/spider_web/`) was built as a market-data sensor. It was subsequently **reconciled as a subordinate component** of the canonical Resonance Web — explicitly *not* a rival framework. This document treats the **Resonance Web as canonical** and the Spider-Web radar as one instrument under it.
 
 ---
 
-## 3. The founding metaphor (Shawn's words, May 2025)
+## 3. The founding metaphor (Shawn's own words, 2025-05-08)
 
-The model's central image, quoted verbatim from the May 2025 source:
+The model's central image is recorded **verbatim** in the ChatGPT thread **"Cognitive Radar Framework Prep"** (2025-05-08, 273 messages) — the dated origin of the spider-web theory, developed with the AI partner Shawn named **"Astra."** After rejecting the AI's earlier flowchart attempts, Shawn dictated the model in his own words (informal phrasing preserved):
 
-> *"it's like a spider web, right? Your decision, anyone, there could be main feeders… it's got this big web of things going out there. When something hits somewhere on its web, it could be news cycle, it could be something else that triggers it into action."*
+> *"…it's like a spider web, right? Your decision, anyone, there could be main feeders, right? So that's like major news event driven things, um, it could be sentiment building, uh, you could have… catalyst events, and they all come together like a web, and like a spider does, right? It's got this big web of things going out there. When something hits somewhere on its web, it could be news cycle, it could be something else that triggers it in action, and you have a predefined set of things that you'll do. … So, just like a fly would hit, and the spider goes to it, it just feels that one string going into the web could be that information that we're tuning to. … you get my image around the web. I think that's actually a really good one."*
 
-This compresses the entire architecture into one picture:
+Just before it, he introduced the intake side of the model — the **"feeders"**:
 
-- **You = the spider.** The observer/decision-maker sits at the center.
-- **Threads = input domains.** Each thread is a channel through which information about the world arrives (markets, policy, geopolitics, sentiment, etc.).
-- **Vibration = a signal.** An event "hits" a thread — a news cycle, a data release, a price move.
-- **Multi-thread convergence = the action trigger.** A single vibration is noise; **simultaneous vibration across several threads** is what the spider reacts to.
+> *"there should be information feeders. So where do you get the information from? You have to think of it as how you take in information, right? … You keep sequences, sentences, and you take the past data to predict the future. Then you normalize the data."*
 
-The design goal that follows from the metaphor: be a **mid-curve signal interceptor** — one to three steps ahead of the retail crowd, just behind "smart money" — and a **pressure-convergence detector, not a point-forecaster.** The model does not try to predict a number; it tries to detect when tension is building across enough of the web to warrant a response.
+And he named the model's purpose — not prediction, but **getting there first**:
+
+> *"this isn't me playing like predicting the future it's about me getting in the head between you know before most of the retail investors get in. … I'll be lucky if I catch one or two waves in my whole career before they happen."*
+
+Astra (the AI) then crystallized the structure back to him — the formulation the whole system still rests on:
+
+> *"You're constructing a **sensory network** — like a **spider's web of signal threads** … You're not reacting to* data *— you're reacting to* vibration*. … **You = the spider / The web = your interconnected data environment / Each thread = a different input domain.**"*
+
+— and gave it its first project name, ***"The Spider Web Signal Engine v0.1."*** The chat's own title, *"Cognitive Radar: Instinct-Fused Stock Rotation Engine,"* is where the **Cognitive Radar** label enters the lineage.
+
+The metaphor compresses the entire architecture into one picture:
+
+- **You = the spider.** The decision-maker sits at the center.
+- **Feeders / threads = input domains.** Channels through which information arrives (news, sentiment, catalysts, institutional flow, …).
+- **Vibration = a signal.** An event "hits" a thread.
+- **Convergence = the action trigger.** A single vibration is noise; *simultaneous* vibration across several threads is what the spider moves on — against a **predefined set of responses**.
+
+The design goal that follows: be a **mid-curve signal interceptor** — ahead of the retail crowd, just behind smart money — a **pressure-convergence detector, not a point-forecaster**: to *feel the string before the fly even knows it's caught.*
+
+> **Sourcing note.** Every quote in this section is Shawn's or Astra's verbatim text from the 2025-05-08 origin thread (recovered from the raw ChatGPT export `2025-05-08_threads.json`). In that origin conversation the model is framed as **vibration/convergence across threads in an investing context** — see §1 for how this relates to the interest-rate "cascade" framing.
 
 ---
 
@@ -294,10 +312,10 @@ This document was reconstructed from the following canonical files in the author
 | `project_predictor_scoreboard.md` (2026-06-16) | Validation ethic; Stan Wong; the mention-universe baseline. |
 | `feedback_elaboration_over_action.md` | Governance: the elaboration trap. |
 | `Cognitive_Radar_Daily_Watchlist_Scanner.pdf` (2025-10) | Cognitive Radar stage artifact. |
-| Original ChatGPT conversation archive (2024 `*_threads.json` exports) | The 2024 interest-rate-cascade seed intuition. |
-| `nika/index/chatgpt_synthesized/2025-05-08_…_cognitive_radar_framework_prep.md` (referenced; in `shawn-core` repo) | The May-2025 source the metaphor was captured from. |
+| **`2025-05-08_threads.json` → thread *"Cognitive Radar Framework Prep"*** (Drive, raw ChatGPT export) | **Verbatim origin** of the spider-web metaphor, the "feeders," the "catch the vibration first" purpose, and the *Astra* persona (§3). |
+| ChatGPT export archive, 2024 `*_threads.json` | Possible home of the earlier interest-rate-cascade framing — **searched but not yet located** (see §1 caveat). |
 
-> **Provenance note.** The May-2025 spider-web passage in §3 is quoted verbatim from the source. The 2024 interest-rate cascade in §1/§2 is reconstructed from the author's own description of the original ChatGPT work and is presented as illustration, not as a verbatim transcript quote. All engineering states, phase results, and the honest validation status in §7–§10 are taken directly from the canonical project memories and are reported without embellishment.
+> **Provenance note.** The spider-web passages in §3 are quoted **verbatim** from the 2025-05-08 origin thread (raw ChatGPT export). The interest-rate cascade in §1/§2 is the author's **recalled** illustration; it was **searched for and not located** in that origin thread (which frames the model as vibration/convergence in an investing context), so it is presented as illustration of the model's logic, not as a sourced quotation — it may live in a 2024 or later export not yet retrieved. All engineering states, phase results, and the honest validation status in §7–§10 are taken directly from the canonical project memories and reported without embellishment.
 
 ---
 
