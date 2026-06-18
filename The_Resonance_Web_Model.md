@@ -179,6 +179,20 @@ A defining feature of this work is its refusal to overclaim. The canonical statu
 
 The honest verdict: this is a **rigorously-built instrument with a genuine validation gap.** Its current proven value is as a **teaching tool and a ranking lens** (cascade / distortion / actionability rankings), and as a **falsifiable market-tension log** — not as a demonstrated oracle.
 
+### 8.1 Validation verdict — 2026-06-18 (supersedes the status above)
+
+A pre-registered validation campaign (ordered after the prompt *"is this the best work?"*) settled the model's empirical standing — more negatively and more honestly than the phase backtests:
+
+- **A 52-node "bigger web"** was built and measured (10 domain factors from rich sub-nodes + a monetary spine, 2007–2026), with an interactive explorer (`reports/resonance_web.html`).
+- **Retraction.** An initial "significant" result (PCMCI+ **p = 0.006**) was **falsified** by a pre-registered 2×2 (`rw_decompose.py`): all four cells null (p 0.31–0.40); the 0.006 was a construction artifact of one PC1-factor representation. A confirmation-bias audit (*"you've been proving the model"*) triggered the retraction.
+- **Hardened backtest v3.1** residualized every domain against **four** common factors — market, rates, dollar, and the **business cycle (payrolls)** — train-fit (no lookahead), then required two methods (marginal lead-lag + PCMCI+ causal discovery), both OOS-gated, to converge. **Verdict: 0 validated foresight and 0 validated connections.** The earlier "29 co-moves / Housing↔Supply r = 0.89" was the business cycle; it dies under the 4th control plus an independent proxy.
+- **One candidate, not validated:** Energy → Consumer-sentiment, ~1-month lag, r ≈ −0.30 (PCMCI+ only; textbook oil→sentiment mechanism). Amber/dashed, **do-not-trade**, a watch-item for the 2026-08-15 review.
+- **Convergent cross-check** against a ground-truth set of **44 known historical cascades (1973–2024, 231 steps):** the web recovers *same-month connection/contagion* (AUC ≈ 0.66) but lead-lag is the **weakest** method (0/41 survive OOS).
+
+**Current canonical bottom line:** the Resonance Web is best understood as a **same-month connection/contagion map, not a lead-lag predictor** — and even that is provisional until the 2026-08-15 prospective review. The robust results are the **nulls**; the validation loop is **deliberately disabled** (the campaign converged — continuing it would be the "proving-bias" trap).
+
+> Sources (master, `shawn-core/`): `reports/VALIDATION_VERDICT.md`, `VALIDATION_LOOP.md`, `docs/RESONANCE_BACKTEST.md`, `reports/CASCADE_CAUSATION_VERDICT.md`, `datasets/historical_cascades.json`; branch `feature/resonance-web-phase-7a`.
+
 ---
 
 ## 9. Governance and discipline
