@@ -25,8 +25,9 @@ CAD_FUNDS = [
     ("Franklin Royce Gbl SmCap Prem A", "TML707",   1414.1788, 25896.02, 29.752, 42074.65),
     ("Mackenzie Cdn Equity Sr A",       "MFC2946",  1229.483,  25523.45, 49.559, 60931.95),
 ]
-# Money market + cash (Canadian sleeve)
-CAD_MM   = ("EVF High Interest Savings A", "EVF", 8670, 86700.00, 10.00, 86700.00)
+# Money market + cash (Canadian sleeve). Statement showed $86,700; Shawn withdrew
+# ~$33,973 from it to fund the off-statement trades below, so it's now ~$52,727.
+CAD_MM   = ("EVF High Interest Savings A (after ~$34k pulled for trades)", "EVF", 5272.7, 52727.00, 10.00, 52727.00)
 CAD_CASH = 140.46
 
 # U.S. sleeve (USD) -- name, ticker, shares, total_acb, ej_price, ej_market_value
@@ -126,7 +127,7 @@ gv=ws.cell(r,8,gtot); gv.number_format=moneyc; gv.font=Font(bold=True, color=GRE
 r+=2
 ties=[
     "✅ Ties to your statements: CAD sleeve $462,954.20 + US sleeve US$65,520.32. The verified rows match your EJ PDF exactly.",
-    "➕ Off-statement adds (your numbers, earliest given): MDA +100 sh; Rocket Lab 165 sh @ $103 (~$17k, you recalled $10-15k — confirm); Beam 100 sh @ $30 = $3k. Not on the May PDF — send your RRSP/other statement to verify.",
+    "➕ Off-statement adds (your earliest numbers): MDA +100; Rocket Lab 165 @ $103; Beam 100 @ $30 = $3k. PAID FROM your $86,700 savings (not new money) — so savings is reduced ~$34k above to avoid double-counting. Net total stays ~$555K.",
     "ℹ️ Statement prices are May 31. Off-statement prices are approximate current marks. I'll lock live prices once you confirm the baseline.",
 ]
 for n in ties:
