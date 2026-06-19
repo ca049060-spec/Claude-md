@@ -37,6 +37,15 @@ US_STOCKS = [
 ]
 US_CASH = 13.47
 
+# Holdings NOT on the May 31 statements -- Shawn's recent adds / other account.
+# Numbers are the EARLIEST figures Shawn gave (per his instruction). Prices approx.
+# name, ticker, shares, cost/sh, currency, approx_current_price
+OFF_STMT = [
+    ("MDA Space (added +100)",  "MDA",  100,   57.80, "CAD",   57.80),
+    ("Rocket Lab",              "RKLB", 165,  103.00, "USD",  104.00),
+    ("Beam Therapeutics",       "BEAM", 100,   30.00, "USD",   32.00),
+]
+
 wb = openpyxl.Workbook(); ws = wb.active; ws.title = "LIRA"
 NAVY="1F3A5F"; LBLUE="D6E4F0"; GREEN="0A7A4F"; RED="C0392B"
 wfont=Font(color="FFFFFF", bold=True)
@@ -89,6 +98,11 @@ for n,tk,sh,acb,p,mv in CAD_FUNDS: row(n,tk,sh,acb,p,mv,1.0)
 section("🇺🇸 U.S. STOCKS (shown in USD, converted at 1.41)")
 for n,tk,sh,acb,p,mv in US_STOCKS: row(n,tk,sh,acb,p,mv,USDCAD)
 
+section("➕ YOUR ADDS / OFF-STATEMENT (not on the May PDF — confirm)")
+for n,tk,sh,cps,cur,px in OFF_STMT:
+    fx = 1.0 if cur=="CAD" else USDCAD
+    row(n, tk, sh, cps*sh, px, px*sh, fx)
+
 # Cash lines
 r+=1; ws.cell(r,1,"Cash (CAD sleeve)"); ws.cell(r,7,CAD_CASH).number_format=moneyc
 grand_cad+=CAD_CASH; grand_cost_cad+=CAD_CASH
@@ -111,9 +125,9 @@ gv=ws.cell(r,8,gtot); gv.number_format=moneyc; gv.font=Font(bold=True, color=GRE
 # Verify ties
 r+=2
 ties=[
-    "✅ Ties to your statements: CAD sleeve $462,954.20 + US sleeve US$65,520.32. Every line above matches your EJ PDF.",
-    "⚠️ NOT in these statements: Rocket Lab (RKLB) and Beam (BEAM). If you own them, they're in your RRSP or Canadian Investment account — send me that statement and I'll add them.",
-    "ℹ️ Prices are May 31 statement prices. Since then MDA is ~$57.80 (down from $61.48), ASML up. I anchor to the statement so you can verify; I'll layer live prices once you trust this baseline.",
+    "✅ Ties to your statements: CAD sleeve $462,954.20 + US sleeve US$65,520.32. The verified rows match your EJ PDF exactly.",
+    "➕ Off-statement adds (your numbers, earliest given): MDA +100 sh; Rocket Lab 165 sh @ $103 (~$17k, you recalled $10-15k — confirm); Beam 100 sh @ $30 = $3k. Not on the May PDF — send your RRSP/other statement to verify.",
+    "ℹ️ Statement prices are May 31. Off-statement prices are approximate current marks. I'll lock live prices once you confirm the baseline.",
 ]
 for n in ties:
     ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=8)
