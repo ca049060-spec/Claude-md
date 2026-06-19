@@ -6,24 +6,24 @@ import openpyxl
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
 
-USDCAD = 1.40
+USDCAD = 1.41
 
 # ticker, name, shares, cost_per_share, price_now, currency
 HOLD = [
     ("CAD", [
-        ("MDA",  "MDA Space",            1000, 45.08,  52.16),
+        ("MDA",  "MDA Space",            1000, 45.08,  57.80),
         ("TD",   "TD Bank",               200, 49.19, 167.45),
-        ("MFC",  "Manulife",              500, 16.50,  56.97),
-        ("TRP",  "TC Energy",             250, 48.72,  95.73),
-        ("ENB",  "Enbridge",              275, 50.74,  75.92),
-        ("BNS",  "Bank of Nova Scotia",   180, 70.61, 121.84),
+        ("MFC",  "Manulife",              500, 16.50,  57.54),
+        ("TRP",  "TC Energy",             250, 48.72,  96.25),
+        ("ENB",  "Enbridge",              275, 50.74,  76.40),
+        ("BNS",  "Bank of Nova Scotia",   180, 70.61, 123.03),
     ]),
     ("USD", [
-        ("BWXT", "BWX Technologies",      125, 199.28, 206.00),
-        ("NOW",  "ServiceNow (confirm cost)", 265, 94.86, 95.48),
-        ("ASML", "ASML Holding",            5, 1381.65, 1867.83),
-        ("RKLB", "Rocket Lab",            165, 103.00, 101.27),
-        ("BEAM", "Beam Therapeutics",     100, 30.00,  32.48),
+        ("BWXT", "BWX Technologies",      125, 199.28, 203.07),
+        ("NOW",  "ServiceNow (CONFIRM shares+price!)", 265, 94.86, 124.37),
+        ("ASML", "ASML Holding",            5, 1381.65, 1929.68),
+        ("RKLB", "Rocket Lab",            165, 103.00, 106.20),
+        ("BEAM", "Beam Therapeutics",     100, 30.00,  32.50),
     ]),
 ]
 CASH = 55140.0
@@ -50,7 +50,7 @@ c.font = Font(bold=True, size=16, color="FFFFFF"); c.fill = hdr_fill
 c.alignment = Alignment(horizontal="left", vertical="center")
 ws.row_dimensions[1].height = 28
 ws.merge_cells("A2:H2")
-ws["A2"] = "Prices Jun 17-18 2026 · USD converted at 1.40 · cost basis from your EJ statement (confirm)"
+ws["A2"] = "Prices Jun 19 2026 · USD converted at 1.41 · cost basis from your EJ statement (confirm)"
 ws["A2"].font = Font(italic=True, size=9, color="666666")
 
 headers = ["Holding","Ticker","Shares","Cost/sh","Price now","Value (native)","Value CAD","Gain/Loss CAD"]
@@ -107,9 +107,9 @@ gv.font = Font(bold=True, color=GREEN if gain_total >= 0 else RED)
 # Notes
 r += 2
 notes = [
-    "✅ ServiceNow: the old $124 'value' was a 5-for-1 stock split, not a glitch — $95 is correct. My earlier 'hidden $200K' flag was WRONG. Corrected here.",
-    "⚠️ Cost basis comes from your EJ statement. You said ServiceNow cost is lower than $94.86 — overwrite cell D? with your real cost and the gain updates.",
-    "RKLB is now slightly RED (bought ~$103, now ~$101). MDA price is Jun 12 (latest confirmed).",
+    "⚠️ ServiceNow UNRESOLVED: statement shows ~$124/sh but live feed shows ~$908/sh. NOT confirmed. Need your actual share count + EJ line value — this can swing the total $200K+.",
+    "⚠️ Cost basis comes from your EJ statement. If a cost/sh is wrong, overwrite the Cost/sh cell with your real number and the gain updates.",
+    "MDA at $57.80 per your read. RKLB ~breakeven. Prices Jun 19 2026.",
 ]
 for n in notes:
     ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=8)
