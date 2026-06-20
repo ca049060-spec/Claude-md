@@ -1,0 +1,84 @@
+[
+  {
+    "id": "psig-20260616-ai-generated-content-flood",
+    "title": "AI-generated content is flooding search results, social feeds, and low-quality websites",
+    "registration_date": "2026-06-16",
+    "review_date": "2026-08-15",
+    "status": "open",
+    "information_cutoff": "2026-06-16",
+    "primary_domain": "Information quality / media",
+    "secondary_domains": [
+      "Technology / AI",
+      "Social media / narrative systems",
+      "Trust / institutions",
+      "Labour / workplace",
+      "Search / discovery"
+    ],
+    "first_visible_signal": "Recent public reporting and research show AI-generated summaries, AI slop, synthetic-content recursion, and generative search are affecting search, social feeds, software workflows, liability risk, and source quality.",
+    "public_sources_available_at_cutoff": [
+      {
+        "title": "Reuters: Google to appeal German ruling on liability for AI Overviews false claims",
+        "date": "2026-06-12",
+        "url": "https://www.reuters.com/world/google-appeal-german-court-ruling-assigning-liability-ai-overviews-false-claims-2026-06-12/",
+        "why_it_matters": "Shows AI-generated search summaries have live legal/liability consequences."
+      },
+      {
+        "title": "WIRED: Fake podcasts and AI-generated content used for search-engine manipulation",
+        "date": "2026-06-11",
+        "url": "https://www.wired.com/story/drug-sites-hijacked-spotifys-search-ranking-through-fake-podcasts-report-finds",
+        "why_it_matters": "Shows scalable synthetic content being used to manipulate search/discovery systems."
+      },
+      {
+        "title": "arXiv: How Generative AI Disrupts Search",
+        "date": "2026-04-30",
+        "url": "https://arxiv.org/abs/2604.27790",
+        "why_it_matters": "Empirical study of how AI Overviews/generative search change sources, rankings, and consistency."
+      },
+      {
+        "title": "arXiv: How Bad is Training on Synthetic Data?",
+        "date": "2024-04-07",
+        "url": "https://arxiv.org/abs/2404.05090",
+        "why_it_matters": "Supports AI recursion/model-collapse concern when synthetic data replaces real data."
+      },
+      {
+        "title": "arXiv: Data Voids and Warning Banners on Google Search",
+        "date": "2025-02-24",
+        "url": "https://arxiv.org/abs/2502.17542",
+        "why_it_matters": "Supports the search-quality/data-void part of the signal."
+      }
+    ],
+    "feature_scores": {
+      "source_quality": 0.76,
+      "amplification_velocity": 0.74,
+      "reinforcement_breadth": 0.78,
+      "incentive_alignment": 0.86,
+      "emotional_charge": 0.56,
+      "distortion_risk": 0.84,
+      "actionability": 0.58,
+      "time_delay": 0.62,
+      "ai_recursion": 0.88,
+      "narrative_velocity": 0.82,
+      "trust_fragility": 0.76
+    },
+    "unknown_features": [
+      "cross_domain_reach",
+      "second_order_potential",
+      "institutional_response_lag",
+      "policy_sensitivity",
+      "cascade_potential"
+    ],
+    "prediction_label": "act_watch",
+    "confidence": 0.57,
+    "bounded_action": "For the next 60 days, treat AI/web-quality claims as real but not catastrophic: prefer primary sources, record source dates, avoid relying on unsourced AI summaries, and watch for legal, search-ranking, publisher-traffic, and platform-policy evidence.",
+    "one_thing_not_to_do": "Do not convert this into a total 'the web is dead' conclusion or assume every AI-mediated result is corrupted.",
+    "what_would_change_label": {
+      "toward_act": "Reliable evidence that search quality, publisher economics, legal liability, or workplace productivity is materially worsening and requires immediate policy/process change.",
+      "toward_watch": "Evidence that platforms are successfully filtering AI slop, protecting source diversity, and maintaining reliable search quality.",
+      "toward_pause": "Signal becomes mostly emotional/conspiratorial with weak sources and no concrete action."
+    },
+    "expected_review_question": "By the review date, did new evidence show measurable degradation in search/source quality, increased legal/platform response, or expanded synthetic-content manipulation beyond normal spam/noise?",
+    "later_outcome": null,
+    "review_notes": "Frozen prospective signal registered from public sources available at cutoff. Future-dependent cascade fields intentionally left unknown.",
+    "accuracy_result": "pending"
+  }
+]

@@ -1,0 +1,44 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Your profile data + news settings.
+# Edit THIS file — README.md is generated automatically from it by the action.
+# Run locally with:  python scripts/update_profile.py
+# ─────────────────────────────────────────────────────────────────────────────
+
+profile:
+  name: "Your Name"
+  tagline: "Short one-line bio / what you do"
+  location: "City, Country"
+  # Optional links — leave blank ("") to hide a row.
+  links:
+    github: "https://github.com/your-username"
+    website: ""
+    email: "ca049060@gmail.com"
+    twitter: ""
+    linkedin: ""
+
+  # Free-form "About me" markdown. Supports normal markdown.
+  about: |
+    Write a paragraph or two about yourself here. This text is copied into the
+    README verbatim, so feel free to use **bold**, _italics_, lists, etc.
+
+  # Short bullet list of current focus / what you're working on.
+  now:
+    - "Building something cool"
+    - "Learning something new"
+
+# News keywords/topics to track. The action searches each one and shows the
+# most recent headlines. Add/remove freely.
+news:
+  topics:
+    - "artificial intelligence"
+    - "open source software"
+    - "GitHub"
+  # Max headlines to show per topic.
+  per_topic: 4
+  # Combine all topics into one ranked list (true) or group by topic (false).
+  merge: true
+  # Total headlines cap when merge: true.
+  max_total: 10
+  # Language / region for Google News (hl/gl/ceid).
+  language: "en-US"
+  country: "US"

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ShawnOS Commitment",
+  "type": "object",
+  "required": ["created", "lane", "commitment", "owner", "due", "status"],
+  "properties": {
+    "created": {"type": "string", "format": "date"},
+    "lane": {"type": "string"},
+    "commitment": {"type": "string"},
+    "owner": {"type": "string"},
+    "due": {"type": "string", "format": "date"},
+    "status": {"enum": ["open", "waiting", "done", "cancelled", "blocked"]},
+    "external_proof": {"type": "string"},
+    "notes": {"type": "string"}
+  }
+}

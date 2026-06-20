@@ -1,0 +1,56 @@
+name: Update profile
+
+# Keeps README.md fresh: re-renders your profile and pulls the latest news.
+on:
+  # Real-time-ish: run every 6 hours.
+  schedule:
+    - cron: "0 */6 * * *"
+  # Manual run from the Actions tab.
+  workflow_dispatch:
+  # Re-render whenever you change your profile data or the generator.
+  push:
+    branches: [main]
+    paths:
+      - "profile.yml"
+      - "scripts/update_profile.py"
+      - ".github/workflows/update-profile.yml"
+
+# Allow the workflow to push the regenerated README back to the repo.
+permissions:
+  contents: write
+
+# Don't pile up overlapping scheduled runs.
+concurrency:
+  group: update-profile
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Render profile
+        run: python scripts/update_profile.py
+
+      - name: Commit changes
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- README.md; then
+            echo "No changes to README.md."
+          else
+            git add README.md
+            git commit -m "chore: auto-update profile + news"
+            git push
+          fi
