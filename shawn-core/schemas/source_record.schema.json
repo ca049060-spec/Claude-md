@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Source Record",
+  "type": "object",
+  "required": ["claim", "source", "reliability", "lane"],
+  "properties": {
+    "lane": {"type": "string"},
+    "claim": {"type": "string"},
+    "source": {"type": "string"},
+    "reliability": {"enum": ["green_primary", "corroborated", "caution", "excluded", "unknown"]},
+    "risk": {"type": "string"},
+    "open_item": {"type": "string"}
+  }
+}

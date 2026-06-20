@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Skill Proposal",
+  "type": "object",
+  "required": ["name", "use_when", "value", "risk", "recommendation"],
+  "properties": {
+    "name": {"type": "string"},
+    "use_when": {"type": "string"},
+    "files_read": {"type": "array", "items": {"type": "string"}},
+    "connectors_needed": {"type": "array", "items": {"type": "string"}},
+    "value": {"enum": ["low", "medium", "high", "critical"]},
+    "risk": {"enum": ["low", "medium", "high"]},
+    "scope": {"enum": ["personal", "project", "plugin"]},
+    "recommendation": {"enum": ["build", "wait", "delete"]}
+  }
+}
