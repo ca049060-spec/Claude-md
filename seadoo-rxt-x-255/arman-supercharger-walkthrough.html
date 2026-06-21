@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sea-Doo RXT-X 255 — 100-Hour Service — A Walkthrough for Arman</title>
+<style>
+  @page {
+    size: 108mm 192mm;   /* phone 9:16-ish — one "slide" per page */
+    margin: 0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:    #0f0f0f;
+    --card:  #1c1c1f;
+    --card2: #26262b;
+    --line:  #34343a;
+    --red:   #ff3b30;
+    --red2:  #ff5a4d;
+    --txt:   #f4f4f5;
+    --mut:   #a7a7ad;
+    --grn:   #34d27b;
+    --amber: #ffce4d;
+  }
+
+  html { font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+  body { background: var(--bg); color: var(--txt); -webkit-font-smoothing: antialiased; }
+
+  .slide {
+    width: 108mm;
+    min-height: 192mm;
+    padding: 8mm 7mm 7mm 7mm;
+    background: var(--bg);
+    page-break-after: always;
+    break-after: page;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .slide:last-child { page-break-after: auto; break-after: auto; }
+
+  /* top "video chrome" bar */
+  .chrome {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 8.5pt; color: var(--mut);
+    margin-bottom: 9px;
+  }
+  .chrome .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--red); display: inline-block; }
+  .chrome .ch { margin-left: auto; letter-spacing: .04em; }
+
+  .kicker {
+    font-size: 8pt; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--red2); font-weight: 700; margin-bottom: 6px;
+  }
+  h1 { font-size: 22pt; line-height: 1.08; letter-spacing: -.01em; }
+  h2 { font-size: 16.5pt; line-height: 1.12; letter-spacing: -.01em; margin-bottom: 4px; }
+  h3 { font-size: 11pt; }
+  p  { font-size: 10.5pt; line-height: 1.5; color: var(--txt); }
+  .mut { color: var(--mut); }
+  .small { font-size: 9pt; line-height: 1.45; color: var(--mut); }
+
+  .spacer { flex: 1; }
+
+  /* progress bar like a video scrubber */
+  .scrub { margin-top: 12px; }
+  .scrub .bar { height: 4px; background: #2a2a2e; border-radius: 4px; overflow: hidden; }
+  .scrub .fill { height: 4px; background: var(--red); border-radius: 4px; }
+  .scrub .meta { display: flex; justify-content: space-between; font-size: 7.5pt; color: var(--mut); margin-top: 5px; }
+
+  .card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; padding: 11px 12px; margin-top: 9px;
+  }
+  .card.tight { padding: 9px 11px; }
+
+  .row { display: flex; align-items: center; gap: 9px; }
+  .row + .row { margin-top: 8px; }
+
+  .badge {
+    display: inline-block; background: rgba(255,59,48,.14); color: var(--red2);
+    border: 1px solid rgba(255,59,48,.35);
+    font-size: 8pt; font-weight: 700; letter-spacing: .04em;
+    padding: 3px 8px; border-radius: 999px;
+  }
+  .badge.grn { background: rgba(52,210,123,.14); color: var(--grn); border-color: rgba(52,210,123,.35); }
+  .badge.amb { background: rgba(255,206,77,.14); color: var(--amber); border-color: rgba(255,206,77,.35); }
+
+  .num {
+    flex: 0 0 auto; width: 22px; height: 22px; border-radius: 50%;
+    background: var(--red); color: #fff; font-weight: 700; font-size: 9.5pt;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ico {
+    flex: 0 0 auto; width: 30px; height: 30px; border-radius: 9px;
+    background: var(--card2); border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center; font-size: 14pt;
+  }
+
+  ul.clean { list-style: none; }
+  ul.clean li { font-size: 10pt; line-height: 1.5; padding-left: 17px; position: relative; margin-top: 6px; }
+  ul.clean li:before { content: "▸"; color: var(--red2); position: absolute; left: 0; top: 0; }
+
+  .specgrid { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 4px; }
+  .spec { flex: 1 1 44%; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 8px 9px; }
+  .spec .k { font-size: 7.5pt; text-transform: uppercase; letter-spacing: .08em; color: var(--mut); }
+  .spec .v { font-size: 11.5pt; font-weight: 700; margin-top: 2px; }
+
+  .play {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: var(--red); display: flex; align-items: center; justify-content: center;
+    margin: 0 auto;
+  }
+  .play .tri { width: 0; height: 0; border-left: 22px solid #fff; border-top: 13px solid transparent; border-bottom: 13px solid transparent; margin-left: 5px; }
+
+  .hero-ski { display: block; margin: 6px auto 2px; }
+
+  .pill-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .pill { font-size: 8.5pt; color: var(--mut); background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 4px 9px; }
+
+  .callout { border-left: 3px solid var(--red); background: var(--card); border-radius: 0 10px 10px 0; padding: 9px 11px; margin-top: 9px; }
+  .callout.grn { border-left-color: var(--grn); }
+
+  .foot { font-size: 8pt; color: var(--mut); margin-top: 10px; }
+  .sig { font-size: 10pt; color: var(--txt); }
+  .sig b { color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- ============ SLIDE 1 — TITLE / THUMBNAIL ============ -->
+<section class="slide" style="justify-content:center; text-align:center;">
+  <div class="chrome"><span class="dot"></span> NOW PLAYING <span class="ch">CH&nbsp;1 / 10</span></div>
+  <div class="spacer"></div>
+  <div class="kicker" style="text-align:center;">2008 Sea-Doo · RXT-X 255</div>
+  <h1>The 100-Hour<br>Service</h1>
+  <p class="mut" style="margin-top:10px;">What it needs, what it takes,<br>and how we'll get it done.</p>
+
+  <!-- simple jet-ski silhouette -->
+  <svg class="hero-ski" width="180" height="74" viewBox="0 0 180 74" fill="none">
+    <path d="M10 50 C 30 38, 70 30, 120 32 C 150 33, 170 40, 174 48 C 176 54, 168 58, 150 58 L 36 58 C 18 58, 8 56, 10 50 Z" fill="#26262b" stroke="#ff3b30" stroke-width="2"/>
+    <path d="M60 33 C 70 20, 96 18, 110 26 L 104 33 Z" fill="#1c1c1f" stroke="#34343a" stroke-width="1.5"/>
+    <rect x="78" y="22" width="26" height="9" rx="3" fill="#0f0f0f" stroke="#34343a"/>
+    <path d="M150 58 C 162 62, 172 64, 178 62" stroke="#a7a7ad" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M150 64 C 162 68, 172 70, 178 68" stroke="#34343a" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </svg>
+
+  <div class="play" style="margin-top:14px;"><div class="tri"></div></div>
+  <div class="spacer"></div>
+  <p class="small" style="text-align:center;">A quick walkthrough for <b style="color:#fff;">Arman</b><br>from Shawn (Marcus's buddy)</p>
+</section>
+
+<!-- ============ SLIDE 2 — HEY ARMAN ============ -->
+<section class="slide">
+  <div class="chrome"><span class="dot"></span> INTRO <span class="ch">CH&nbsp;2 / 10</span></div>
+  <div class="kicker">Hey Arman</div>
+  <h2>Thanks for taking a look at this thing.</h2>
+  <div class="card">
+    <p>Marcus put us in touch — I really appreciate you helping me out.</p>
+  </div>
+  <div class="card">
+    <p>My ski just rolled past <b>100 hours</b>, and it's flagging the one big scheduled service these Sea-Doos need at that mark.</p>
+  </div>
+  <div class="card">
+    <p>This little walkthrough lays out exactly what it is, what you'd need, and roughly how long it takes — so there are no surprises. You're the pro here; this is just me handing you the full picture up front.</p>
+  </div>
+  <div class="spacer"></div>
+  <div class="callout grn">
+    <p class="small" style="color:#f4f4f5;"><b>The short version:</b> it's a supercharger rebuild. I buy the kit, ship it to you, and drop the ski off. Details on the next slides →</p>
+  </div>
+  <div class="scrub"><div class="bar"><div class="fill" style="width:20%"></div></div>
+    <div class="meta"><span>0:18</span><span>The rundown</span><span>2:00</span></div></div>
+</section>
+
+<!-- ============ SLIDE 3 — MEET THE SKI ============ -->
+<section class="slide">
+  <div class="chrome"><span class="dot"></span> THE PATIENT <span class="ch">CH&nbsp;3 / 10</span></div>
+  <div class="kicker">Meet the ski</div>
+  <h2>2008 Sea-Doo RXT-X 255</h2>
+  <p class="small">Top-of-the-line Sea-Doo for '08 — the supercharged "musclecraft."</p>
+  <div class="specgrid">
+    <div class="spec"><div class="k">Engine</div><div class="v">Rotax 1503 4-TEC</div></div>
+    <div class="spec"><div class="k">Power</div><div class="v">255 HP · S/C</div></div>
+    <div class="spec"><div class="k">Supercharger</div><div class="v">16-tooth, intercooled</div></div>
+    <div class="spec"><div class="k">Hours</div><div class="v">~100 hrs</div></div>
+  </div>
+  <div class="card">
+    <div class="row"><div class="ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#ff5a4d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div><div><h3>Why this one matters</h3><p class="small" style="margin-top:2px;">'08 was the first year Sea-Doo went to <b style="color:#f4f4f5;">metal clutch washers</b> in the supercharger — better than the old ceramic ones, but they still wear and are on a service clock.</p></div></div>
+  </div>
+  <div class="pill-row">
+    <span class="pill">3-seater</span>
+    <span class="pill">~67 mph stock</span>
+    <span class="pill">Supercharged</span>
+  </div>
+  <div class="spacer"></div>
+  <div class="scrub"><div class="bar"><div class="fill" style="width:30%"></div></div>
+    <div class="meta"><span>0:30</span><span>What it is</span><span>2:00</span></div></div>
+</section>
+
+<!-- ============ SLIDE 4 — THE ONE JOB ============ -->
+<section class="slide">
+  <div class="chrome"><span class="dot"></span> THE JOB <span class="ch">CH&nbsp;4 / 10</span></div>
+  <div class="kicker">The one thing it needs</div>
+  <h2>Supercharger rebuild</h2>
+  <span class="badge">100-HOUR SERVICE · DUE NOW</span>
+  <div class="card">
+    <p>At <b>100 hours (or 2 years)</b> the supercharger gets a rebuild: new <b>clutch washers, bearings, seals,</b> and shaft hardware from the kit.</p>
+  </div>
+  <div class="callout">
+    <p class="small" style="color:#f4f4f5;"><b>Why it's not optional:</b> as the clutch washers wear, the clutch starts to slip. Left too long, it can shed metal/debris <i>into the engine</i> — which turns a ~$400 job into a new motor. The plastic bearing cages also get brittle with heat cycles over time, which is the "2-year" half of the rule.</p>
+  </div>
+  <div class="spacer"></div>
+  <p class="small">Bottom line: it's the single most important scheduled service on these skis — and mine's right at the line.</p>
+  <div class="scrub"><div class="bar"><div class="fill" style="width:40%"></div></div>
+    <div class="meta"><span>0:48</span><span>The fix</span><span>2:00</span></div></div>
+</section>
+
+<!-- ============ SLIDE 5 — HOW THIS WORKS / THE PLAN ============ -->
+<section class="slide">
+  <div class="chrome"><span class="dot"></span> THE PLAN <span class="ch">CH&nbsp;5 / 10</span></div>
+  <div class="kicker">How this works</div>
+  <h2>Dead simple on your end</h2>
+  <div class="card tight"><div class="row"><div class="num">1</div><div><h3>I order the kit</h3><p class="small" style="margin-top:1px;">OEM Sea-Doo rebuild kit — I buy it and ship it straight to your shop.</p></div></div></div>
+  <div class="card tight"><div class="row"><div class="num">2</div><div><h3>I drop the ski off</h3><p class="small" style="margin-top:1px;">On the trailer, whenever works for you. Kit's already there waiting.</p></div></div></div>
+  <div class="card tight"><div class="row"><div class="num">3</div><div><h3>You do the rebuild</h3><p class="small" style="margin-top:1px;">Pull the S/C, rebuild it on the bench, reinstall, quick test.</p></div></div></div>
+  <div class="card tight"><div class="row"><div class="num">4</div><div><h3>I pick it up</h3><p class="small" style="margin-top:1px;">We square up on your time, and I'm out of your hair.</p></div></div></div>
+  <div class="spacer"></div>
+  <div class="callout grn"><p class="small" style="color:#f4f4f5;">You don't have to source a single part — just bring the wrenches.</p></div>
+  <div class="scrub"><div class="bar"><div class="fill" style="width:50%"></div></div>
+    <div class="meta"><span>1:00</span><span>The plan</span><span>2:00</span></div></div>
+</section>
+
+<!-- ============ SLIDE 6 — THE KIT ============ -->
+<section class="slide">
+  <div class="chrome"><span class="dot"></span> THE PARTS <span class="ch">CH&nbsp;6 / 10</span></div>
+  <div class="kicker">The kit — already handled</div>
+  <h2>OEM supercharger rebuild kit</h2>
+  <div class="card">
+    <div class="row"><div class="ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#ff5a4d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4v10l-9 4-9-4V7z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg></div><div>
+      <h3>Sea-Doo OEM &nbsp;P/N 420881102</h3>
+      <p class="small" style="margin-top:2px;">(supersedes 420881100 / 420881101) — the 16-tooth intercooled kit for the 1503. <b style="color:#f4f4f5;">Steel washers.</b></p>
+    </div></div>
+  </div>
+  <h3 style="margin-top:11px;">What's in the box</h3>
+  <ul class="clean">
+    <li>Compressor shaft + drive gear</li>
+    <li>Bearings &amp; seals</li>
+    <li>Clutch / spring washers (the wear part)</li>
+    <li>All the small hardware to button it back up</li>
+  </ul>
+  <div class="spacer"></div>
+  <div class="callout amb" style="border-left-color:#ffce4d;">
+    <p class="small" style="color:#f4f4f5;"><b>Tell me your call:</b> OEM kit is my plan (best for the steel washers). If you'd rather run a specific brand you trust, say the word before I order.</p>
+  </div>
+  <div class="scrub"><div class="bar"><div class="fill" style="width:60%"></div></div>
+    <div class="meta"><span>1:12</span><span>The kit</span><span>2:00</span></div></div>
+</section>
+
+<!-- ============ SLIDE 7 — WHAT THE JOB INVOLVES ============ -->
+<section class="slide">
+  <div class="chrome"><span class="dot"></span> THE WORK <span class="ch">CH&nbsp;7 / 10</span></div>
+  <div class="kicker">What the job looks like</div>
+  <h2>The rebuild, start to finish</h2>
+  <p class="small">You know this cold — just so we're on the same page:</p>
+  <ul class="clean">
+    <li>Pull the supercharger off the engine</li>
+    <li>Strip it down on the bench — clutch, bearings, seals, shaft</li>
+    <li>Press in the new bearings, fit the new washers &amp; shaft from the kit</li>
+    <li>Reassemble to spec with blue threadlocker, torque the hardware</li>
+    <li>Reinstall on the engine, reconnect, and run it to confirm it boosts &amp; holds</li>
+  </ul>
+  <div class="spacer"></div>
+  <div class="callout grn"><p class="small" style="color:#f4f4f5;"><b>Done = </b>S/C rebuilt to torque spec, back on the ski, fired up, holding boost. Clean and quiet.</p></div>
+  <div class="scrub"><div class="bar"><div class="fill" style="width:70%"></div></div>
+    <div class="meta"><span>1:24</span><span>The steps</span><span>2:00</span></div></div>
+</section>
+
+<!-- ============ SLIDE 8 — TOOLS ============ -->
+<section class="slide">
+  <div class="chrome"><span class="dot"></span> THE TOOLS <span class="ch">CH&nbsp;8 / 10</span></div>
+  <div class="kicker">What you'd need</div>
+  <h2>Tools for the bench</h2>
+  <div class="specgrid">
+    <div class="spec"><div class="k">Torque</div><div class="v">Torque wrench (ft-lb)</div></div>
+    <div class="spec"><div class="k">Hold</div><div class="v">Bench vise</div></div>
+    <div class="spec"><div class="k">Bearings</div><div class="v">Shop / arbor press</div></div>
+    <div class="spec"><div class="k">Clips</div><div class="v">Snap-ring pliers</div></div>
+    <div class="spec"><div class="k">Lock</div><div class="v">Blue Loctite (243)</div></div>
+    <div class="spec"><div class="k">Tidy</div><div class="v">Shop towels</div></div>
+  </div>
+  <div class="card">
+    <div class="row"><div class="ico"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#ff5a4d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4.5a4 4 0 0 0 5 5l-9 9a2.1 2.1 0 0 1-3-3l9-9z"/><circle cx="6.6" cy="17.4" r="0.8" fill="#ff5a4d" stroke="none"/></svg></div><div>
+      <h3>The one special bit</h3>
+      <p class="small" style="margin-top:2px;">The S/C needs a <b style="color:#f4f4f5;">shaft-holding tool + drive-gear holding tool</b> to crack the top nut. If you don't already have the Sea-Doo S/C tool set, just tell me — <b style="color:#f4f4f5;">I'll add the tool kit to the parts order.</b></p>
+    </div></div>
+  </div>
+  <div class="spacer"></div>
+  <div class="scrub"><div class="bar"><div class="fill" style="width:80%"></div></div>
+    <div class="meta"><span>1:36</span><span>The tools</span><span>2:00</span></div></div>
+</section>
+
+<!-- ============ SLIDE 9 — TIME ============ -->
+<section class="slide">
+  <div class="chrome"><span class="dot"></span> THE CLOCK <span class="ch">CH&nbsp;9 / 10</span></div>
+  <div class="kicker">How long it takes</div>
+  <h2>Roughly half a day, tops</h2>
+  <div class="card">
+    <div class="row"><div class="ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#ff5a4d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><h3>~2–3 hrs bench time</h3><p class="small" style="margin-top:1px;">The actual rebuild for someone who's done it before.</p></div></div>
+  </div>
+  <div class="card">
+    <div class="row"><div class="ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#ff5a4d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3h5l-1 4h-3z"/><path d="M10.5 7h3v7l-1.5 7-1.5-7z"/></svg></div><div><h3>+ pull &amp; reinstall</h3><p class="small" style="margin-top:1px;">Getting the S/C off and back on, plus a test run.</p></div></div>
+  </div>
+  <div class="callout">
+    <p class="small" style="color:#f4f4f5;">Pro shops quote a <b>1-day turnaround</b> on these, so no rush on my end — whatever fits your schedule. I'm flexible on drop-off and pickup.</p>
+  </div>
+  <div class="spacer"></div>
+  <div class="scrub"><div class="bar"><div class="fill" style="width:90%"></div></div>
+    <div class="meta"><span>1:48</span><span>The time</span><span>2:00</span></div></div>
+</section>
+
+<!-- ============ SLIDE 10 — RECAP / OUTRO ============ -->
+<section class="slide">
+  <div class="chrome"><span class="dot"></span> THANKS FOR WATCHING <span class="ch">CH&nbsp;10 / 10</span></div>
+  <div class="kicker">Quick recap</div>
+  <h2>That's the whole job</h2>
+  <div class="card tight"><div class="row"><div class="ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#ff5a4d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14c3 1 6 1.5 9 1.5S18 15 21 14l-2 4c-2 .6-4 .9-7 .9s-5-.3-7-.9z"/><path d="M6 12V8l8-2 4 5"/></svg></div><p class="small" style="margin:0;"><b style="color:#f4f4f5;">'08 RXT-X 255</b> @ ~100 hrs → supercharger rebuild</p></div></div>
+  <div class="card tight"><div class="row"><div class="ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#ff5a4d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4v10l-9 4-9-4V7z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg></div><p class="small" style="margin:0;">I ship you the <b style="color:#f4f4f5;">OEM kit</b> (+ tool kit if you need it)</p></div></div>
+  <div class="card tight"><div class="row"><div class="ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#ff5a4d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v8H2zM13 10h4l3 3v2h-7z"/><circle cx="6" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/></svg></div><p class="small" style="margin:0;">I drop the ski off, you rebuild, I pick up</p></div></div>
+  <div class="card tight"><div class="row"><div class="ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#ff5a4d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><p class="small" style="margin:0;">~half a day of work, your schedule</p></div></div>
+
+  <div class="callout grn" style="margin-top:12px;">
+    <p class="small" style="color:#f4f4f5;">Let me know two things: <b>(1)</b> OEM kit good with you? <b>(2)</b> Need me to add the S/C tool kit? Then I'll order and we'll set a drop-off.</p>
+  </div>
+  <div class="spacer"></div>
+  <p class="sig">Thanks a ton, Arman —<br><b>Shawn</b></p>
+  <p class="foot">Reference only · not a substitute for the Sea-Doo shop manual torque specs. You're the mechanic — this is just the heads-up.</p>
+</section>
+
+</body>
+</html>
