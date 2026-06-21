@@ -21,9 +21,9 @@ README verbatim, so feel free to use **bold**, _italics_, lists, etc.
 
 ### 📰 Latest News
 
+- [Employers want more AI-fluent workers. It’s testing young graduates’ loyalties. - The Boston Globe](https://news.google.com/rss/articles/CBMinwFBVV95cUxPUnZCMmlkcVNNVzl6TDNKUnBWTDNMMFNSYWNBOEE1blhmLTlibkk5OHMxUnlJalRhdXRqTDE4OHdoUnEtd1lNVTRNXzFWdG5pbEFGWGhEVTRoejRPQktxMnQ2cmRCS0IzRjh2SmZXV2pfX3FHWGl2Z3RYVjl4Slp6ZHVFc0pQN2paSEc3VWdqcXZBRVk0TWZVa1hyb1lrcFE?oc=5) — _The Boston Globe · 2026-06-21_
 - [Brands using AI-generated influencers to promote products on social media - The Guardian](https://news.google.com/rss/articles/CBMiwgFBVV95cUxNUkVNRzhNUHEwbTVyRUYwTHZveVJ4Qy0wanVnYmFRQTNIZ0x3Nmk2dDcyWVJKMXk2dXJuMjNoY0JrTjlyM2Iwc2piYUdCMkZ0dVhVOWZVMkVZMFVzZWVrQXNlbVBrNjYwaTJJZ0RGMG5pMlAwWXJfZzFJdlJMQ2N3cTJHdGQzbTBRS0UtRDNqZnQxeUZPNzdkX09wMU0tS2s4Z2xDMl9LNGRTbF84UXgzbFlWQnV2bDVDUFg0dGg5RXh3UQ?oc=5) — _The Guardian · 2026-06-21_
-- [Book Review: ‘The Reverse Centaur’s Guide to Life After AI,’ by Cory Doctorow - The New York Times](https://news.google.com/rss/articles/CBMinAFBVV95cUxOdUpBNDRyTzUyeEFac2lDZGxDVlAxMW4tamFMeTljMFo2SDRXVG5RNlNTM244aVNTbmVzdkdHX2hVanFLenNJT3gtdl9YdDhBc0lkSFVYRG1hNE40ZjFaUE5XcExEc3BuOS1iTGFDSVV6LWc1YUpzbUJyc0tMcWoyRjlwU0FBLXpiZVhDbllXQjB5MW10RC1VY05jMmc?oc=5) — _The New York Times · 2026-06-20_
-- [How AI created an HOA controversy in Ahwatukee - AZ Family](https://news.google.com/rss/articles/CBMihwFBVV95cUxQaGFNSFA5djFRSG5EZzVwNFh6QWZFMjhZNjVtSV9NLWRGbmRDdzJQYUdPUldFcXprVDMwS25IemRWRlVvLXNwbXNoMGVNUXluVk9nb0xsUy1yeThJVDBOYkd0eDdvZDlFZlEzVGtGdTRET1FQOEo1LXNQUlIzam1qcU9CSTJXczDSAZsBQVVfeXFMTlA4SklfNkt2MHpoVnlaVWgyZ2oyMVlYbGcyWGxLUHBCTE5tUmpvMUpEdEFBSGYybkpseUl0SDRlYm44UEdXVGctU3AtUVdnTk5vNzkxM01ZOG5hczVzblFCLXk3cVFaQTI5ZUVEaHJtTHFBTGppN2lYc1J0eTV0T1ZaZVJaYWx4MU03Rl9NblMxVlJCYXlJOW91TlE?oc=5) — _AZ Family · 2026-06-20_
+- [This Artificial Intelligence (AI) Stock Is Up 4,800% in the Past Year. Wall Street Says This Will Happen Next. - Yahoo Finance](https://news.google.com/rss/articles/CBMioAFBVV95cUxNQS1KNHN6SVJKdkVzUzJhOG1GVlFtYUsyTU5ZYXFab0tQS1dwWGozVXp6d3RreFV2akluMWdQMTI2YmZNMW1LYVd6d041aGdsQ25uRWRCTjRURElCd0kzbGRKaXZYeFVuSjY0RGY0QnEtc0k1TngzbTlrdzVMcHo0eG9BRU5TRHhLSDFRczdnT1RmaGdtNGdtM3lNM0FPdGcy?oc=5) — _Yahoo Finance · 2026-06-20_
 - [AI credits consumed per user now in the Copilot usage metrics API - The GitHub Blog](https://news.google.com/rss/articles/CBMiqwFBVV95cUxPV3o3VHdGeFlUSmZIeHVIRjJ5MmI3bFNvak5CcmNJSzVOMDctX09aQjVJcndTVi1hQ1djM2MweTV5V3pGV0R1WkpPU3VxUE9GMlhRNmEwRndsSDZqcmlydGRyZEw4a0hEWHRfSlJVdFlEVnhOVGNpb21SY2Y3a0g2eFozMEZxMWIwWXhEaVlBSlhISFRuM1pINnp6bThRY1lfZFFlLXRPVzB3bUE?oc=5) — _The GitHub Blog · 2026-06-19_
 - [Banning Open Source AI Would Be A Mistake - Interconnects AI](https://news.google.com/rss/articles/CBMickFVX3lxTE1vMEVpTDZzNGt3QmNVSVZjZXk3UDJQQWh5cnJEbTBxMnVmbV9MNDhnbllHWDBzRVIzTjh0dG5ROURaMl9ISlBsZ3ZPOHQ0WVc2cTFDalZPQjRMN3dCdTFzbnBxYzRta2xXaWk4THV5Tk9Wdw?oc=5) — _Interconnects AI · 2026-06-19_
 - [Cybercriminals abused GitHub, YouTube and VirusTotal to push crypto-stealing malware - Help Net Security](https://news.google.com/rss/articles/CBMijgFBVV95cUxQNzJ4aUVCUGVVV1d3Vng2emZRZGZrTDZjOXZEVS01YWduNWdVdExaakN6aW80V0RmeURya1ZyckZzWUJWVkVPQWVxT3RiMng1cjZzb0VubzZwMkgyX3Bla0xkeXdtM2hRb3BrLWRNZXNta0VkQ3MySmJXLUVxdm0zSnBuREotNGdjTmkxVkl3?oc=5) — _Help Net Security · 2026-06-19_
@@ -34,6 +34,6 @@ README verbatim, so feel free to use **bold**, _italics_, lists, etc.
 
 
 ---
-_Profile auto-updated on **2026-06-21 09:54 UTC**._
+_Profile auto-updated on **2026-06-21 14:18 UTC**._
 
 <!-- END AUTO-GENERATED -->
