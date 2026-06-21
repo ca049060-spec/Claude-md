@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ripple — an observatory of consequence</title>
+<style>
+  :root{--bg:#070a10;--bg2:#0b1019;--panel:#0e141f;--line:#1d2735;--ink:#eaf1fa;--dim:#8094ac;
+    --teal:#5fe3d2;--o1:#ffffff;--o2:#a7e6ff;--o3:#ffd98a;--o4:#ff9bbf;--up:#7aa2ff;--down:#74e6a4;}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:radial-gradient(1200px 700px at 60% -10%,#0f1726,var(--bg));
+    color:var(--ink);font:15px/1.55 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+  header{padding:12px 22px;border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  h1{margin:0;font-size:18px;font-weight:650}h1 .glow{color:var(--teal);text-shadow:0 0 18px rgba(95,227,210,.45)}
+  header p{margin:0;color:var(--dim);font-size:12.5px}
+  .lenses{display:flex;gap:8px;padding:9px 18px;border-bottom:1px solid var(--line);align-items:center;flex-wrap:wrap}
+  .lens{cursor:pointer;border:1px solid var(--line);background:#0c121c;color:var(--ink);padding:6px 13px;border-radius:8px;font-size:13px}
+  .lens.active{background:linear-gradient(180deg,#123,#0c121c);border-color:var(--teal);color:var(--teal);font-weight:600}
+  .lenses .sp{flex:1 1 auto}
+  #picker{display:flex;gap:7px;flex-wrap:wrap;padding:10px 18px;border-bottom:1px solid var(--line);align-items:center}
+  .chip{cursor:pointer;border:1px solid var(--line);background:#0c121c;color:var(--ink);padding:6px 11px;border-radius:22px;font-size:12.5px;white-space:nowrap;transition:.18s}
+  .chip .yr{color:var(--dim);font-size:10.5px;margin-left:6px}
+  .chip:hover{transform:translateY(-1px);border-color:var(--teal)}
+  .chip.active{background:linear-gradient(180deg,#123,#0c121c);border-color:var(--teal);box-shadow:0 0 0 1px var(--teal) inset}
+  .chip.compose{border-style:dashed;color:var(--teal)}.chip.mine{border-left:3px solid var(--teal)}
+  #wrap{display:flex;height:calc(100% - 160px);min-height:520px}
+  #left{flex:1 1 auto;display:flex;flex-direction:column;min-width:0}
+  #stage{flex:1 1 auto;position:relative;min-height:300px}svg{width:100%;height:100%;display:block}
+  .flabel{font-size:12px;fill:var(--dim);pointer-events:none}
+  .fnode{cursor:pointer}.fnode .halo{fill:var(--teal);opacity:0;transition:opacity .5s,r .4s}
+  .fnode circle.core{fill:#121a27;stroke:#26344a;stroke-width:1.5;transition:.35s}
+  .fnode:hover circle.core{stroke:var(--teal)}.fnode.lit circle.core{fill:#16273a}
+  .fnode.pick circle.core{stroke:var(--teal);stroke-width:2.5}
+  .fcount{font-size:10px;fill:var(--teal);pointer-events:none;text-anchor:middle}
+  .edge{fill:none;stroke-linecap:round;opacity:.9}.couple{fill:none;stroke:var(--teal);stroke-linecap:round}
+  .hint{fill:var(--dim);font-size:13px;text-anchor:middle}
+  #controls{display:flex;align-items:center;gap:12px;padding:8px 18px;border-top:1px solid var(--line);color:var(--dim);font-size:12px;flex-wrap:wrap}
+  .btn{cursor:pointer;border:1px solid var(--line);background:#0c121c;color:var(--ink);border-radius:8px;padding:5px 12px;font-size:12.5px}.btn:hover{border-color:var(--teal)}
+  .leg{display:flex;gap:12px;margin-left:auto;flex-wrap:wrap}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:middle}
+  #ribbon{display:flex;align-items:center;gap:10px;padding:9px 18px;border-top:1px solid var(--line);overflow-x:auto;white-space:nowrap;min-height:46px}
+  .rib{cursor:pointer;border:1px solid var(--line);background:#0c121c;border-radius:8px;padding:5px 10px;font-size:12px}
+  .rib.up{border-color:var(--up)}.rib.down{border-color:var(--down)}.rib.cur{background:#13202f;border-color:var(--teal);font-weight:600}
+  .rib .mini{color:var(--dim);font-size:10.5px;display:block;max-width:200px;overflow:hidden;text-overflow:ellipsis}
+  .ar{color:var(--dim)}.ar.u{color:var(--up)}.ar.d{color:var(--down)}
+  #side{flex:0 0 388px;max-width:46%;background:linear-gradient(180deg,var(--panel),var(--bg2));border-left:1px solid var(--line);overflow:auto;padding:20px}
+  #side h2{margin:0;font-size:19px}#side .sub{color:var(--dim);font-size:12.5px;margin:2px 0 12px}
+  .lede{font-size:13.5px;color:#cdd9e8;margin-bottom:8px}
+  .rread{display:flex;gap:8px;margin:8px 0 4px;flex-wrap:wrap}
+  .stat{flex:1 1 0;min-width:80px;background:#0a111b;border:1px solid var(--line);border-radius:9px;padding:8px 10px}
+  .stat .v{font-size:18px;font-weight:700;color:var(--teal)}.stat .k{font-size:10.5px;color:var(--dim);text-transform:uppercase;letter-spacing:.4px}
+  .readline{font-size:12.5px;color:#cdd9e8;background:#0a111b;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:8px;padding:9px 11px;margin:6px 0 4px}
+  .step{display:flex;gap:11px;padding:11px 0;border-top:1px solid var(--line);opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s}
+  .step.show{opacity:1;transform:none}
+  .ob{flex:0 0 24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#06221f}
+  .o1{background:var(--o1)}.o2{background:var(--o2)}.o3{background:var(--o3)}.o4{background:var(--o4)}
+  .ftag{display:inline-block;font-size:11px;color:var(--teal);border:1px solid var(--line);border-radius:10px;padding:1px 8px;margin-bottom:3px}
+  .bar{height:8px;border-radius:5px;background:linear-gradient(90deg,var(--teal),#2a6b64);margin:4px 0 2px}
+  .rankrow{padding:8px 0;border-top:1px solid var(--line)}.rankrow .lbl{display:flex;justify-content:space-between;font-size:12.5px}
+  .note{background:#0a0f17;border:1px solid var(--line);border-radius:10px;padding:11px 13px;color:var(--dim);font-size:12px;margin-top:16px}
+  .muted{color:var(--dim)}
+  .cf label{display:block;font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.4px;margin:10px 0 3px}
+  .cf input,.cf select,.cf textarea{width:100%;background:#0a111b;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:8px 10px;font:inherit;font-size:13px}
+  .row2{display:flex;gap:8px}.row2>*{flex:1 1 0}
+  .cstep{display:flex;gap:7px;align-items:center;font-size:12px;padding:6px 0;border-top:1px solid var(--line)}
+  .cstep .rm{cursor:pointer;color:var(--o4);border:1px solid var(--line);border-radius:6px;padding:1px 7px}
+  .primary{background:linear-gradient(180deg,#0f3b36,#0c2a27);border-color:var(--teal);color:var(--teal);font-weight:600;width:100%;margin-top:12px;padding:9px;cursor:pointer;border-radius:8px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Ripple <span class="glow">◍</span> <span style="font-weight:400;color:var(--dim);font-size:13px">an observatory of consequence</span></h1>
+  <p>See one moment ripple outward — or the whole web at once: what moves most, and what moves together.</p>
+</header>
+
+<div class="lenses">
+  <span class="lens active" data-lens="moment">◍ Moment</span>
+  <span class="lens" data-lens="overview">▦ Overview</span>
+  <span class="sp"></span>
+  <span class="muted" style="font-size:11.5px">16 moments · 9 facets · explanatory, not predictive</span>
+</div>
+
+<div id="picker"></div>
+
+<div id="wrap">
+  <div id="left">
+    <div id="stage">
+      <svg id="svg" viewBox="0 0 1000 540" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
+          <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <g id="couples"></g><g id="edges"></g><g id="nodes"></g>
+        <text id="hint" class="hint" x="500" y="275">⟡ choose a moment, compose one, or switch to Overview</text>
+      </svg>
+    </div>
+    <div id="controls">
+      <span class="btn" id="play">↻ replay</span>
+      <span class="btn" id="export">⬗ export for Master</span>
+      <span id="caption" class="muted">the observatory is still</span>
+      <span class="leg"><span><span class="dot" style="background:var(--o1)"></span>1st</span><span><span class="dot" style="background:var(--o2)"></span>2nd</span><span><span class="dot" style="background:var(--o3)"></span>3rd</span><span><span class="dot" style="background:var(--o4)"></span>4th+</span></span>
+    </div>
+    <div id="ribbon"></div>
+  </div>
+  <div id="side"><div id="sc"></div></div>
+</div>
+
+<script>
+const FACETS=["Technology","Markets","Industries","Media & Content","Daily Life","Social","Work & Labor","Health","Policy & Power"];
+const FDESC={"Technology":"tools, platforms, infrastructure","Markets":"capital, prices, valuations","Industries":"businesses, sectors, supply chains","Media & Content":"information, attention, culture","Daily Life":"habits, convenience, texture of a day","Social":"relationships, identity, status","Work & Labor":"jobs, careers, how we earn","Health":"body, mind, public health","Policy & Power":"government, regulation, who decides"};
+const BASE=[
+ {id:"pc",name:"Personal Computer",year:1981,color:"#9aa7ff",summary:"The computer moved from the lab to the desk and the home — the install base everything digital was later built on.",steps:[{o:1,f:"Technology",t:"A computer on the desk and in the home."},{o:2,f:"Work & Labor",t:"Office work digitizes — spreadsheets, word processing, databases."},{o:2,f:"Industries",t:"Packaged software becomes a major industry."},{o:3,f:"Daily Life",t:"Computing enters the household."},{o:4,f:"Technology",t:"The install base that makes the consumer internet possible."}]},
+ {id:"net",name:"Internet / Web",year:1995,color:"#8ad0ff",summary:"The graphical web turned the internet into a place anyone could use — the substrate everything later stood on.",steps:[{o:1,f:"Technology",t:"The browser makes the internet usable by everyone."},{o:2,f:"Media & Content",t:"News, information and shopping move online; publishing is disintermediated."},{o:2,f:"Markets",t:"The dot-com boom and 2000 bust — capital floods 'online everything.'"},{o:3,f:"Work & Labor",t:"Email and a website become baseline business infrastructure."},{o:3,f:"Daily Life",t:"Looking things up, mapping and messaging migrate to a screen."},{o:4,f:"Social",t:"Communities form around interests instead of geography."}]},
+ {id:"amazon",name:"Amazon / E-commerce",year:1997,color:"#ff9e54",summary:"The 'everything store' turned retail into a logistics problem — and its own plumbing became the cloud.",steps:[{o:1,f:"Industries",t:"'Everything store' + logistics turn retail into a delivery problem."},{o:2,f:"Daily Life",t:"One-click buying and fast shipping reset expectations for convenience."},{o:2,f:"Markets",t:"Scale-over-margin reinvestment redefines what investors reward."},{o:3,f:"Work & Labor",t:"Warehouse, fulfillment and gig-delivery labor scale massively."},{o:3,f:"Industries",t:"Mall and main-street retail decline — the 'retail apocalypse.'"},{o:4,f:"Technology",t:"Renting out its own infrastructure becomes AWS — the cloud."}]},
+ {id:"google",name:"Google / Search",year:1998,color:"#9fd3ff",summary:"Making the web searchable turned discovery — and the ad auction behind it — into gatekeeping power.",steps:[{o:1,f:"Technology",t:"PageRank makes the chaotic web instantly searchable."},{o:2,f:"Daily Life",t:"'Google it' becomes a reflex; memory offloads to search."},{o:2,f:"Markets",t:"Search advertising invents the modern attention-auction model."},{o:3,f:"Industries",t:"Discovery shifts to whoever ranks; SEO and ad-tech form."},{o:3,f:"Media & Content",t:"Publishers come to depend on the algorithm."},{o:4,f:"Policy & Power",t:"A few gatekeepers shape what information people see."}]},
+ {id:"glob",name:"Globalization / China WTO",year:2001,color:"#f4a259",summary:"Mass offshoring after China joined the WTO delivered cheap goods and disinflation — and brittle, far-flung supply chains.",steps:[{o:1,f:"Industries",t:"Manufacturing offshores to low-cost hubs (China joins the WTO, 2001)."},{o:2,f:"Markets",t:"Cheap goods + disinflation; corporate margins expand."},{o:2,f:"Work & Labor",t:"Factory jobs leave the West — the 'China shock.'"},{o:3,f:"Policy & Power",t:"Trade dependence becomes geopolitical leverage."},{o:3,f:"Daily Life",t:"Abundant, cheap consumer goods become normal."},{o:4,f:"Industries",t:"Just-in-time global supply chains turn brittle (exposed in 2020)."}]},
+ {id:"ipod",name:"iPod + iTunes",year:2001,color:"#6fd3c7",summary:"A player plus a store made the music library portable — and quietly invented Apple's platform playbook.",steps:[{o:1,f:"Technology",t:"'1,000 songs in your pocket' — a portable digital library."},{o:2,f:"Media & Content",t:"iTunes (2003) sells songs at $0.99, unbundling the album."},{o:2,f:"Industries",t:"Labels lose the bundle and pricing power; CD retail declines."},{o:3,f:"Markets",t:"Apple pivots toward consumer devices — a historic re-rating begins."},{o:3,f:"Daily Life",t:"Listening turns individual; the mixtape becomes the playlist."},{o:4,f:"Technology",t:"Device + store + library becomes the template for the iPhone."}]},
+ {id:"cloud",name:"Cloud / AWS",year:2006,color:"#c0a6ff",summary:"Computing became rentable by the hour — letting anyone scale globally, and massing the compute that later trained AI.",steps:[{o:1,f:"Technology",t:"Computing becomes rentable by the hour — no server room."},{o:2,f:"Industries",t:"A startup scales globally on a credit card; 'software eats the world.'"},{o:2,f:"Markets",t:"Recurring-revenue SaaS becomes the dominant tech model."},{o:3,f:"Work & Labor",t:"DevOps, data and platform roles reshape the workforce."},{o:3,f:"Technology",t:"Compute concentrates in a handful of hyperscalers."},{o:4,f:"Technology",t:"The substrate that later makes large-scale AI training possible."}]},
+ {id:"iphone",name:"iPhone / Smartphone",year:2007,color:"#7aa2ff",summary:"A pocket computer with an app store became the remote control for daily life and rewired dozens of industries.",steps:[{o:1,f:"Technology",t:"A pocket touchscreen computer; the App Store (2008) makes it a platform."},{o:2,f:"Industries",t:"Taxis, hotels, banking, retail and dating each get an app layer."},{o:2,f:"Work & Labor",t:"Always-on connectivity blurs work and home."},{o:3,f:"Social",t:"Presence becomes continuous — texting, photos, location."},{o:3,f:"Markets",t:"Mobile becomes the dominant computing market (iOS/Android)."},{o:4,f:"Daily Life",t:"The phone becomes maps, wallet, camera, ID and remote for everything."}]},
+ {id:"netflix",name:"Netflix Streaming",year:2007,color:"#ff7a7a",summary:"On-demand streaming dissolved the broadcast schedule and set off a global content arms race.",steps:[{o:1,f:"Media & Content",t:"Instant streaming — flat-fee, ad-free, anytime."},{o:2,f:"Industries",t:"Binge-watching and cord-cutting erode the cable bundle."},{o:2,f:"Markets",t:"'Streaming wars' — every studio launches a service; content spend explodes."},{o:3,f:"Work & Labor",t:"Demand for originals reshapes Hollywood and builds global studios."},{o:3,f:"Daily Life",t:"'Appointment TV' dies; viewing is individual and on your schedule."},{o:4,f:"Social",t:"The recommendation engine shapes shared taste; global hits cross borders."}]},
+ {id:"social",name:"Social Media",year:2008,color:"#b98bff",summary:"Network platforms turned everyone into a publisher and made attention the asset the economy runs on.",steps:[{o:1,f:"Technology",t:"The feed, the follow and the like turn every user into a publisher."},{o:2,f:"Social",t:"Identity, status and relationships move onto the 'social graph.'"},{o:2,f:"Media & Content",t:"Attention and ad dollars shift to platforms and creators."},{o:3,f:"Policy & Power",t:"Protest, politics and misinformation run on virality."},{o:3,f:"Health",t:"Always-on comparison and outrage correlate with rising anxiety."},{o:4,f:"Markets",t:"Targeted attention becomes the asset — trillion-dollar platforms."}]},
+ {id:"gfc",name:"2008 Financial Crisis",year:2008,color:"#ffb454",summary:"A credit shock — rates and lending seize, projects stall, and the effects cascade across society for a decade.",steps:[{o:1,f:"Markets",t:"Subprime collapse → credit freezes → banks fail (Lehman)."},{o:2,f:"Industries",t:"Borrowing power evaporates; housing and construction contract; projects shelved."},{o:2,f:"Work & Labor",t:"Mass unemployment; a generation's wealth and careers delayed."},{o:3,f:"Policy & Power",t:"Zero rates, QE and bailouts — central banks become permanent players."},{o:3,f:"Social",t:"Trust in institutions falls; Occupy, populism and inequality rise."},{o:4,f:"Markets",t:"A decade of cheap money inflates housing, tech and assets."}]},
+ {id:"crypto",name:"Bitcoin / Crypto",year:2009,color:"#f7c948",summary:"Born from distrust after the crash, a trustless ledger spawned a volatile new asset class and a money debate.",steps:[{o:1,f:"Technology",t:"A trustless digital ledger (blockchain), launched after the GFC."},{o:2,f:"Markets",t:"A new, highly speculative asset class with violent boom/bust cycles."},{o:2,f:"Social",t:"Distrust of institutions finds a financial outlet and subculture."},{o:3,f:"Industries",t:"Exchanges, mining, stablecoins and DeFi form an industry."},{o:3,f:"Policy & Power",t:"Money and regulation are challenged; central banks weigh CBDCs."},{o:4,f:"Markets",t:"Crypto becomes a real-time barometer of global risk appetite."}]},
+ {id:"uber",name:"Uber / Gig Economy",year:2010,color:"#5ad1a0",summary:"Phone + GPS + payments turned 'summon anything on demand' into a new — and contested — kind of work.",steps:[{o:1,f:"Technology",t:"Phone + GPS + payments = summon a car (or anything) on demand."},{o:2,f:"Work & Labor",t:"'Gig' work — flexible, app-dispatched, without employee protections."},{o:2,f:"Industries",t:"Taxis, logistics, food and errands get platform intermediaries."},{o:3,f:"Policy & Power",t:"Worker-classification fights and city regulation battles."},{o:3,f:"Daily Life",t:"On-demand convenience becomes the default expectation."},{o:4,f:"Markets",t:"Blitz-scaling on venture cash — growth before profit."}]},
+ {id:"ev",name:"Electric Vehicles / Climate Tech",year:2012,color:"#67d99b",summary:"Viable long-range EVs and collapsing battery costs began re-tooling the auto industry and the energy system.",steps:[{o:1,f:"Technology",t:"Viable long-range EVs (Tesla Model S, 2012) + battery costs collapse."},{o:2,f:"Industries",t:"The auto industry pivots; legacy engine supply chains disrupted."},{o:2,f:"Markets",t:"Energy-transition capital and critical-minerals demand surge."},{o:3,f:"Policy & Power",t:"Climate policy, subsidies and mandates reshape incentives."},{o:3,f:"Industries",t:"Grid, charging and lithium/copper supply become bottlenecks."},{o:4,f:"Daily Life",t:"How we drive, refuel and think about energy shifts."}]},
+ {id:"covid",name:"COVID-19",year:2020,color:"#7fe08a",summary:"A health shock that compressed a decade of behavior change into months and reset the macro regime.",steps:[{o:1,f:"Health",t:"A global pandemic forces lockdowns and distancing."},{o:2,f:"Daily Life",t:"Home becomes office, school, gym and theatre overnight."},{o:2,f:"Work & Labor",t:"Remote and hybrid work normalize; the commute is renegotiated."},{o:3,f:"Industries",t:"E-commerce, delivery and streaming surge; travel and downtown retail crater."},{o:3,f:"Markets",t:"Crash → record stimulus → asset boom; supply chains seize, then inflation."},{o:4,f:"Policy & Power",t:"Deficits and money-printing reset the macro regime."}]},
+ {id:"genai",name:"Generative AI",year:2022,color:"#5ad1e6",summary:"General-purpose AI crossed a public threshold, triggering a capex supercycle and a rethink of knowledge work.",steps:[{o:1,f:"Technology",t:"Usable general-purpose AI in a chat box; capability crosses a threshold."},{o:2,f:"Work & Labor",t:"Writing, coding, support and design begin to be augmented and automated."},{o:2,f:"Industries",t:"A capex supercycle in chips, data centers and power."},{o:3,f:"Markets",t:"AI becomes the dominant market theme; a few names drive returns."},{o:3,f:"Media & Content",t:"Content becomes near-free to produce — truth and authorship in question."},{o:4,f:"Daily Life",t:"How we search, learn and create starts to shift."}]}
+];
+const LINKS=[["pc","net","the install base for the consumer internet"],["net","google","the web needs organizing"],["net","amazon","retail moves online"],["net","netflix","broadband enables streaming"],["amazon","cloud","its own infra became a product"],["ipod","iphone","the platform playbook"],["iphone","social","mobile makes social always-on"],["iphone","uber","GPS + payments in your pocket"],["iphone","netflix","viewing goes mobile"],["cloud","uber","apps run on the cloud"],["cloud","genai","rentable compute trains the models"],["google","genai","deep-learning + Transformer research"],["gfc","covid","a decade of cheap money set the stage"],["gfc","crypto","born from distrust after the crash"],["glob","covid","brittle supply chains, exposed"],["glob","ev","low-cost battery & minerals supply"],["covid","genai","digital acceleration + a flood of capital"]].map(([from,to,l])=>({from,to,l}));
+
+function loadMine(){try{return JSON.parse(localStorage.getItem("ripple_mine")||"[]")}catch(e){return[]}}
+function saveMine(a){try{localStorage.setItem("ripple_mine",JSON.stringify(a))}catch(e){}}
+let MINE=loadMine(),EVENTS=BASE.concat(MINE);
+const byId=()=>Object.fromEntries(EVENTS.map(e=>[e.id,e]));
+
+function resonance(steps){const facets=[...new Set(steps.map(s=>s.f))];const reach=facets.length/FACETS.length;
+  const depth=Math.max(...steps.map(s=>s.o));const byOrder={};steps.forEach(s=>{(byOrder[s.o]=byOrder[s.o]||new Set()).add(s.f);});
+  const convergence=Math.max(...Object.values(byOrder).map(s=>s.size));
+  const rw=reach>=0.66?"system-wide":reach>=0.4?"cross-domain":"contained",dw=depth>=4?"long-tailed":depth>=3?"deep":"shallow",
+   cw=convergence>=3?", highly convergent":convergence>=2?", convergent":"";
+  return{facets,reach,depth,convergence,line:`A ${rw}, ${dw} cascade${cw}: it moves ${facets.length} of ${FACETS.length} facets and reaches ${depth}${depth===1?"st":depth===2?"nd":depth===3?"rd":"th"}-order effects.`};}
+// corpus aggregate: pressure (weighted by inverse order) + facet coupling
+function aggregate(){const pressure={},moments={},couple={};FACETS.forEach(f=>{pressure[f]=0;moments[f]=0;});
+  EVENTS.forEach(ev=>{const fs=[...new Set(ev.steps.map(s=>s.f))];fs.forEach(f=>moments[f]++);
+    ev.steps.forEach(s=>pressure[s.f]+=(5-s.o));
+    for(let i=0;i<fs.length;i++)for(let j=i+1;j<fs.length;j++){const k=[fs[i],fs[j]].sort().join("||");couple[k]=(couple[k]||0)+1;}});
+  return{pressure,moments,couple};}
+
+const NS="http://www.w3.org/2000/svg",$=id=>document.getElementById(id);
+const gC=$("couples"),gE=$("edges"),gN=$("nodes"),hint=$("hint"),sc=$("sc"),caption=$("caption");
+let lens="moment",selected=null,timers=[],composeMode=false,draft=null;
+const mk=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
+const CX=500,CY=255,R=195,pos={};
+FACETS.forEach((f,i)=>{const a=(-90+i*360/FACETS.length)*Math.PI/180;pos[f]={x:CX+R*Math.cos(a),y:CY+R*Math.sin(a)};});
+FACETS.forEach(f=>{const p=pos[f];const g=mk("g",{class:"fnode"});g.dataset.f=f;
+  const tl=mk("title",{});tl.textContent=f+" — "+FDESC[f];g.appendChild(tl);
+  g.appendChild(mk("circle",{class:"halo",cx:p.x,cy:p.y,r:20,filter:"url(#soft)"}));
+  g.appendChild(mk("circle",{class:"core",cx:p.x,cy:p.y,r:11}));
+  const anc=p.x<CX-5?"end":(p.x>CX+5?"start":"middle");
+  const t=mk("text",{x:p.x+(p.x-CX)*0.13,y:p.y+(p.y-CY)*0.13+4,class:"flabel","text-anchor":anc});t.textContent=f;g.appendChild(t);
+  const cnt=mk("text",{class:"fcount",x:p.x,y:p.y-16});cnt.dataset.cnt=f;g.appendChild(cnt);
+  g.addEventListener("click",()=>onFacet(f));gN.appendChild(g);});
+const OCOL={1:"#ffffff",2:"#a7e6ff",3:"#ffd98a",4:"#ff9bbf"};
+const curve=(a,b)=>{const mx=(a.x+b.x)/2,my=(a.y+b.y)/2;return `M${a.x},${a.y} Q${mx+(CX-mx)*0.5},${my+(CY-my)*0.5} ${b.x},${b.y}`;};
+function resetNodes(){document.querySelectorAll(".fnode").forEach(n=>{n.classList.remove("lit","pick");
+  n.querySelector(".halo").style.opacity=0;n.querySelector(".core").setAttribute("r",11);n.querySelector(".fcount").textContent="";});}
+function clearViz(){timers.forEach(clearTimeout);timers=[];gE.innerHTML="";gC.innerHTML="";resetNodes();
+  document.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));}
+function litFacet(f,color){const n=document.querySelector(`.fnode[data-f="${f}"]`);if(!n)return;
+  n.classList.add("lit");const h=n.querySelector(".halo");h.setAttribute("fill",color);h.style.opacity=.55;setTimeout(()=>h.style.opacity=.25,600);}
+function flow(fa,fb,color,order){const d=curve(pos[fa],pos[fb]);
+  const p=mk("path",{class:"edge",d,stroke:color,"stroke-width":Math.max(1.4,3.6-order*0.5),"marker-end":"url(#ah)",opacity:0});
+  p.style.color=color;gE.appendChild(p);const len=p.getTotalLength();p.style.strokeDasharray=len;p.style.strokeDashoffset=len;p.getBoundingClientRect();
+  p.style.transition="stroke-dashoffset .7s ease, opacity .3s";p.style.opacity=.9;p.style.strokeDashoffset=0;
+  const dot=mk("circle",{r:3.4,fill:color,filter:"url(#soft)"});dot.appendChild(mk("animateMotion",{dur:"1.7s",repeatCount:"indefinite",path:d}));gE.appendChild(dot);}
+function play(){const ev=byId()[selected];if(!ev)return;timers.forEach(clearTimeout);timers=[];gE.innerHTML="";
+  document.querySelectorAll(".fnode").forEach(n=>{n.classList.remove("lit");n.querySelector(".halo").style.opacity=0;});
+  document.querySelectorAll(".step").forEach(s=>s.classList.remove("show"));caption.textContent="watching "+ev.name+" ripple outward…";
+  let prev=null;ev.steps.forEach((s,i)=>timers.push(setTimeout(()=>{litFacet(s.f,ev.color);if(prev&&prev!==s.f)flow(prev,s.f,ev.color,s.o);prev=s.f;
+    document.querySelector(`.step[data-i="${i}"]`)?.classList.add("show");if(i===ev.steps.length-1)caption.textContent="↻ replay, or follow a thread below";},350+i*900)));}
+
+function select(id){lens="moment";setLensUI();composeMode=false;selected=id;clearViz();hint.style.display="none";
+  document.querySelector(`.chip[data-id="${id}"]`)?.classList.add("active");const ev=byId()[id];const r=resonance(ev.steps);
+  let h=`<h2>${ev.name}</h2><div class="sub">${ev.year}${ev.mine?" · your moment":""}</div><div class="lede">${ev.summary||""}</div>
+   <div class="rread"><div class="stat"><div class="v">${Math.round(r.reach*100)}%</div><div class="k">reach</div></div>
+   <div class="stat"><div class="v">${r.depth}</div><div class="k">depth</div></div>
+   <div class="stat"><div class="v">${r.convergence}</div><div class="k">convergence</div></div></div>
+   <div class="readline">◍ ${r.line}</div>`;
+  ev.steps.forEach((s,i)=>h+=`<div class="step" data-i="${i}"><div class="ob o${Math.min(s.o,4)}">${s.o}</div><div><span class="ftag">${s.f}</span><div>${s.t}</div></div></div>`);
+  h+=`<div class="note"><b>Resonance read</b> mirrors your model's lens — reach (≈R), depth (cascade length), convergence (the multi-thread trigger). A reading of documented history, not a prediction.${ev.mine?` <span style="color:var(--o4);cursor:pointer" onclick="delMine('${ev.id}')">delete</span>`:""}</div>`;
+  sc.innerHTML=h;ribbon(ev);play();}
+function ribbon(ev){const r=$("ribbon");const ins=LINKS.filter(l=>l.to===ev.id),outs=LINKS.filter(l=>l.from===ev.id),B=byId();let h="";
+  ins.forEach(l=>h+=`<span class="rib up" data-go="${l.from}"><b>${B[l.from].name}</b><span class="mini">${l.l}</span></span><span class="ar u">⟶</span>`);
+  h+=`<span class="rib cur"><b>${ev.name}</b><span class="mini">${ev.year}</span></span>`;
+  outs.forEach(l=>h+=`<span class="ar d">⟶</span><span class="rib down" data-go="${l.to}"><b>${B[l.to].name}</b><span class="mini">${l.l}</span></span>`);
+  if(!ins.length&&!outs.length)h+=`<span class="mini" style="margin-left:8px">${ev.mine?"your moment — no lineage links yet":"no mapped lineage"}</span>`;
+  r.innerHTML=h;r.querySelectorAll(".rib[data-go]").forEach(el=>el.addEventListener("click",()=>select(el.dataset.go)));}
+
+function onFacet(f){if(composeMode){draft.pickFacet=f;renderComposer();document.querySelectorAll(".fnode").forEach(n=>n.classList.toggle("pick",n.dataset.f===f));return;}
+  if(lens==="overview"){overviewFacet(f);return;}
+  selected=null;clearViz();hint.style.display="none";const hits=[];
+  EVENTS.forEach(ev=>{const ts=ev.steps.filter(s=>s.f===f);if(ts.length){[...new Set(ev.steps.map(s=>s.f))].forEach(of=>{if(of!==f)flow(f,of,ev.color,2);});ts.forEach(s=>hits.push({ev,s}));}});
+  document.querySelector(`.fnode[data-f="${f}"]`)?.classList.add("lit");
+  let h=`<h2>${f}</h2><div class="sub">${FDESC[f]} — what has reshaped it</div>`;
+  hits.forEach(({ev,s})=>h+=`<div class="step show"><div class="ob o${Math.min(s.o,4)}">${s.o}</div><div><span class="ftag" style="color:${ev.color};border-color:${ev.color}">${ev.name} · ${ev.year}</span><div>${s.t}</div></div></div>`);
+  h+=`<div class="note">Every event that touched <b>${f}</b>, reaching out to the other facets it moved.</div>`;sc.innerHTML=h;$("ribbon").innerHTML=`<span class="mini">facet view — pick a moment to return to cascades</span>`;}
+
+/* ---- overview lens ---- */
+function showOverview(){lens="overview";setLensUI();composeMode=false;selected=null;clearViz();hint.style.display="none";
+  caption.textContent="the whole web — what moves, and what moves together";
+  const{pressure,moments,couple}=aggregate();
+  const maxM=Math.max(...Object.values(moments));
+  FACETS.forEach(f=>{const n=document.querySelector(`.fnode[data-f="${f}"]`);const r=11+18*(moments[f]/maxM);
+    n.querySelector(".core").setAttribute("r",r);const h=n.querySelector(".halo");h.setAttribute("fill","var(--teal)");h.setAttribute("r",r+9);h.style.opacity=.16;
+    n.querySelector(".fcount").textContent=moments[f];});
+  const pairs=Object.entries(couple).sort((a,b)=>b[1]-a[1]);const maxC=pairs[0]?pairs[0][1]:1;
+  pairs.forEach(([k,c])=>{if(c<2)return;const[a,b]=k.split("||");
+    gC.appendChild(mk("path",{class:"couple",d:curve(pos[a],pos[b]),"stroke-width":0.8+3.4*(c/maxC),opacity:0.12+0.5*(c/maxC)}));});
+  const rankP=Object.entries(pressure).sort((a,b)=>b[1]-a[1]),maxP=rankP[0][1];
+  let h=`<h2>The web at a glance</h2><div class="sub">aggregate of all ${EVENTS.length} moments — node size = how many moments touched it</div>
+   <div class="lede">Two readings of the corpus: <b>what moves most</b> (pressure, weighting earlier-order hits higher) and <b>what moves together</b> (coupling). Click a facet for its partners.</div>
+   <div style="margin-top:6px"><b style="font-size:13px">What moves most</b></div>`;
+  rankP.forEach(([f,v])=>{h+=`<div class="rankrow"><div class="lbl"><span>${f}</span><span class="muted">${v}</span></div><div class="bar" style="width:${Math.round(100*v/maxP)}%"></div></div>`;});
+  h+=`<div style="margin-top:12px"><b style="font-size:13px">What moves together</b></div>`;
+  pairs.slice(0,8).forEach(([k,c])=>{const[a,b]=k.split("||");h+=`<div class="rankrow"><div class="lbl"><span>${a} &harr; ${b}</span><span class="muted">${c}×</span></div></div>`;});
+  h+=`<div class="note">"What drives markets / changes lifestyle" reads off the pressure ranks; "what involves what" reads off the couplings. Aggregated from documented history — a map of where consequence concentrates, not a forecast.</div>`;
+  sc.innerHTML=h;$("ribbon").innerHTML=`<span class="mini">overview — click a facet for its strongest partners, or switch to Moment</span>`;}
+function overviewFacet(f){showOverview();const{couple}=aggregate();
+  const partners=Object.entries(couple).filter(([k])=>k.split("||").includes(f)).map(([k,c])=>[k.split("||").find(x=>x!==f),c]).sort((a,b)=>b[1]-a[1]);
+  gC.innerHTML="";partners.forEach(([p,c])=>{const mx=Math.max(...partners.map(x=>x[1]));gC.appendChild(mk("path",{class:"couple",d:curve(pos[f],pos[p]),"stroke-width":1+3.4*(c/mx),opacity:.25+.55*(c/mx)}));});
+  document.querySelector(`.fnode[data-f="${f}"]`)?.classList.add("lit");
+  let h=`<h2>${f}</h2><div class="sub">${FDESC[f]} — its strongest couplings across history</div>`;
+  partners.forEach(([p,c])=>h+=`<div class="rankrow"><div class="lbl"><span>${p}</span><span class="muted">${c} shared moments</span></div></div>`);
+  h+=`<div class="note">How often <b>${f}</b> moved in the same moment as each other facet — the company it keeps when the world shifts.</div>`;sc.innerHTML=h;}
+
+/* ---- composer ---- */
+function startCompose(){lens="moment";setLensUI();composeMode=true;selected=null;clearViz();hint.style.display="none";
+  draft={name:"",year:new Date().getFullYear(),summary:"",pickFacet:FACETS[0],pickOrder:1,text:"",steps:[]};renderComposer();
+  $("ribbon").innerHTML=`<span class="mini">compose — click a facet on the web to set the next step's domain</span>`;}
+function renderComposer(){const r=resonance(draft.steps.length?draft.steps:[{o:1,f:draft.pickFacet}]);
+  let h=`<h2 style="color:var(--teal)">Compose a moment</h2><div class="sub">trace how something happening now ripples outward</div><div class="cf">
+   <label>what is it?</label><input id="cn" value="${draft.name.replace(/"/g,'&quot;')}" placeholder="e.g. AI hits the power grid">
+   <div class="row2"><div><label>year</label><input id="cy" value="${draft.year}"></div><div><label>facet (or click web)</label>
+   <select id="cf">${FACETS.map(f=>`<option ${f===draft.pickFacet?"selected":""}>${f}</option>`).join("")}</select></div></div>
+   <div class="row2"><div><label>order</label><select id="co">${[1,2,3,4].map(o=>`<option ${o===draft.pickOrder?"selected":""}>${o}</option>`).join("")}</select></div>
+   <div style="flex:2"><label>effect</label><input id="ct" value="${draft.text.replace(/"/g,'&quot;')}" placeholder="what happens in that facet"></div></div>
+   <button class="btn" style="width:100%;margin-top:8px" onclick="addStep()">+ add step</button>`;
+  if(draft.steps.length){h+=`<div style="margin-top:10px">`;draft.steps.forEach((s,i)=>h+=`<div class="cstep"><span class="ob o${Math.min(s.o,4)}" style="width:20px;height:20px;flex:0 0 20px">${s.o}</span><span class="ftag">${s.f}</span><span style="flex:1">${s.t}</span><span class="rm" onclick="rmStep(${i})">✕</span></div>`);h+=`</div>
+   <div class="readline" style="margin-top:10px">◍ ${r.line}</div><button class="primary" onclick="saveDraft()">save &amp; trace ▶</button>`;}
+  h+=`</div><div class="note">Build the chain order by order (① direct → ④ long tail). Saves to this browser as <b>your moment</b>, plays like the historical ones, and gets the same resonance read.</div>`;
+  sc.innerHTML=h;$("cn").oninput=e=>draft.name=e.target.value;$("cy").oninput=e=>draft.year=e.target.value;
+  $("cf").onchange=e=>{draft.pickFacet=e.target.value;document.querySelectorAll(".fnode").forEach(n=>n.classList.toggle("pick",n.dataset.f===draft.pickFacet));};
+  $("co").onchange=e=>draft.pickOrder=+e.target.value;$("ct").oninput=e=>draft.text=e.target.value;}
+function addStep(){if(!draft.text.trim())return;draft.steps.push({o:draft.pickOrder,f:draft.pickFacet,t:draft.text.trim()});draft.text="";renderComposer();
+  const s=draft.steps;if(s.length){litFacet(s[s.length-1].f,"#5fe3d2");if(s.length>1&&s[s.length-2].f!==s[s.length-1].f)flow(s[s.length-2].f,s[s.length-1].f,"#5fe3d2",s[s.length-1].o);}}
+function rmStep(i){draft.steps.splice(i,1);renderComposer();}
+function saveDraft(){if(!draft.steps.length)return;const id="mine_"+Date.now();
+  MINE.push({id,name:draft.name||"Untitled moment",year:String(draft.year||""),color:"#5fe3d2",summary:draft.summary||"Your traced moment.",steps:draft.steps,mine:true});
+  saveMine(MINE);EVENTS=BASE.concat(MINE);buildPicker();select(id);}
+function delMine(id){MINE=MINE.filter(e=>e.id!==id);saveMine(MINE);EVENTS=BASE.concat(MINE);buildPicker();idle();}
+
+/* ---- export for Master ---- */
+function exportJSON(){const stamp=new Date().toISOString().slice(0,10);let payload;
+  if(selected){const ev=byId()[selected];payload={kind:"ripple-moment",exported:stamp,note:"For Master Web 1.0 ingestion. Heuristic, illustrative — not validated edges.",facets:FACETS,moment:{...ev,resonance:resonance(ev.steps)}};}
+  else{payload={kind:"ripple-corpus",exported:stamp,note:"For Master Web 1.0. Heuristic atlas + aggregate; not validated.",facets:FACETS,
+    moments:EVENTS.map(e=>({id:e.id,name:e.name,year:e.year,steps:e.steps,resonance:resonance(e.steps)})),links:LINKS,aggregate:aggregate()};}
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=(selected?selected+"_moment":"ripple_corpus")+"_"+stamp+".json";a.click();
+  caption.textContent="exported "+a.download;}
+
+function idle(){lens="moment";setLensUI();composeMode=false;selected=null;clearViz();hint.style.display="";caption.textContent="the observatory is still";
+  $("ribbon").innerHTML=`<span class="mini">pick a moment — its lineage will appear here</span>`;
+  sc.innerHTML=`<h2>The observatory is still</h2><div class="sub">choose a moment, click a facet, compose your own, or switch to Overview</div>
+   <div class="lede">Every change arrives somewhere specific, then leaks outward. This watches that leak across nine facets of a life — one order of consequence at a time — and reads its reach, depth and convergence.</div>
+   <div class="note">A hand-built reading of well-documented history plus the moments you compose. Here to help you <i>see</i> how things involve each other — not to predict them. <b>Export for Master</b> hands a moment (or the whole corpus) to your model as JSON.</div>`;}
+
+function setLensUI(){document.querySelectorAll(".lens").forEach(b=>b.classList.toggle("active",b.dataset.lens===lens));}
+function buildPicker(){const pk=$("picker");pk.innerHTML="";
+  [...BASE].sort((a,b)=>a.year-b.year).forEach(ev=>{const c=document.createElement("div");c.className="chip";c.dataset.id=ev.id;c.style.borderLeft=`3px solid ${ev.color}`;c.innerHTML=`${ev.name}<span class="yr">${ev.year}</span>`;c.onclick=()=>select(ev.id);pk.appendChild(c);});
+  MINE.forEach(ev=>{const c=document.createElement("div");c.className="chip mine";c.dataset.id=ev.id;c.innerHTML=`${ev.name}<span class="yr">${ev.year}</span>`;c.onclick=()=>select(ev.id);pk.appendChild(c);});
+  const cc=document.createElement("div");cc.className="chip compose";cc.textContent="✚ compose";cc.onclick=startCompose;pk.appendChild(cc);}
+document.querySelectorAll(".lens").forEach(b=>b.addEventListener("click",()=>{if(b.dataset.lens==="overview")showOverview();else idle();}));
+$("play").addEventListener("click",()=>{if(selected)play();});
+$("export").addEventListener("click",exportJSON);
+buildPicker();idle();
+</script>
+</body>
+</html>
