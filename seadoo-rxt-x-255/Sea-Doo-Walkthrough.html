@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sea-Doo RXT-X 255 — 100-Hour Service — Walkthrough for Arman</title>
+<style>
+  :root{
+    --bg:#0d0f12; --panel:#15181d; --panel2:#1c2027; --line:#2b313a;
+    --txt:#f3f5f7; --mut:#9aa3ad; --yellow:#ffd21e; --yellow2:#f2b705;
+    --red:#ff3b30; --teal:#28c7c0; --grn:#34d27b;
+  }
+  @page{size:480px 800px;margin:0}
+  @media print{
+    .wrap{box-shadow:none;max-width:none}
+    section{break-inside:avoid}
+    .figwrap,.card,.callout,.spec,.who,.specs{break-inside:avoid}
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{font-family:-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;background:#000}
+  body{background:var(--bg);color:var(--txt);-webkit-font-smoothing:antialiased;line-height:1.5}
+  .wrap{max-width:480px;margin:0 auto;background:var(--bg);min-height:100vh;
+        box-shadow:0 0 60px rgba(0,0,0,.6)}
+  section{padding:26px 22px;border-bottom:1px solid var(--line)}
+  .pad-sm{padding:20px 22px}
+
+  .eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:var(--yellow);margin-bottom:8px}
+  .eyebrow.red{color:var(--red)} .eyebrow.teal{color:var(--teal)}
+  h1{font-size:34px;line-height:1.05;letter-spacing:-.5px;font-weight:800}
+  h2{font-size:23px;line-height:1.12;letter-spacing:-.3px;font-weight:800;margin-bottom:6px}
+  h3{font-size:15px;font-weight:700}
+  p{font-size:15px;color:var(--txt)} .mut{color:var(--mut)}
+  .small{font-size:13px;color:var(--mut);line-height:1.5}
+
+  /* HERO */
+  .hero{background:
+        radial-gradient(120% 90% at 70% 0%, #20242c 0%, #0d0f12 60%);
+        text-align:left;padding-bottom:8px}
+  .hero .badge{display:inline-block;background:var(--yellow);color:#1a1400;font-weight:800;
+        font-size:11px;letter-spacing:.08em;padding:5px 11px;border-radius:999px;margin-bottom:14px}
+  .hero h1 span{color:var(--yellow)}
+  .hero .sub{color:var(--mut);font-size:15px;margin-top:12px}
+  .who{display:flex;align-items:center;gap:10px;margin-top:18px;
+       background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+  .who .av{width:34px;height:34px;border-radius:50%;background:var(--red);color:#fff;font-weight:800;
+       display:flex;align-items:center;justify-content:center;font-size:15px;flex:0 0 auto}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 15px;margin-top:12px}
+  .card.tight{padding:11px 13px}
+  .row{display:flex;align-items:flex-start;gap:12px}
+  .row+.row{margin-top:10px}
+  .ico{flex:0 0 auto;width:38px;height:38px;border-radius:11px;background:var(--panel2);
+       border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+  .num{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--yellow);color:#1a1400;
+       font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+
+  .specs{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+  .spec{flex:1 1 44%;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 12px}
+  .spec .k{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+  .spec .v{font-size:17px;font-weight:800;margin-top:3px}
+
+  .pill{display:inline-block;font-size:12px;color:var(--mut);background:var(--panel);
+        border:1px solid var(--line);border-radius:999px;padding:5px 11px;margin:6px 6px 0 0}
+
+  .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;padding:5px 11px;border-radius:999px}
+  .tag.red{background:rgba(255,59,48,.16);color:#ff6a60;border:1px solid rgba(255,59,48,.4)}
+  .tag.grn{background:rgba(52,210,123,.16);color:var(--grn);border:1px solid rgba(52,210,123,.4)}
+
+  .callout{border-left:4px solid var(--red);background:var(--panel);border-radius:0 12px 12px 0;padding:13px 15px;margin-top:14px}
+  .callout.grn{border-left-color:var(--grn)} .callout.yel{border-left-color:var(--yellow)}
+  .callout p{font-size:14px}
+
+  ul.clean{list-style:none;margin-top:6px}
+  ul.clean li{font-size:14.5px;padding-left:20px;position:relative;margin-top:9px}
+  ul.clean li:before{content:"";position:absolute;left:0;top:7px;width:9px;height:9px;border-radius:2px;
+        background:var(--yellow);transform:rotate(45deg)}
+
+  .figwrap{background:linear-gradient(180deg,#161a20,#0f1216);border:1px solid var(--line);
+        border-radius:16px;padding:14px;margin-top:14px}
+  .figcap{font-size:12px;color:var(--mut);text-align:center;margin-top:8px}
+  svg{display:block;width:100%;height:auto}
+
+  .foot{font-size:12px;color:var(--mut);margin-top:14px}
+  .sign{font-size:16px;margin-top:16px}.sign b{color:#fff}
+  .top{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--mut);
+       letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+  .top .dot{width:8px;height:8px;border-radius:50%;background:var(--red)}
+  .step-n{font-size:11px;color:var(--mut);margin-left:auto;letter-spacing:.1em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="badge">2008 SEA-DOO · RXT-X 255</div>
+    <h1>The 100-Hour<br><span>Service</span></h1>
+    <p class="sub">A quick visual rundown of the one job it's due for — what it is, the parts, the tools, and the time.</p>
+
+    <!-- JET SKI ILLUSTRATION -->
+    <div style="margin:18px 0 4px">
+      <svg viewBox="0 0 380 176" role="img" aria-label="Sea-Doo RXT-X 255 jet ski">
+        <defs>
+          <linearGradient id="hull" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffe66b"/><stop offset="1" stop-color="#f2b705"/>
+          </linearGradient>
+          <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#1b3a4b"/><stop offset="1" stop-color="#0d1f2a"/>
+          </linearGradient>
+        </defs>
+
+        <!-- water -->
+        <path d="M0 138 C 90 128, 150 150, 230 142 C 300 135, 340 150, 380 140 L380 176 L0 176 Z" fill="url(#water)"/>
+        <path d="M0 138 C 90 128, 150 150, 230 142 C 300 135, 340 150, 380 140" fill="none" stroke="#2b6377" stroke-width="2" opacity=".7"/>
+
+        <!-- spray at stern (left) -->
+        <g fill="#bfe9f2" opacity=".85">
+          <circle cx="20" cy="120" r="6"/><circle cx="10" cy="128" r="4"/><circle cx="30" cy="110" r="4.5"/>
+          <circle cx="14" cy="112" r="3"/><circle cx="34" cy="124" r="3"/><circle cx="6" cy="120" r="2.5"/>
+        </g>
+
+        <!-- hull bottom -->
+        <path d="M40 132 C 60 138, 140 140, 210 137 C 280 134, 322 128, 360 100
+                 C 366 96, 364 90, 356 92 L300 100 C 220 94, 120 96, 78 106
+                 C 56 112, 40 118, 40 132 Z" fill="url(#hull)" stroke="#caa000" stroke-width="1.5"/>
+
+        <!-- red side stripe -->
+        <path d="M52 118 C 120 104, 230 102, 318 104 L352 96 C 300 96, 220 92, 150 96 C 110 99, 74 106, 52 118 Z"
+              fill="#ff3b30" opacity=".92"/>
+
+        <!-- deck / hood -->
+        <path d="M86 104 C 120 80, 175 74, 215 80 C 245 84, 262 92, 300 98 L300 100
+                 C 220 94, 120 96, 86 104 Z" fill="#15181d"/>
+        <!-- seat -->
+        <path d="M150 86 C 175 70, 215 70, 244 82 C 250 84, 250 90, 244 90 L156 92
+                 C 148 92, 146 88, 150 86 Z" fill="#23272e" stroke="#000" stroke-width="1"/>
+        <!-- console + handlebars -->
+        <path d="M120 92 C 124 80, 134 74, 146 76 L150 86 C 138 86, 128 90, 124 96 Z" fill="#0f1216"/>
+        <line x1="120" y1="80" x2="104" y2="70" stroke="#0a0c0f" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="102" cy="69" r="4" fill="#2b313a"/>
+        <!-- mirror -->
+        <line x1="128" y1="78" x2="120" y2="66" stroke="#0a0c0f" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="119" cy="64" r="3" fill="#3a424d"/>
+
+        <!-- RXT-X graphic -->
+        <text x="196" y="120" font-family="Arial Black,Arial,sans-serif" font-weight="900"
+              font-size="17" fill="#15181d" letter-spacing="1">RXT-X</text>
+        <text x="284" y="119" font-family="Arial Black,Arial,sans-serif" font-weight="900"
+              font-size="13" fill="#fff">255</text>
+
+        <!-- bow accent -->
+        <path d="M322 104 L356 92 C 360 91, 360 96, 356 99 L330 110 Z" fill="#15181d" opacity=".85"/>
+      </svg>
+    </div>
+
+    <div class="who">
+      <div class="av">A</div>
+      <div><p style="font-size:14px"><b>For Arman</b> — from Shawn <span class="mut">(Marcus's buddy)</span></p>
+      <p class="small">Scroll down — it's all here. 👇 (the page works, no need to click anything)</p></div>
+    </div>
+  </section>
+
+  <!-- ===== HEY ARMAN ===== -->
+  <section>
+    <div class="top"><span class="dot"></span> Intro</div>
+    <div class="eyebrow">Hey Arman</div>
+    <h2>Thanks for taking a look at this thing.</h2>
+    <div class="card"><p>Marcus put us in touch — I really appreciate the help.</p></div>
+    <div class="card"><p>My ski just rolled past <b>100 hours</b>, and it's due for the one big scheduled service these supercharged Sea-Doos need at that mark.</p></div>
+    <div class="callout grn"><p><b>The short version:</b> it's a supercharger rebuild. I buy the kit, ship it to you, and drop the ski off. Everything you'd need is below.</p></div>
+  </section>
+
+  <!-- ===== THE SKI ===== -->
+  <section>
+    <div class="top"><span class="dot"></span> The machine</div>
+    <div class="eyebrow yel" style="color:var(--yellow)">Meet the ski</div>
+    <h2>2008 Sea-Doo RXT-X 255</h2>
+    <p class="small">Top-of-the-line Sea-Doo for '08 — the supercharged "musclecraft."</p>
+    <div class="specs">
+      <div class="spec"><div class="k">Engine</div><div class="v">Rotax 1503 4-TEC</div></div>
+      <div class="spec"><div class="k">Power</div><div class="v">255 HP · S/C</div></div>
+      <div class="spec"><div class="k">Supercharger</div><div class="v">16-tooth · intercooled</div></div>
+      <div class="spec"><div class="k">Hours</div><div class="v">~100 hrs</div></div>
+    </div>
+    <div>
+      <span class="pill">3-seater</span><span class="pill">~67 mph stock</span><span class="pill">Supercharged</span>
+    </div>
+  </section>
+
+  <!-- ===== THE JOB + SUPERCHARGER DIAGRAM ===== -->
+  <section>
+    <div class="top"><span class="dot"></span> The job</div>
+    <div class="eyebrow red">The one thing it needs</div>
+    <h2>Supercharger rebuild</h2>
+    <span class="tag red">100-HOUR SERVICE · DUE NOW</span>
+
+    <!-- SUPERCHARGER DIAGRAM -->
+    <div class="figwrap">
+      <svg viewBox="0 0 380 210" role="img" aria-label="Supercharger cutaway showing the parts replaced">
+        <defs>
+          <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#d7dde4"/><stop offset=".5" stop-color="#9aa3ad"/><stop offset="1" stop-color="#6c7480"/>
+          </linearGradient>
+          <linearGradient id="pulley" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#3a424d"/><stop offset="1" stop-color="#1c2027"/>
+          </linearGradient>
+        </defs>
+
+        <!-- housing body -->
+        <rect x="92" y="70" width="180" height="74" rx="14" fill="url(#metal)" stroke="#5a626d" stroke-width="2"/>
+        <!-- cutaway window -->
+        <rect x="150" y="80" width="92" height="54" rx="8" fill="#11151a" stroke="#3a424d" stroke-width="2"/>
+
+        <!-- shaft -->
+        <rect x="150" y="104" width="118" height="6" rx="3" fill="#c7ced6"/>
+
+        <!-- CLUTCH WASHER STACK (the wear part) -->
+        <g>
+          <rect x="158" y="92" width="5" height="30" rx="1.5" fill="#ff3b30"/>
+          <rect x="165" y="92" width="5" height="30" rx="1.5" fill="#ff5a4d"/>
+          <rect x="172" y="92" width="5" height="30" rx="1.5" fill="#ff3b30"/>
+          <rect x="179" y="92" width="5" height="30" rx="1.5" fill="#ff5a4d"/>
+        </g>
+
+        <!-- bearing -->
+        <circle cx="206" cy="107" r="13" fill="#1c2027" stroke="#9aa3ad" stroke-width="3"/>
+        <circle cx="206" cy="107" r="5" fill="#3a424d"/>
+        <g fill="#c7ced6">
+          <circle cx="206" cy="96" r="2"/><circle cx="217" cy="107" r="2"/>
+          <circle cx="206" cy="118" r="2"/><circle cx="195" cy="107" r="2"/>
+        </g>
+
+        <!-- impeller hint -->
+        <path d="M228 96 L240 90 M228 107 L242 107 M228 118 L240 124" stroke="#7c8590" stroke-width="3" stroke-linecap="round"/>
+
+        <!-- drive gear (right) -->
+        <circle cx="272" cy="107" r="16" fill="#8b939d" stroke="#5a626d" stroke-width="2"/>
+        <g stroke="#5a626d" stroke-width="3">
+          <line x1="272" y1="89" x2="272" y2="95"/><line x1="272" y1="119" x2="272" y2="125"/>
+          <line x1="254" y1="107" x2="260" y2="107"/><line x1="284" y1="107" x2="290" y2="107"/>
+          <line x1="259" y1="94" x2="263" y2="98"/><line x1="281" y1="116" x2="285" y2="120"/>
+          <line x1="259" y1="120" x2="263" y2="116"/><line x1="281" y1="98" x2="285" y2="94"/>
+        </g>
+        <circle cx="272" cy="107" r="5" fill="#2b313a"/>
+
+        <!-- pulley (left) -->
+        <rect x="64" y="78" width="22" height="58" rx="6" fill="url(#pulley)" stroke="#11151a" stroke-width="1.5"/>
+        <line x1="70" y1="82" x2="70" y2="132" stroke="#4b535e" stroke-width="1.5"/>
+        <line x1="80" y1="82" x2="80" y2="132" stroke="#4b535e" stroke-width="1.5"/>
+
+        <!-- labels -->
+        <!-- washers label -->
+        <line x1="171" y1="92" x2="171" y2="46" stroke="#ff3b30" stroke-width="1.5"/>
+        <circle cx="171" cy="46" r="2.5" fill="#ff3b30"/>
+        <text x="171" y="36" text-anchor="middle" font-size="12" font-weight="800" fill="#ff6a60">CLUTCH WASHERS</text>
+        <text x="171" y="22" text-anchor="middle" font-size="10" fill="#9aa3ad">the wear part — replaced</text>
+
+        <!-- bearing label -->
+        <path d="M206 120 L206 160 L150 160 L150 174" fill="none" stroke="#28c7c0" stroke-width="1.5"/>
+        <circle cx="150" cy="174" r="2.5" fill="#28c7c0"/>
+        <text x="150" y="190" text-anchor="middle" font-size="11" font-weight="700" fill="#28c7c0">Bearings &amp; seals</text>
+
+        <!-- shaft/gear label -->
+        <path d="M272 124 L272 160 L324 160 L324 174" fill="none" stroke="#ffd21e" stroke-width="1.5"/>
+        <circle cx="324" cy="174" r="2.5" fill="#ffd21e"/>
+        <text x="324" y="190" text-anchor="middle" font-size="11" font-weight="700" fill="#ffd21e">Shaft &amp; drive gear</text>
+
+        <!-- pulley label -->
+        <text x="75" y="150" text-anchor="middle" font-size="10" fill="#9aa3ad">pulley</text>
+      </svg>
+      <div class="figcap">Inside the supercharger — the kit renews everything highlighted.</div>
+    </div>
+
+    <div class="callout"><p><b>Why it's not optional:</b> as the clutch washers wear, the clutch slips. Left too long it can shed metal <i>into the engine</i> — turning a ~$400 job into a new motor. The plastic bearing cages also go brittle with heat over time (that's the "2-year" half of the rule).</p></div>
+  </section>
+
+  <!-- ===== THE PLAN ===== -->
+  <section>
+    <div class="top"><span class="dot"></span> The plan</div>
+    <div class="eyebrow teal">How this works</div>
+    <h2>Dead simple on your end</h2>
+    <div class="card tight"><div class="row"><div class="num">1</div><div><h3>I order the kit</h3><p class="small">OEM Sea-Doo rebuild kit — shipped straight to your shop.</p></div></div></div>
+    <div class="card tight"><div class="row"><div class="num">2</div><div><h3>I drop the ski off</h3><p class="small">On the trailer, whenever suits you. Kit's already waiting.</p></div></div></div>
+    <div class="card tight"><div class="row"><div class="num">3</div><div><h3>You do the rebuild</h3><p class="small">Pull the S/C, rebuild on the bench, reinstall, quick test.</p></div></div></div>
+    <div class="card tight"><div class="row"><div class="num">4</div><div><h3>I pick it up</h3><p class="small">We square up on your time, and I'm out of your hair.</p></div></div></div>
+    <div class="callout grn"><p>You don't source a single part — just bring the wrenches.</p></div>
+  </section>
+
+  <!-- ===== THE KIT ===== -->
+  <section>
+    <div class="top"><span class="dot"></span> The parts</div>
+    <div class="eyebrow yel" style="color:var(--yellow)">The kit — already handled</div>
+    <h2>OEM supercharger rebuild kit</h2>
+
+    <!-- KIT CONTENTS ILLUSTRATION -->
+    <div class="figwrap">
+      <svg viewBox="0 0 380 150" role="img" aria-label="Rebuild kit contents">
+        <!-- washers -->
+        <g transform="translate(56,40)">
+          <ellipse cx="0" cy="0" rx="22" ry="9" fill="#ff5a4d"/><ellipse cx="0" cy="0" rx="8" ry="3.4" fill="#11151a"/>
+          <ellipse cx="0" cy="8" rx="22" ry="9" fill="#ff3b30"/><ellipse cx="0" cy="8" rx="8" ry="3.4" fill="#11151a"/>
+          <ellipse cx="0" cy="16" rx="22" ry="9" fill="#ff5a4d"/><ellipse cx="0" cy="16" rx="8" ry="3.4" fill="#11151a"/>
+          <text x="0" y="44" text-anchor="middle" font-size="11" font-weight="700" fill="#ff6a60">Clutch washers</text>
+        </g>
+        <!-- bearings -->
+        <g transform="translate(130,46)">
+          <circle r="22" fill="#1c2027" stroke="#9aa3ad" stroke-width="5"/><circle r="8" fill="#3a424d"/>
+          <g fill="#c7ced6"><circle cx="0" cy="-15" r="3"/><circle cx="15" cy="0" r="3"/><circle cx="0" cy="15" r="3"/><circle cx="-15" cy="0" r="3"/><circle cx="11" cy="-11" r="3"/><circle cx="11" cy="11" r="3"/><circle cx="-11" cy="11" r="3"/><circle cx="-11" cy="-11" r="3"/></g>
+          <text x="0" y="42" text-anchor="middle" font-size="11" font-weight="700" fill="#28c7c0">Bearings</text>
+        </g>
+        <!-- seals -->
+        <g transform="translate(220,46)">
+          <circle r="20" fill="none" stroke="#6c7480" stroke-width="7"/><circle r="13" fill="none" stroke="#3a424d" stroke-width="3"/>
+          <text x="0" y="42" text-anchor="middle" font-size="11" font-weight="700" fill="#9aa3ad">Seals</text>
+        </g>
+        <!-- shaft + gear -->
+        <g transform="translate(286,46)">
+          <rect x="0" y="-4" width="74" height="8" rx="4" fill="url(#metal)" stroke="#5a626d"/>
+          <circle cx="74" cy="0" r="14" fill="#8b939d" stroke="#5a626d" stroke-width="2"/>
+          <g stroke="#5a626d" stroke-width="2.5"><line x1="74" y1="-16" x2="74" y2="-11"/><line x1="74" y1="11" x2="74" y2="16"/><line x1="58" y1="0" x2="63" y2="0"/><line x1="85" y1="0" x2="90" y2="0"/></g>
+          <circle cx="74" cy="0" r="4" fill="#2b313a"/>
+          <text x="40" y="42" text-anchor="middle" font-size="11" font-weight="700" fill="#ffd21e">Shaft &amp; gear</text>
+        </g>
+      </svg>
+      <div class="figcap">Everything in the box — the parts that wear, renewed.</div>
+    </div>
+
+    <div class="card"><div class="row"><div class="ico">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ffd21e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4v10l-9 4-9-4V7z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg>
+    </div><div><h3>Sea-Doo OEM &nbsp;P/N 420881102</h3><p class="small">(supersedes 420881100 / 101) — the 16-tooth intercooled kit for the 1503. <b style="color:#f3f5f7">Steel washers.</b></p></div></div></div>
+
+    <div class="callout yel"><p><b>Your call:</b> OEM kit is my plan (best for the steel washers). If you'd rather run a brand you trust, say so before I order.</p></div>
+  </section>
+
+  <!-- ===== TOOLS ===== -->
+  <section>
+    <div class="top"><span class="dot"></span> The tools</div>
+    <div class="eyebrow teal">What you'd need</div>
+    <h2>Tools for the bench</h2>
+    <div class="specs">
+      <div class="spec"><div class="k">Torque</div><div class="v">Torque wrench (ft-lb)</div></div>
+      <div class="spec"><div class="k">Hold</div><div class="v">Bench vise</div></div>
+      <div class="spec"><div class="k">Bearings</div><div class="v">Shop / arbor press</div></div>
+      <div class="spec"><div class="k">Clips</div><div class="v">Snap-ring pliers</div></div>
+      <div class="spec"><div class="k">Lock</div><div class="v">Blue Loctite (243)</div></div>
+      <div class="spec"><div class="k">Tidy</div><div class="v">Shop towels</div></div>
+    </div>
+    <div class="card"><div class="row"><div class="ico">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ffd21e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4.5a4 4 0 0 0 5 5l-9 9a2.1 2.1 0 0 1-3-3l9-9z"/><circle cx="6.6" cy="17.4" r="0.8" fill="#ffd21e" stroke="none"/></svg>
+    </div><div><h3>The one special bit</h3><p class="small">The S/C needs a <b style="color:#f3f5f7">shaft-holding tool + drive-gear holding tool</b> to crack the top nut. No Sea-Doo S/C tool set? Tell me — <b style="color:#f3f5f7">I'll add the tool kit to the order.</b></p></div></div></div>
+  </section>
+
+  <!-- ===== TIME ===== -->
+  <section>
+    <div class="top"><span class="dot"></span> The clock</div>
+    <div class="eyebrow yel" style="color:var(--yellow)">How long it takes</div>
+    <h2>Roughly half a day, tops</h2>
+    <div class="card"><div class="row"><div class="ico">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ffd21e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+    </div><div><h3>~2–3 hrs bench time</h3><p class="small">The actual rebuild for someone who's done it before.</p></div></div></div>
+    <div class="card"><div class="row"><div class="ico">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ffd21e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3h5l-1 4h-3z"/><path d="M10.5 7h3v7l-1.5 7-1.5-7z"/></svg>
+    </div><div><h3>+ pull &amp; reinstall</h3><p class="small">Getting the S/C off and back on, plus a test run.</p></div></div></div>
+    <div class="callout"><p>Pro shops quote a <b>1-day turnaround</b>, so no rush on my end — whatever fits your schedule.</p></div>
+  </section>
+
+  <!-- ===== RECAP ===== -->
+  <section style="border-bottom:none">
+    <div class="top"><span class="dot"></span> Recap</div>
+    <div class="eyebrow grn" style="color:var(--grn)">That's the whole job</div>
+    <h2>Two quick questions for you</h2>
+    <div class="card tight"><p class="small" style="color:#f3f5f7"><b>1.</b> OEM kit good with you?</p></div>
+    <div class="card tight"><p class="small" style="color:#f3f5f7"><b>2.</b> Need me to add the S/C tool kit?</p></div>
+    <div class="callout grn"><p>Give me those two and I'll order the parts and we'll set a drop-off. That's it.</p></div>
+    <p class="sign">Thanks a ton, Arman —<br><b>Shawn</b></p>
+    <p class="foot">Reference only · always defer to the Sea-Doo shop-manual torque specs. You're the mechanic — this is just the heads-up.</p>
+  </section>
+
+</div>
+</body>
+</html>
