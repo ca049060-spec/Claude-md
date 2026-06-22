@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sea-Doo RXT-X 255 — 100-Hour Supercharger Service Manual</title>
+<style>
+  :root{
+    --bg:#0d0f12;--panel:#15181d;--panel2:#1c2027;--line:#2b313a;
+    --txt:#f3f5f7;--mut:#9aa3ad;--yellow:#ffd21e;--yellow2:#f2b705;
+    --red:#ff3b30;--teal:#28c7c0;--grn:#34d27b;--blue:#5aa9ff;
+  }
+  @page{size:480px 800px;margin:0}
+  @media print{
+    .wrap{box-shadow:none;max-width:none}
+    section{break-inside:avoid}
+    .figwrap,.card,.callout,.spec,.vcard,.step,.tchip,.who,.specs,.costrow,.qa{break-inside:avoid}
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{font-family:-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;background:#000}
+  body{background:var(--bg);color:var(--txt);-webkit-font-smoothing:antialiased;line-height:1.5}
+  .wrap{max-width:480px;margin:0 auto;background:var(--bg);min-height:100vh;box-shadow:0 0 60px rgba(0,0,0,.6)}
+  section{padding:26px 22px;border-bottom:1px solid var(--line)}
+
+  .eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:var(--yellow);margin-bottom:8px}
+  .eyebrow.red{color:var(--red)} .eyebrow.teal{color:var(--teal)} .eyebrow.grn{color:var(--grn)}
+  h1{font-size:32px;line-height:1.06;letter-spacing:-.5px;font-weight:800}
+  h2{font-size:22px;line-height:1.13;letter-spacing:-.3px;font-weight:800;margin-bottom:6px}
+  h3{font-size:15px;font-weight:700}
+  p{font-size:14.5px;color:var(--txt)} .mut{color:var(--mut)}
+  .small{font-size:13px;color:var(--mut);line-height:1.5}
+  b.w{color:#fff}
+
+  .sec-no{display:flex;align-items:center;gap:9px;font-size:11px;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+  .sec-no .b{background:var(--yellow);color:#1a1400;font-weight:800;border-radius:6px;padding:2px 8px;letter-spacing:.02em}
+
+  .hero{background:radial-gradient(120% 90% at 70% 0%,#20242c 0%,#0d0f12 60%)}
+  .hero .badge{display:inline-block;background:var(--yellow);color:#1a1400;font-weight:800;font-size:11px;letter-spacing:.08em;padding:5px 11px;border-radius:999px;margin-bottom:14px}
+  .hero h1 span{color:var(--yellow)}
+  .who{display:flex;align-items:center;gap:10px;margin-top:18px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+  .who .av{width:34px;height:34px;border-radius:50%;background:var(--red);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px;flex:0 0 auto}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 15px;margin-top:12px}
+  .card.tight{padding:11px 13px}
+  .row{display:flex;align-items:flex-start;gap:12px}.row+.row{margin-top:10px}
+  .ico{flex:0 0 auto;width:38px;height:38px;border-radius:11px;background:var(--panel2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+  .num{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--yellow);color:#1a1400;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+
+  .specs{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+  .spec{flex:1 1 44%;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 12px}
+  .spec .k{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+  .spec .v{font-size:16px;font-weight:800;margin-top:3px}
+
+  .pill{display:inline-block;font-size:12px;color:var(--mut);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:5px 11px;margin:6px 6px 0 0}
+  .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;padding:5px 11px;border-radius:999px}
+  .tag.red{background:rgba(255,59,48,.16);color:#ff6a60;border:1px solid rgba(255,59,48,.4)}
+  .tag.grn{background:rgba(52,210,123,.16);color:var(--grn);border:1px solid rgba(52,210,123,.4)}
+  .tag.yel{background:rgba(255,210,30,.16);color:var(--yellow);border:1px solid rgba(255,210,30,.4)}
+
+  .callout{border-left:4px solid var(--red);background:var(--panel);border-radius:0 12px 12px 0;padding:13px 15px;margin-top:14px}
+  .callout.grn{border-left-color:var(--grn)} .callout.yel{border-left-color:var(--yellow)} .callout.teal{border-left-color:var(--teal)}
+  .callout p{font-size:13.5px}
+
+  ul.clean{list-style:none;margin-top:6px}
+  ul.clean li{font-size:14px;padding-left:20px;position:relative;margin-top:8px}
+  ul.clean li:before{content:"";position:absolute;left:0;top:7px;width:9px;height:9px;border-radius:2px;background:var(--yellow);transform:rotate(45deg)}
+
+  .figwrap{background:linear-gradient(180deg,#161a20,#0f1216);border:1px solid var(--line);border-radius:16px;padding:14px;margin-top:14px}
+  .figcap{font-size:12px;color:var(--mut);text-align:center;margin-top:8px}
+  svg{display:block}
+  .figwrap svg, svg.full{width:100%;height:auto}
+
+  /* vendor card */
+  .vcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:13px 14px;margin-top:11px}
+  .vcard .vtop{display:flex;align-items:center;gap:10px}
+  .vcard .vname{font-size:15px;font-weight:800}
+  .vcard .price{margin-left:auto;font-size:16px;font-weight:800;color:var(--grn);white-space:nowrap}
+  .vcard .vmeta{font-size:12px;color:var(--mut);margin-top:5px}
+  .vcard a{display:inline-block;margin-top:9px;font-size:12.5px;font-weight:700;color:#0d0f12;background:var(--yellow);
+           text-decoration:none;padding:7px 12px;border-radius:9px;word-break:break-all}
+  .vcard .url{font-size:10.5px;color:#6f7783;margin-top:7px;word-break:break-all}
+  .best{background:rgba(255,210,30,.10);border-color:rgba(255,210,30,.5)}
+  .best .vtag{font-size:9.5px;font-weight:800;letter-spacing:.08em;color:var(--yellow);border:1px solid rgba(255,210,30,.5);border-radius:999px;padding:2px 7px}
+
+  /* cost table */
+  .cost{margin-top:14px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .costrow{display:flex;align-items:center;gap:10px;padding:11px 13px;border-bottom:1px solid var(--line);font-size:13.5px}
+  .costrow:last-child{border-bottom:none}
+  .costrow .amt{margin-left:auto;font-weight:800;white-space:nowrap}
+  .costrow.total{background:var(--panel2);font-weight:800}
+  .costrow.total .amt{color:var(--grn)}
+  .costrow .opt{font-size:10px;color:var(--mut);border:1px solid var(--line);border-radius:5px;padding:1px 5px;margin-left:6px}
+
+  /* steps */
+  .phase{display:flex;align-items:center;gap:10px;margin:18px 0 4px}
+  .phase .pn{width:30px;height:30px;border-radius:8px;background:var(--red);color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+  .phase .pt{font-size:17px;font-weight:800}
+  .step{display:flex;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:12px 13px;margin-top:10px}
+  .step .sn{flex:0 0 auto;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--yellow);color:var(--yellow);font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center}
+  .step .sbody{flex:1}
+  .step .stitle{font-size:14.5px;font-weight:700}
+  .step .sdesc{font-size:13px;color:var(--mut);margin-top:3px;line-height:1.5}
+  .sico{flex:0 0 auto;width:34px;height:34px;border-radius:9px;background:var(--panel2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+  .tchip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,59,48,.12);border:1px solid rgba(255,59,48,.4);color:#ff7a70;font-size:11.5px;font-weight:800;padding:3px 9px;border-radius:999px;margin-top:7px}
+
+  /* spec reference */
+  .ref{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+  .refc{flex:1 1 100%;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 13px;display:flex;align-items:center;gap:10px}
+  .refc .rk{font-size:13.5px}.refc .rv{margin-left:auto;font-weight:800;color:var(--yellow);font-size:14px;white-space:nowrap}
+
+  .qa{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:12px 14px;margin-top:11px}
+  .foot{font-size:11.5px;color:var(--mut);margin-top:14px;line-height:1.5}
+  .sign{font-size:16px;margin-top:16px}.sign b{color:#fff}
+  .toc a{color:var(--txt);text-decoration:none}
+  .toc .trow{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+  .toc .trow .tn{color:var(--yellow);font-weight:800;width:22px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ===================== COVER ===================== -->
+<section class="hero">
+  <div class="badge">2008 SEA-DOO · RXT-X 255</div>
+  <h1>100-Hour<br><span>Supercharger</span><br>Service Manual</h1>
+  <p class="mut" style="margin-top:12px">The complete job — parts to order, where to buy, prices, tools, torque specs, and the full step-by-step rebuild.</p>
+
+  <div style="margin:18px 0 2px">
+    <svg class="full" viewBox="0 0 380 150" role="img" aria-label="Sea-Doo RXT-X 255">
+      <defs>
+        <linearGradient id="hull" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe66b"/><stop offset="1" stop-color="#f2b705"/></linearGradient>
+        <linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b3a4b"/><stop offset="1" stop-color="#0d1f2a"/></linearGradient>
+      </defs>
+      <path d="M0 118 C 90 108, 150 130, 230 122 C 300 115, 340 130, 380 120 L380 150 L0 150 Z" fill="url(#water)"/>
+      <g fill="#bfe9f2" opacity=".85"><circle cx="22" cy="100" r="6"/><circle cx="12" cy="108" r="4"/><circle cx="32" cy="90" r="4.5"/><circle cx="16" cy="92" r="3"/></g>
+      <path d="M40 112 C 60 118, 140 120, 210 117 C 280 114, 322 108, 360 80 C 366 76, 364 70, 356 72 L300 80 C 220 74, 120 76, 78 86 C 56 92, 40 98, 40 112 Z" fill="url(#hull)" stroke="#caa000" stroke-width="1.5"/>
+      <path d="M52 98 C 120 84, 230 82, 318 84 L352 76 C 300 76, 220 72, 150 76 C 110 79, 74 86, 52 98 Z" fill="#ff3b30" opacity=".92"/>
+      <path d="M86 84 C 120 60, 175 54, 215 60 C 245 64, 262 72, 300 78 L300 80 C 220 74, 120 76, 86 84 Z" fill="#15181d"/>
+      <path d="M150 66 C 175 50, 215 50, 244 62 C 250 64, 250 70, 244 70 L156 72 C 148 72, 146 68, 150 66 Z" fill="#23272e"/>
+      <line x1="120" y1="60" x2="104" y2="50" stroke="#0a0c0f" stroke-width="5" stroke-linecap="round"/><circle cx="102" cy="49" r="4" fill="#2b313a"/>
+      <text x="196" y="100" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="16" fill="#15181d">RXT-X</text>
+      <text x="282" y="99" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="12" fill="#fff">255</text>
+    </svg>
+  </div>
+
+  <div class="who"><div class="av">A</div>
+    <div><p style="font-size:14px"><b class="w">Prepared for Arman</b> — from Shawn <span class="mut">(Marcus's father)</span></p>
+    <p class="small">A full reference so the whole job is clear before a single bolt is touched.</p></div></div>
+</section>
+
+<!-- ===================== CONTENTS ===================== -->
+<section>
+  <div class="sec-no"><span class="b">CONTENTS</span> What's inside</div>
+  <div class="toc">
+    <div class="trow"><span class="tn">1</span><span>At a glance — job, time &amp; total cost</span></div>
+    <div class="trow"><span class="tn">2</span><span>The machine &amp; the service</span></div>
+    <div class="trow"><span class="tn">3</span><span>Parts to order (with links &amp; prices)</span></div>
+    <div class="trow"><span class="tn">4</span><span>Special tools to order</span></div>
+    <div class="trow"><span class="tn">5</span><span>Full cost breakdown</span></div>
+    <div class="trow"><span class="tn">6</span><span>Tools checklist</span></div>
+    <div class="trow"><span class="tn">7</span><span>Step-by-step rebuild</span></div>
+    <div class="trow"><span class="tn">8</span><span>Torque &amp; spec quick reference</span></div>
+    <div class="trow"><span class="tn">9</span><span>The plan &amp; two questions</span></div>
+  </div>
+</section>
+
+<!-- ===================== 1. AT A GLANCE ===================== -->
+<section>
+  <div class="sec-no"><span class="b">01</span> At a glance</div>
+  <h2>The whole job in one screen</h2>
+  <div class="specs">
+    <div class="spec"><div class="k">The service</div><div class="v">Supercharger rebuild</div></div>
+    <div class="spec"><div class="k">Due at</div><div class="v">100 hrs / 2 yrs</div></div>
+    <div class="spec"><div class="k">Bench time</div><div class="v">~2–3 hrs</div></div>
+    <div class="spec"><div class="k">Turnaround</div><div class="v">~½ day</div></div>
+  </div>
+  <div class="cost">
+    <div class="costrow">OEM rebuild kit (P/N 420881102)<span class="amt">$350–$500</span></div>
+    <div class="costrow">Special tools <span class="opt">if not owned</span><span class="amt">$75–$130</span></div>
+    <div class="costrow">Oil + filter, Loctite, o-rings<span class="amt">$50–$80</span></div>
+    <div class="costrow total">Typical parts total<span class="amt">≈ $475–$710</span></div>
+  </div>
+  <p class="small" style="margin-top:10px">Shawn buys all parts and ships them to you. You supply the wrench time. Labor settled on your terms.</p>
+</section>
+
+<!-- ===================== 2. MACHINE & SERVICE ===================== -->
+<section>
+  <div class="sec-no"><span class="b">02</span> The machine &amp; the service</div>
+  <h2>2008 Sea-Doo RXT-X 255</h2>
+  <div class="specs">
+    <div class="spec"><div class="k">Engine</div><div class="v">Rotax 1503 4-TEC</div></div>
+    <div class="spec"><div class="k">Power</div><div class="v">255 HP · S/C</div></div>
+    <div class="spec"><div class="k">Supercharger</div><div class="v">16-tooth · intercooled</div></div>
+    <div class="spec"><div class="k">Hours</div><div class="v">~100 hrs</div></div>
+  </div>
+
+  <h3 style="margin-top:18px">Why the rebuild matters</h3>
+  <div class="figwrap">
+    <svg viewBox="0 0 380 210" role="img" aria-label="Supercharger cutaway">
+      <defs>
+        <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d7dde4"/><stop offset=".5" stop-color="#9aa3ad"/><stop offset="1" stop-color="#6c7480"/></linearGradient>
+        <linearGradient id="pulley" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a424d"/><stop offset="1" stop-color="#1c2027"/></linearGradient>
+      </defs>
+      <rect x="92" y="70" width="180" height="74" rx="14" fill="url(#metal)" stroke="#5a626d" stroke-width="2"/>
+      <rect x="150" y="80" width="92" height="54" rx="8" fill="#11151a" stroke="#3a424d" stroke-width="2"/>
+      <rect x="150" y="104" width="118" height="6" rx="3" fill="#c7ced6"/>
+      <g><rect x="158" y="92" width="5" height="30" rx="1.5" fill="#ff3b30"/><rect x="165" y="92" width="5" height="30" rx="1.5" fill="#ff5a4d"/><rect x="172" y="92" width="5" height="30" rx="1.5" fill="#ff3b30"/><rect x="179" y="92" width="5" height="30" rx="1.5" fill="#ff5a4d"/></g>
+      <circle cx="206" cy="107" r="13" fill="#1c2027" stroke="#9aa3ad" stroke-width="3"/><circle cx="206" cy="107" r="5" fill="#3a424d"/>
+      <g fill="#c7ced6"><circle cx="206" cy="96" r="2"/><circle cx="217" cy="107" r="2"/><circle cx="206" cy="118" r="2"/><circle cx="195" cy="107" r="2"/></g>
+      <path d="M228 96 L240 90 M228 107 L242 107 M228 118 L240 124" stroke="#7c8590" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="272" cy="107" r="16" fill="#8b939d" stroke="#5a626d" stroke-width="2"/>
+      <g stroke="#5a626d" stroke-width="3"><line x1="272" y1="89" x2="272" y2="95"/><line x1="272" y1="119" x2="272" y2="125"/><line x1="254" y1="107" x2="260" y2="107"/><line x1="284" y1="107" x2="290" y2="107"/><line x1="259" y1="94" x2="263" y2="98"/><line x1="281" y1="116" x2="285" y2="120"/><line x1="259" y1="120" x2="263" y2="116"/><line x1="281" y1="98" x2="285" y2="94"/></g>
+      <circle cx="272" cy="107" r="5" fill="#2b313a"/>
+      <rect x="64" y="78" width="22" height="58" rx="6" fill="url(#pulley)" stroke="#11151a" stroke-width="1.5"/>
+      <line x1="70" y1="82" x2="70" y2="132" stroke="#4b535e" stroke-width="1.5"/><line x1="80" y1="82" x2="80" y2="132" stroke="#4b535e" stroke-width="1.5"/>
+      <line x1="171" y1="92" x2="171" y2="46" stroke="#ff3b30" stroke-width="1.5"/><circle cx="171" cy="46" r="2.5" fill="#ff3b30"/>
+      <text x="171" y="36" text-anchor="middle" font-size="12" font-weight="800" fill="#ff6a60">CLUTCH WASHERS</text>
+      <text x="171" y="22" text-anchor="middle" font-size="10" fill="#9aa3ad">the wear part — replaced</text>
+      <path d="M206 120 L206 160 L150 160 L150 174" fill="none" stroke="#28c7c0" stroke-width="1.5"/><circle cx="150" cy="174" r="2.5" fill="#28c7c0"/>
+      <text x="150" y="190" text-anchor="middle" font-size="11" font-weight="700" fill="#28c7c0">Bearings &amp; seals</text>
+      <path d="M272 124 L272 160 L324 160 L324 174" fill="none" stroke="#ffd21e" stroke-width="1.5"/><circle cx="324" cy="174" r="2.5" fill="#ffd21e"/>
+      <text x="324" y="190" text-anchor="middle" font-size="11" font-weight="700" fill="#ffd21e">Shaft &amp; drive gear</text>
+      <text x="75" y="150" text-anchor="middle" font-size="10" fill="#9aa3ad">pulley</text>
+    </svg>
+    <div class="figcap">The clutch washers wear, the clutch slips — and if ignored, debris can reach the engine.</div>
+  </div>
+  <div class="callout"><p><b class="w">Not optional:</b> worn clutch washers let the clutch slip and can shed metal <i>into the engine</i> — a ~$450 job that prevents a new-motor bill. Plastic bearing cages also go brittle with heat over time (the "2-year" half of the rule).</p></div>
+</section>
+
+<!-- ===================== 3. PARTS TO ORDER ===================== -->
+<section>
+  <div class="sec-no"><span class="b">03</span> Parts to order</div>
+  <h2>What we buy — and where</h2>
+  <p class="small">The one required item is the OEM rebuild kit. Below are real vendors, prices, and links. Tap a link to go straight to the product.</p>
+
+  <h3 style="margin-top:16px">① Required — OEM rebuild kit</h3>
+  <span class="tag yel" style="margin-top:8px">P/N 420881102 · 16-tooth · steel washers</span>
+
+  <div class="vcard best">
+    <div class="vtop"><span class="vtag">RECOMMENDED</span><span class="vname" style="margin-left:8px">Sea-Doo / BRP (genuine)</span><span class="price">≈ $390</span></div>
+    <div class="vmeta">Factory OEM kit direct from BRP — the exact part, steel washers, IsoFlex spec.</div>
+    <a href="https://sea-doo-shop.brp.com/us/en/supercharger-repair-kit-420881102.html">Open BRP product page →</a>
+    <div class="url">sea-doo-shop.brp.com → Supercharger Repair Kit 420881102</div>
+  </div>
+
+  <div class="vcard">
+    <div class="vtop"><span class="vname">RIVA Racing</span><span class="price">$499.99</span></div>
+    <div class="vmeta">Genuine OEM kit, free shipping over $150. Updates to '08 metal-washer spec.</div>
+    <a href="https://rivaracing.com/oem-sea-doo-215255260-supercharger-rebuild-kit-420881102.html">Open RIVA product page →</a>
+    <div class="url">rivaracing.com → OEM Sea-Doo 215/255/260 kit 420881102</div>
+  </div>
+
+  <div class="vcard">
+    <div class="vtop"><span class="vname">Offshore Marine Parts</span><span class="price">$350–$420</span></div>
+    <div class="vmeta">OEM kit, fits GTR/GTX/RXP/RXT intercooled 16-tooth.</div>
+    <a href="https://www.offshoremarineparts.com/products/69123102-rebuild-kit-supercharger-seadoo-gtr-gtx-rxp-rxt-intercooled">Open Offshore Marine page →</a>
+    <div class="url">offshoremarineparts.com → Rebuild Kit, Supercharger (16-tooth)</div>
+  </div>
+
+  <div class="vcard">
+    <div class="vtop"><span class="vname">Amazon (OEM)</span><span class="price">$380–$470</span></div>
+    <div class="vmeta">Genuine BRP kit 420881102 — fast Prime shipping option.</div>
+    <a href="https://www.amazon.com/Sea-doo-Supercharger-Repair-Rebuild-420881102/dp/B00C8C3N70">Open Amazon listing →</a>
+    <div class="url">amazon.com → Sea-Doo OEM Supercharger Rebuild Kit 420881102</div>
+  </div>
+
+  <h3 style="margin-top:18px">② Budget alternative — aftermarket kit</h3>
+  <div class="vcard">
+    <div class="vtop"><span class="vname">PWCParts combo (kit + tools + grease)</span><span class="price">≈ $230</span></div>
+    <div class="vmeta">Metal washers, bearings, seals <b class="w">plus</b> the holding tools and required IsoFlex grease — one box, nothing else to buy. Replaces 420881102.</div>
+    <a href="https://pwcparts.com/seadoo-4-tec-supercharger-rebuild-kit-tool-kit-with-required-isoflex-grease-metal-washers-bearings-seals-rxt-x-rxp-x-gtx-gtr-rxp-rxt-215-255-260-replaces-420881102-pwc-sd-0090-kt/">Open PWCParts combo →</a>
+    <div class="url">pwcparts.com → PWC-SD-0090-KT (kit + tool kit + grease)</div>
+  </div>
+  <div class="callout teal"><p><b class="w">My lean:</b> genuine OEM kit for reliability. But the PWCParts combo is the best value if you'd rather have everything — including the special tools and grease — arrive in a single box. Your call.</p></div>
+</section>
+
+<!-- ===================== 4. SPECIAL TOOLS ===================== -->
+<section>
+  <div class="sec-no"><span class="b">04</span> Special tools to order</div>
+  <h2>The two that crack the nut</h2>
+  <p class="small">The supercharger shaft must be held while the cap nut is removed/torqued. If you don't already have these, I'll add them to the order. (Skip this section entirely if you choose the PWCParts combo above — tools are included.)</p>
+
+  <div class="vcard">
+    <div class="vtop"><span class="vname">RIVA shaft-holder tool</span><span class="price">$74.95</span></div>
+    <div class="vmeta">Holds the compressor shaft so you can break the cap nut. Item RS1750-ISH-949.</div>
+    <a href="https://rivaracing.com/i-17283814-riva-sea-doo-supercharger-shaft-holder-tool.html">Open RIVA shaft-holder →</a>
+    <div class="url">rivaracing.com → RIVA Sea-Doo Supercharger Shaft Holder Tool</div>
+  </div>
+  <div class="vcard">
+    <div class="vtop"><span class="vname">Gear-holder tool (1503 16-tooth)</span><span class="price">≈ $55</span></div>
+    <div class="vmeta">Holds the drive gear during disassembly/reassembly. Precision P/N 950-110-17.</div>
+    <a href="https://pwcparts.com/precision-supercharger-gear-holding-tool-for-sea-doo-1503-4-tec-950-110-17/">Open gear-holder tool →</a>
+    <div class="url">pwcparts.com → Precision Supercharger Gear Holding Tool 950-110-17</div>
+  </div>
+</section>
+
+<!-- ===================== 5. COST BREAKDOWN ===================== -->
+<section>
+  <div class="sec-no"><span class="b">05</span> Full cost breakdown</div>
+  <h2>The numbers</h2>
+  <div class="cost">
+    <div class="costrow">OEM rebuild kit (420881102)<span class="amt">$350–$500</span></div>
+    <div class="costrow">— or aftermarket combo kit<span class="amt">≈ $230</span></div>
+    <div class="costrow">RIVA shaft-holder tool <span class="opt">if needed</span><span class="amt">$75</span></div>
+    <div class="costrow">Gear-holder tool <span class="opt">if needed</span><span class="amt">$55</span></div>
+    <div class="costrow">IsoFlex Topas NB 52 grease <span class="opt">often incl.</span><span class="amt">$0–$25</span></div>
+    <div class="costrow">Engine oil + filter (XPS 4-stroke)<span class="amt">$45–$60</span></div>
+    <div class="costrow">Blue Loctite 243 + o-rings<span class="amt">$15</span></div>
+    <div class="costrow">External intercooler <span class="opt">only if leaking</span><span class="amt">$150–$300</span></div>
+    <div class="costrow total">Typical parts (OEM + tools)<span class="amt">≈ $475–$710</span></div>
+  </div>
+  <p class="small" style="margin-top:10px">Labor is separate and on your terms, Arman — this manual is just so the parts and scope are crystal clear.</p>
+</section>
+
+<!-- ===================== 6. TOOLS CHECKLIST ===================== -->
+<section>
+  <div class="sec-no"><span class="b">06</span> Tools checklist</div>
+  <h2>On the bench</h2>
+  <div class="specs">
+    <div class="spec"><div class="k">Torque</div><div class="v">Torque wrench (ft-lb)</div></div>
+    <div class="spec"><div class="k">Hold</div><div class="v">Bench vise</div></div>
+    <div class="spec"><div class="k">Bearings</div><div class="v">Shop / arbor press</div></div>
+    <div class="spec"><div class="k">Clips</div><div class="v">Snap-ring pliers</div></div>
+    <div class="spec"><div class="k">Special</div><div class="v">Shaft + gear holders</div></div>
+    <div class="spec"><div class="k">Lock</div><div class="v">Blue Loctite 243</div></div>
+    <div class="spec"><div class="k">Grease</div><div class="v">IsoFlex Topas NB 52</div></div>
+    <div class="spec"><div class="k">Sockets</div><div class="v">Metric set + drivers</div></div>
+  </div>
+  <div class="callout yel"><p><b class="w">Grease matters:</b> the clutch washers must be assembled with <b class="w">IsoFlex Topas NB 52</b> — not regular grease. Good kits include it; if not, it's on the order.</p></div>
+</section>
+
+<!-- ===================== 7. STEP BY STEP ===================== -->
+<section>
+  <div class="sec-no"><span class="b">07</span> Step-by-step rebuild</div>
+  <h2>Start to finish</h2>
+  <p class="small">You know this work, Arman — this is just the full sequence on record, with the key torque call-outs.</p>
+
+  <!-- PHASE A: REMOVE -->
+  <div class="phase"><div class="pn">A</div><div class="pt">Remove the supercharger</div></div>
+  <div class="step"><div class="sn">1</div><div class="sbody"><div class="stitle">Disconnect the battery</div><div class="sdesc">Negative first. Pull the seats / rear access panel to reach the engine bay.</div></div>
+    <div class="sico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffd21e" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="8" width="18" height="11" rx="2"/><line x1="7" y1="8" x2="7" y2="5"/><line x1="17" y1="8" x2="17" y2="5"/><line x1="9" y1="13" x2="13" y2="13"/></svg></div></div>
+  <div class="step"><div class="sn">2</div><div class="sbody"><div class="stitle">Clear access</div><div class="sdesc">Remove the air intake / silencer and any covers over the PTO (clutch) side where the supercharger sits.</div></div>
+    <div class="sico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffd21e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4.5a4 4 0 0 0 5 5l-9 9a2.1 2.1 0 0 1-3-3l9-9z"/></svg></div></div>
+  <div class="step"><div class="sn">3</div><div class="sbody"><div class="stitle">Free the charge pipe</div><div class="sdesc">Loosen the clamp and pull the intercooler / charge hose off the supercharger outlet.</div></div>
+    <div class="sico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffd21e" stroke-width="1.8" stroke-linecap="round"><path d="M4 12h7a3 3 0 0 0 3-3"/><circle cx="17" cy="9" r="3"/><rect x="3" y="10" width="3" height="4" rx="1"/></svg></div></div>
+  <div class="step"><div class="sn">4</div><div class="sbody"><div class="stitle">Unbolt &amp; pull the S/C</div><div class="sdesc">Remove the retaining bolts and slide the supercharger off its splined drive. Cap the opening so nothing drops in.</div></div>
+    <div class="sico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffd21e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2"/></svg></div></div>
+
+  <!-- PHASE B: DISASSEMBLE -->
+  <div class="phase"><div class="pn">B</div><div class="pt">Disassemble on the bench</div></div>
+  <div class="step"><div class="sn">5</div><div class="sbody"><div class="stitle">Secure it</div><div class="sdesc">Mount the supercharger in the vise (use a support plate / soft jaws). Fit the shaft-holder tool.</div></div>
+    <div class="sico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffd21e" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="9" width="5" height="6"/><rect x="16" y="9" width="5" height="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="12" y1="15" x2="12" y2="20"/></svg></div></div>
+  <div class="step"><div class="sn">6</div><div class="sbody"><div class="stitle">Remove the cap nut</div><div class="sdesc">Hold the shaft, crack the cap nut. (Reassembly spec: <b class="w">22 ft-lb</b>.)</div>
+    <div class="tchip"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#ff7a70" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg> Cap nut · 22 ft-lb</div></div>
+    <div class="sico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffd21e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6l2 4-2 4H9L7 7z" transform="translate(0,1)"/><line x1="12" y1="12" x2="12" y2="21"/></svg></div></div>
+  <div class="step"><div class="sn">7</div><div class="sbody"><div class="stitle">Pull the clutch washer stack</div><div class="sdesc">Remove the washers in order — note orientation. This is the main wear item being renewed.</div></div>
+    <div class="sico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffd21e" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="7" rx="8" ry="2.4"/><ellipse cx="12" cy="12" rx="8" ry="2.4"/><ellipse cx="12" cy="17" rx="8" ry="2.4"/></svg></div></div>
+  <div class="step"><div class="sn">8</div><div class="sbody"><div class="stitle">Off with the drive gear &amp; bearings</div><div class="sdesc">Fit the gear-holder, remove the drive gear, then press out the old bearings and seals.</div></div>
+    <div class="sico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffd21e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="6"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="2"/></svg></div></div>
+
+  <!-- PHASE C: REBUILD -->
+  <div class="phase"><div class="pn">C</div><div class="pt">Rebuild</div></div>
+  <div class="step"><div class="sn">9</div><div class="sbody"><div class="stitle">Clean everything</div><div class="sdesc">Solvent-clean the housing and impeller. Inspect the volute and shaft bore for scoring.</div></div>
+    <div class="sico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffd21e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l5-5M9 15l6-6 3 3-6 6z"/><path d="M14 6l4 4"/></svg></div></div>
+  <div class="step"><div class="sn">10</div><div class="sbody"><div class="stitle">Press in new bearings &amp; seals</div><div class="sdesc">From the kit: new bearings (×2), seals, o-ring. Press squarely, fully seated.</div></div>
+    <div class="sico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffd21e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7"/><path d="M8 7l4-4 4 4"/><circle cx="12" cy="16" r="4"/></svg></div></div>
+  <div class="step"><div class="sn">11</div><div class="sbody"><div class="stitle">New washers — with IsoFlex grease</div><div class="sdesc">Assemble the new clutch washers in the correct order, greased with <b class="w">IsoFlex Topas NB 52</b>. Fit the new shaft &amp; drive gear.</div>
+    <div class="tchip" style="background:rgba(255,210,30,.12);border-color:rgba(255,210,30,.4);color:#ffd21e"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#ffd21e" stroke-width="2"><path d="M4 12h10a4 4 0 0 0 0-8"/></svg> Grease: IsoFlex Topas NB 52 only</div></div>
+    <div class="sico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffd21e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h9a4 4 0 0 0 0-8H6"/><rect x="3" y="12" width="4" height="5" rx="1"/></svg></div></div>
+
+  <!-- PHASE D: TORQUE & VERIFY -->
+  <div class="phase"><div class="pn">D</div><div class="pt">Torque &amp; verify</div></div>
+  <div class="step"><div class="sn">12</div><div class="sbody"><div class="stitle">Torque the cap nut</div><div class="sdesc">Hold the shaft and torque the cap nut to spec.</div>
+    <div class="tchip"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#ff7a70" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg> Cap nut · 22 ft-lb</div></div>
+    <div class="sico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffd21e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l7-7"/><path d="M14 4a3 3 0 1 0 3 3l3-3"/><circle cx="5" cy="19" r="2"/></svg></div></div>
+  <div class="step"><div class="sn">13</div><div class="sbody"><div class="stitle">Check clutch slip torque</div><div class="sdesc">Confirm the rebuilt clutch slips within spec — not too loose, not seized. This is the quality check that protects the engine.</div></div>
+    <div class="sico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffd21e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12l4-2"/><circle cx="12" cy="12" r="1.5" fill="#ffd21e"/></svg></div></div>
+
+  <!-- PHASE E: REINSTALL -->
+  <div class="phase"><div class="pn">E</div><div class="pt">Reinstall &amp; test</div></div>
+  <div class="step"><div class="sn">14</div><div class="sbody"><div class="stitle">Refit the supercharger</div><div class="sdesc">New o-ring, slide onto the splined drive, torque the mounting bolts (per shop-manual spec), reconnect the charge pipe &amp; intake.</div></div>
+    <div class="sico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffd21e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="11" height="8" rx="2"/><path d="M15 13h3l2 2v0M19 5v3M17.5 6.5h3"/></svg></div></div>
+  <div class="step"><div class="sn">15</div><div class="sbody"><div class="stitle">Oil change &amp; battery</div><div class="sdesc">Fresh XPS 4-stroke oil + filter is the right move while you're in here. Reconnect the battery.</div></div>
+    <div class="sico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffd21e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h7l-1 5H8z"/><path d="M10 9v4a4 4 0 1 0 4 0"/></svg></div></div>
+  <div class="step"><div class="sn">16</div><div class="sbody"><div class="stitle">Run it &amp; confirm boost</div><div class="sdesc">Start, check for leaks, confirm it pulls boost and holds. A quick water test and it's done.</div></div>
+    <div class="sico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffd21e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14a9 9 0 0 1 18 0"/><path d="M12 14l4-3"/><circle cx="12" cy="14" r="1.5" fill="#ffd21e"/></svg></div></div>
+
+  <div class="callout grn"><p><b class="w">Done =</b> supercharger rebuilt with new washers/bearings/seals, cap nut at 22 ft-lb, slip torque verified, back on the ski, fresh oil, holding boost. Clean and quiet.</p></div>
+</section>
+
+<!-- ===================== 8. SPEC REFERENCE ===================== -->
+<section>
+  <div class="sec-no"><span class="b">08</span> Torque &amp; spec quick reference</div>
+  <h2>Pin it to the bench</h2>
+  <div class="ref">
+    <div class="refc"><span class="rk">Supercharger cap nut</span><span class="rv">22 ft-lb</span></div>
+    <div class="refc"><span class="rk">Clutch-washer grease</span><span class="rv">IsoFlex NB 52</span></div>
+    <div class="refc"><span class="rk">Threadlocker (where spec'd)</span><span class="rv">Blue 243</span></div>
+    <div class="refc"><span class="rk">S/C mounting bolts</span><span class="rv">per manual</span></div>
+    <div class="refc"><span class="rk">Slip torque</span><span class="rv">check to spec</span></div>
+    <div class="refc"><span class="rk">Service interval</span><span class="rv">100 hr / 2 yr</span></div>
+  </div>
+  <p class="foot">Cap-nut torque, grease type and interval are well-documented for the 1503 4-TEC. For mounting-bolt torque and the exact slip-torque window, follow the Sea-Doo shop manual — values can vary by year/revision. You're the mechanic; this sheet is a convenience, not a substitute for the manual.</p>
+</section>
+
+<!-- ===================== 9. PLAN ===================== -->
+<section style="border-bottom:none">
+  <div class="sec-no"><span class="b">09</span> The plan</div>
+  <h2>How we run it</h2>
+  <div class="card tight"><div class="row"><div class="num">1</div><div><h3>I order everything</h3><p class="small">Kit, tools (if needed), grease, oil — shipped to your shop.</p></div></div></div>
+  <div class="card tight"><div class="row"><div class="num">2</div><div><h3>I drop the ski off</h3><p class="small">On the trailer, on your schedule. Parts already there.</p></div></div></div>
+  <div class="card tight"><div class="row"><div class="num">3</div><div><h3>You rebuild</h3><p class="small">~2–3 hrs bench + pull/reinstall. ~½ day total.</p></div></div></div>
+  <div class="card tight"><div class="row"><div class="num">4</div><div><h3>I pick up &amp; we settle</h3><p class="small">Labor on your terms. Done.</p></div></div></div>
+
+  <h2 style="margin-top:22px">Two questions for you</h2>
+  <div class="qa"><p><b class="w">1.</b> Genuine OEM kit, or the all-in-one aftermarket combo (kit + tools + grease)?</p></div>
+  <div class="qa"><p><b class="w">2.</b> Do you already have the shaft + gear holder tools, or should I add them?</p></div>
+  <div class="callout grn"><p>Answer those two and I'll place the order today and we'll set a drop-off.</p></div>
+
+  <p class="sign">Thanks a ton, Arman —<br><b>Shawn</b></p>
+  <p class="foot">Prices are current market ranges and move over time; the links go to live product pages. Reference manual only — always defer to the Sea-Doo shop manual for torque specs and procedures.</p>
+</section>
+
+</div>
+</body>
+</html>
