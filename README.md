@@ -21,8 +21,8 @@ README verbatim, so feel free to use **bold**, _italics_, lists, etc.
 
 ### 📰 Latest News
 
-- [Opinion | Cartoon by Jimmy Margulies - The Washington Post](https://news.google.com/rss/articles/CBMisgFBVV95cUxPQUxYQ3JkWnlPTVJUeEFMeU0tX21yVzVKaEJIU19UNWRPMDMtQXJaZjZZcjM2SkIyeGJjNmkxLUxRcG5CWU90cDZkYVlKNDN5Y1hTZV9MVzI4RUhXN0xSZFB0MHBnRzgxQW1OdlllYURnQU02WUYycTJpRFEwRzJkNDBtMEFtdTZWbGsxejQ1U3k3emh1aDVpYW55X2ZiNEU3R3lzS0VvbEFJWVk1WnlTd0R3?oc=5) — _The Washington Post · 2026-06-23_
-- [Cosmos Health Signs Agreement to Deploy Artificial Intelligence (AI)-Powered Call Center to Optimize Order Intake, Customer Communications, and Operating Efficiency - Yahoo Finance](https://news.google.com/rss/articles/CBMingFBVV95cUxPUTVWWi1tWVhOa3NvVkpQRVd4b2d5UktSUmdSeDdaYmVFSWoyUjA0Q3dHMWVEYnptaDVlMnQtTlQyeHNJZ3JFUW5HOFgyYzl0Vk1RWGpTTjdqVDBRY2xSQ2hSRER3aE1FcnB1RGJteEtKdzJOVFRhNnRBdC02c1RCQ1lFN0lNZFZPZTAwMk9KazhkYzZ4cXhFeHdiQ1RSUQ?oc=5) — _Yahoo Finance · 2026-06-23_
+- [U.S. Presses Meta to Agree to A.I. Reviews as Security Concerns Rise - The New York Times](https://news.google.com/rss/articles/CBMijAFBVV95cUxPcXpJZXF2TDlaNjM2WkZqSVFnWjZCaEdlOUpFWmJfVnlTdkUwcUZhaUpKNTV3TUVvMTFRSnlZYUJCZ3llZ0RIXzI1aXNsWjBkb1hSTDBqNklSTWRIdU9PMEpRalpuZHJsTnZIY2puN2hueVhpQ3lQOU1WX3djN2I1N2o4OXlMZzlIOFYxcA?oc=5) — _The New York Times · 2026-06-23_
+- [Intelligence agencies warn AI models could launch crippling cyberattacks in months - The Hill](https://news.google.com/rss/articles/CBMigwFBVV95cUxNZmdZUUkzS0dYR25KUDlhVVRDYkY3VEZnQThzdmtNX283Y1E2dVJFcDIwcWFybFVNaHhaaGpLbW43bmJRMGg3N3dKYmJxcjN2Qm9aREUzMDJIb251dk9mYzZJUko3azVpRm56NVljdHdSbmg2THZGdmJ2T0xMenVPeWdoSdIBiAFBVV95cUxQMmRVMVhVRGVlajhHWGdVODFicEFtQkZOaURuYWs0a3B4YjA1Z0tyU0dKUzdncVlBcFJfbzZaYkFYQnY5SFp2d2cxYndBZk10NzE1RjZTWWpCSFZwOEQzQzJSMnB2X3FfU0doVG1fNVYtRDBtM1RUenJYUFZKU3BfcC1qOTZ1YVJS?oc=5) — _The Hill · 2026-06-23_
 - [Copilot CLI: New terminal interface is generally available - The GitHub Blog](https://news.google.com/rss/articles/CBMioAFBVV95cUxNNC1ZYlNlbmE0OFNoOGE2c1RsNlJWYU1IN3czNHAtQk9vYU92Z1V1QlgxN1JyVHJyZWFfM09HOTNrc1lEYUlqbFEtNUp1RUd6S0RfSmlQallvWW1TOFJNNVAxa0F0ajIxNV8zR203T0Vja1VFOFF1Ulc3c2dFMEtZenF6M0xUdE1ZWHkyak1HQ3VRSk52MWNZam5GX19aQWFi?oc=5) — _The GitHub Blog · 2026-06-23_
 - [GitHub Updates actions/checkout to Block Common Pwn Request Attack Patterns - The Hacker News](https://news.google.com/rss/articles/CBMihAFBVV95cUxPU3VIMEhHWkdaVjI4RXh2eFEySzJCU1l3ejAwOXdJWnR4ZU9McHBKUUxKTjAxQ1ZQUUNhcXpxbXJxLVN2WmczVXlGRzJSb3hxblNVeFp0c2RKaFF0UHVMV1Q3Z2ExWkVRRmpLNzJ2SXRVNDZZUUR4azFhdGU4ZmxFSjVKdEQ?oc=5) — _The Hacker News · 2026-06-23_
 - [Nvidia Launches Open-Source Software For Life Sciences - The Information](https://news.google.com/rss/articles/CBMilgFBVV95cUxQd1oxa1Zmc1M3Ukpqd3JLMHdhVFlwTi00ajFsdS1RNlRrd1NaTWNsaWJNbVVSNkRxdHQ3aWVqTGZBNDJXeHVxcnhDOUtXZ1NhZjNUVkV6ZVp1ZURUQ0hKdW1RRlNqVWpmSVNvWG5FdnNzeDctMUhWZWpscHctUVczUkwyaXN5bnlhcGpDX082M3NEa2p1SFE?oc=5) — _The Information · 2026-06-23_
@@ -34,6 +34,6 @@ README verbatim, so feel free to use **bold**, _italics_, lists, etc.
 
 
 ---
-_Profile auto-updated on **2026-06-23 20:09 UTC**._
+_Profile auto-updated on **2026-06-24 03:53 UTC**._
 
 <!-- END AUTO-GENERATED -->
