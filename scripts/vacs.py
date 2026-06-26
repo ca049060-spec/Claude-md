@@ -36,7 +36,19 @@ REJECTIONS = {"ASML", "PLTR", "MOD", "VRT", "OKLO", "AVAV", "KTOS", "CCJ",
 
 # Statement-verified holdings (holdings_vs_candidates_rule). Everything else
 # scored is a CANDIDATE, never a holding, until it's on a brokerage statement.
-HOLDINGS = {"MDA", "BWXT", "NOW", "TD", "BNS", "ENB", "TRP", "MFC", "ASML"}
+# Tickers live in a GITIGNORED local file (data/holdings.local.yml) so they
+# never land in a public repo; falls back to empty (candidates-only) if absent.
+def _load_holdings():
+    f = ROOT / "data" / "holdings.local.yml"
+    if f.exists():
+        try:
+            return set((yaml.safe_load(f.read_text()) or {}).get("holdings", []))
+        except Exception:
+            return set()
+    return set()
+
+
+HOLDINGS = _load_holdings()
 
 
 def score_obj(value, source, evidence="", state="PROPOSED"):

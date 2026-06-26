@@ -79,6 +79,16 @@ def scope_of(res: dict, ticker: str) -> str:
     return "redemption_watch"
 
 
+# Per Shawn's narrowed choice: the EXPENSIVE deep (LLM) crawl runs only on
+# holdings + top contenders. Everything else is tracked by the cheap fast
+# tier but does NOT trigger a deep research refresh.
+TOP_TIERS = {"Top 20 Confirmed (Tier 1)", "Conditional Top 20", "Tier 2 — Watchlist"}
+
+
+def is_deep_crawl(res: dict, ticker: str) -> bool:
+    return ticker in HOLDINGS or res.get("classification") in TOP_TIERS
+
+
 def snapshot(c: dict, res: dict, with_price: bool) -> dict:
     """Build the current per-ticker record from a candidate + engine result."""
     v = c.get("vacs", {}) or {}
@@ -91,6 +101,7 @@ def snapshot(c: dict, res: dict, with_price: bool) -> dict:
         "as_of_date": c.get("as_of_date"),
         "held": c["ticker"] in HOLDINGS,
         "scope": scope_of(res, c["ticker"]),
+        "deep_crawl": is_deep_crawl(res, c["ticker"]),
         "status": res["status"],
         "gate_math": res.get("gate_math"),
         "composite": res.get("composite"),
