@@ -43,3 +43,7 @@ vacs_board.html
 # VACS evergreen watch (personal data + artifact)
 data/watch_state.json
 watch.html
+
+# EOD brief + evolution/legal data (personal)
+eod_brief.html
+data/evolution_log.yml
