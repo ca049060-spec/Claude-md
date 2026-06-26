@@ -47,3 +47,7 @@ watch.html
 # EOD brief + evolution/legal data (personal)
 eod_brief.html
 data/evolution_log.yml
+
+# deep-crawl dossiers (personal)
+data/watch_research.json
+watch_dossiers.html
