@@ -1,0 +1,53 @@
+# VACS Evergreen Watch — scheduled refresh (OPT-IN, privacy-gated)
+#
+# ⚠ DISABLED BY DEFAULT. This workflow only runs on manual dispatch until you
+#   deliberately enable the cron, because the fast/deep tiers need the
+#   candidate + state files, and your .gitignore currently forbids committing
+#   personal financial data ("never commit until repo is confirmed private").
+#
+# To make it truly evergreen (runs even while you're away):
+#   1. Confirm this repository is PRIVATE.
+#   2. Stop gitignoring data/vacs_candidates.yml + data/watch_state.json so the
+#      runner can see them (they hold your watch list).
+#   3. Add repo secret ANTHROPIC_API_KEY (for the deep/LLM research tier).
+#   4. Uncomment the `schedule:` block below and pick a cadence.
+#
+# The FAST tier (watch.py) is pure-Python and needs no API key — only the
+# DEEP tier (LLM research) does.
+
+name: vacs-watch
+
+on:
+  workflow_dispatch: {}        # manual "Run workflow" button — always safe
+  # schedule:
+  #   - cron: "0 */6 * * *"    # every 6h — sane default for the deep tier
+  #   - cron: "*/15 * * * *"   # every 15m — fast/price tier only (GH min is 5m)
+
+permissions:
+  contents: write              # to commit the refreshed database + dashboard
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install deps
+        run: pip install -r requirements.txt
+      - name: Fast tier — re-score + diff + dashboard
+        run: |
+          python3 scripts/watch.py --prices
+          python3 scripts/build_watch_dashboard.py
+      # - name: Deep tier — LLM research refresh (needs ANTHROPIC_API_KEY)
+      #   env:
+      #     ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      #   run: echo "wire claude headless research crawl here"
+      - name: Commit refreshed database + dashboard
+        run: |
+          git config user.name  "vacs-watch"
+          git config user.email "vacs-watch@users.noreply.github.com"
+          git add -A data/watch_state.json watch.html || true
+          git commit -m "vacs-watch: scheduled refresh" || echo "no changes"
+          git push || echo "nothing to push"

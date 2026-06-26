@@ -39,3 +39,7 @@ portfolio_preview.html
 full_plan.html
 Portfolio Reports.url
 vacs_board.html
+
+# VACS evergreen watch (personal data + artifact)
+data/watch_state.json
+watch.html

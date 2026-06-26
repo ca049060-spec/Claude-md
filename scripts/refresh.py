@@ -24,6 +24,8 @@ STEPS = [
     ("Model self-tests",        "test_engine.py",        None),
     ("Edge scorecard",          "scorecard.py",          None),
     ("VACS engine",             "vacs.py",               None),
+    ("VACS watch database",     "watch.py",              "data/watch_state.json"),
+    ("VACS watch dashboard",    "build_watch_dashboard.py", "watch.html"),
     ("Weighted consensus (v2)", "weighted_consensus.py", "data/weighted_consensus.yml"),
     ("Analyst track scores",    "analyst_scoring.py",    None),
     ("Portfolio review",        "portfolio_review.py",   None),
