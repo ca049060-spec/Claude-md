@@ -25,7 +25,7 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 CAND = ROOT / "data" / "vacs_candidates.yml"
 
-ACTIVE_PILLARS = {"nuclear_smr", "space", "defense", "ai_physical", "copper", "robotics"}
+ACTIVE_PILLARS = {"nuclear_smr", "space", "defense", "ai_physical", "copper", "robotics", "critical_minerals", "grid_power"}
 BWXT_BENCHMARK = 4.42
 STALENESS_DAYS = 7
 
