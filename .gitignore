@@ -1,3 +1,53 @@
 __pycache__/
 *.pyc
 .venv/
+
+# Personal financial data — never commit until repo is confirmed private
+data/portfolio.yml
+data/*.local.*
+*.statement.pdf
+report.html
+report.pdf
+advisor_sheet.html
+advisor_sheet.pdf
+
+data/analyst_live.yml
+data/research_calls.yml
+data/weighted_consensus.yml
+data/forever20.yml
+dashboard.html
+studio.html
+brief.html
+data/north_reconciliation.md
+data/claude_calls.yml
+data/deployment_plan.yml
+data/performance_ledger.yml
+data/etf_core.yml
+master.html
+plan.html
+data/backtest_2026h1.yml
+data/decision_journal.yml
+data/vacs_candidates.yml
+data/state_yesterday.json
+data/daily_log.yml
+daily_brief.html
+final_report_*.html
+data/fund_alpha.yml
+mission_control.html
+portfolio.xlsx
+portfolio_preview.html
+full_plan.html
+Portfolio Reports.url
+vacs_board.html
+
+# VACS evergreen watch (personal data + artifact)
+data/watch_state.json
+watch.html
+
+# EOD brief + evolution/legal data (personal)
+eod_brief.html
+data/evolution_log.yml
+
+# deep-crawl dossiers (personal)
+data/watch_research.json
+watch_dossiers.html

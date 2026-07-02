@@ -1,0 +1,36 @@
+# Analyst track-record dataset (v1 seed).
+#
+# This is the data the scoring engine measures. It is PUBLIC analyst-performance
+# data (no personal info), gathered from public aggregators. It starts small on
+# purpose — the plan is to "refine as we go": add more analysts and tie them to
+# the specific stocks you hold, so the consensus can be re-weighted by who has
+# actually earned the right to be trusted.
+#
+# Fields per analyst:
+#   success_rate : fraction of past calls that made money (0-1)
+#   avg_return   : average return per call (percent)
+#   num_calls    : how many rated calls (drives statistical significance)
+#   covers       : tickers from YOUR portfolio this analyst follows (optional)
+source: "TipRanks / WallStreetZen analyst rankings (public), 2026"
+analysts:
+  - name: "Vijay Rakesh"
+    firm: "Mizuho"
+    focus: "Semiconductors"
+    success_rate: 0.74
+    avg_return: 79.2
+    num_calls: 250
+    covers: ["ASML"]
+  - name: "Analyst (Buchalter)"
+    firm: "—"
+    focus: "Mixed"
+    success_rate: 0.72
+    avg_return: 43.3
+    num_calls: 120
+    covers: []
+  - name: "Analyst (Mohan)"
+    firm: "—"
+    focus: "Mixed"
+    success_rate: 0.62
+    avg_return: 29.4
+    num_calls: 100
+    covers: []
